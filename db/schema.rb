@@ -10,14 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2022_02_28_152445) do
+=======
 ActiveRecord::Schema.define(version: 2022_02_28_151215) do
+>>>>>>> 92cc980e0ea768c65b3879f3c6f574631d64b7e6
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
-    t.date "start_date"
-    t.date "end_date"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.string "format"
     t.string "event_type"
     t.string "venue"
