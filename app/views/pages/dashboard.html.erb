@@ -1,15 +1,12 @@
-<div class="container">
+<div class="container-fluid p-5">
   <%# For each event display: %>
-  <% @events.each do |event| %>
+  <% if @events.empty? %>
+    <h3>There's no events here...</h3>
+  <% else %>
+    <% @events.each do |event| %>
       <h3><%= event.event_type %></h3>
       <p><%= event.status %></p>
-
-      <% event.users.each do | user | %>
-        <%= user.attributes %>
-        <p> <%= user.first_name %> </p>
-      <% end %>
-
+      <hr>
+    <% end %>
   <% end %>
 </div>
-
-<% console %>
