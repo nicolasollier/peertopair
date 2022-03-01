@@ -6,12 +6,15 @@ class EventsController < ApplicationController
     @event = Event.new
     @events = policy_scope(Event)
   end
+
   def new
 
   end
+
   def create
     @event = Event.new(event_params)
     @event.status = "Pending"
+    authorize @event
     if @event.save!
       @userevent = UserEvent.new
       @userevent.user = current_user
