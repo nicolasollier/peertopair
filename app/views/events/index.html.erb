@@ -1,8 +1,34 @@
+<<<<<<< HEAD
+<!--Compter le nombre de réservations disponible -->
+<% iavailable = 0 %>
+<% @events.each do |event| %>
+    <% if event.status === "Coming" %>
+      <% iavailable += 1 %>
+    <% end %>
+<% end %>
+
+<!--Affichage des events disponible si le status est coming et qu'ils ne sont pas deux utilisateurs dedans -->
+<div class="container w-80 my-5 py-4  ">
+  <h1 class ="my-4"> Events available</h1>
+  <p>There is <strong><%= iavailable %></strong> events available</p>
+  <% @events.each do |event| %>
+    <div class="container-event d-flex justify-content-between">
+      <% if event.status === "Coming" %>
+        <div class = "px-1">
+        <p>From <%= event.start_date.strftime("%B, %e %Y at %H:%M") %> to <%= event.end_date.strftime("%B, %e %Y at %H:%M")  %></p>
+        </div>
+
+          <i class="fa-solid fa-plus"></i>
+
+      <% end %>
+    </div>
+=======
 <div class="container w-80 my-5 py-4">
   <h1 class ="my-4">Your events</h1>
   <% @events.each do |event| %>
     <% if event.status == "Pending" %>
       <p>From <%= event.start_date.strftime("%B, %e %Y at %H:%M") %> to <%= event.end_date.strftime("%B, %e %Y at %H:%M") %></p>
       <% end %>
+>>>>>>> master
   <% end %>
 </div>
