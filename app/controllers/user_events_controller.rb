@@ -3,6 +3,7 @@ class UserEventsController < ApplicationController
   def create
     @userevent = UserEvent.new
     @event = Event.find(params[:event_id])
+    authorize @event
     @userevent.user = current_user
     @userevent.event = @event
     authorize @userevent
