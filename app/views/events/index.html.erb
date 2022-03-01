@@ -16,9 +16,9 @@
         <div class = "px-1">
         <p>From <%= event.start_date.strftime("%B, %e %Y at %H:%M") %> to <%= event.end_date.strftime("%B, %e %Y at %H:%M")  %></p>
         </div>
-        <%= link_to edit_event_user_event_path(event.id) do %>
+
           <i class="fa-solid fa-plus"></i>
-        <% end %>
+
       <% end %>
     </div>
   <% end %>
