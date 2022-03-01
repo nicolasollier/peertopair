@@ -5,9 +5,7 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
-  private
-
-  # def set_event
-  #   @event = Event.find(params[:id])
-  # end
+  def create
+    authorize @event
+  end
 end

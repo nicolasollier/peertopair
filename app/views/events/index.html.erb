@@ -23,3 +23,13 @@
     </div>
   <% end %>
 </div>
+
+<% if policy(Event).create? %>
+  <%= link_to "New event", new_event_path %>
+<% end %>
+
+<% @events.each do |event| %>
+  <% if policy(event).edit? %>
+    <%= link_to "Update event", edit_event_path(event) %>
+  <% end %>
+<% end %>
