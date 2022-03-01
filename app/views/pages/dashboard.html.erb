@@ -1,6 +1,12 @@
-<div class="container">
-  <% @events.each do |event| %>
-    <h3><%= event.event_type %></h3>
-    <p><%= event.status %></p> 
+<div class="container-fluid p-5">
+  <%# For each event display: %>
+  <% if @events.empty? %>
+    <h3>There's no events here...</h3>
+  <% else %>
+    <% @events.each do |event| %>
+      <h3><%= event.event_type %></h3>
+      <p><%= event.status %></p>
+      <hr>
+    <% end %>
   <% end %>
 </div>
