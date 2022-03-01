@@ -32,3 +32,7 @@
 >>>>>>> master
   <% end %>
 </div>
+
+<% if policy(Event).create? %>
+  <%= link_to "New event", new_event_path %>
+<% end %>

@@ -6,11 +6,11 @@ class EventPolicy < ApplicationPolicy
   end
 
   def create?
-    return true
+    true
   end
 
   def update?
-    record.user == user 
+    record.user == user
   end
 
   def destroy?
