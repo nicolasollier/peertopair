@@ -1,6 +1,15 @@
 <div class="container">
+  <%# For each event display: %>
   <% @events.each do |event| %>
-    <h3><%= event.event_type %></h3>
-    <p><%= event.status %></p> 
+      <h3><%= event.event_type %></h3>
+      <p><%= event.status %></p>
+
+      <% event.users.each do | user | %>
+        <%= user.attributes %>
+        <p> <%= user.first_name %> </p>
+      <% end %>
+
   <% end %>
 </div>
+
+<% console %>

@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   def index
     # @events = Event.all
-    @events = policy_scope(Event)
+    @events = policy_scope(current_user.events)
   end
 
   def create
