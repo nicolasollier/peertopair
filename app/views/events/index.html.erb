@@ -1,17 +1,8 @@
-<div class="container w-80 my-5 py-4  ">
-  <h1 class ="my-4"> Your events</h1>
+<div class="container w-80 my-5 py-4">
+  <h1 class ="my-4">Your events</h1>
   <% @events.each do |event| %>
-  <% if event.status =  %>
-    <p>From <%= event.start_date.strftime("%B, %e %Y at %H:%M") %> to <%= event.end_date.strftime("%B, %e %Y at %H:%M")  %></p>
+    <% if event.status == "Pending" %>
+      <p>From <%= event.start_date.strftime("%B, %e %Y at %H:%M") %> to <%= event.end_date.strftime("%B, %e %Y at %H:%M") %></p>
+      <% end %>
   <% end %>
 </div>
-
-<% if policy(Event).create? %>
-  <%= link_to "New event", new_event_path %>
-<% end %>
-
-<% @events.each do |event| %>
-  <% if policy(event).edit? %>
-    <%= link_to "Update event", edit_event_path(event) %>
-  <% end %>
-<% end %>
