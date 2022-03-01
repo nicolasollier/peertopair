@@ -5,6 +5,7 @@ event_type = %w(Lunch Drink Coffee)
 status = %w(Passed Pending Current Coming)
 
 puts 'starting seed'
+User.destroy_all
 Event.destroy_all
 User.destroy_all
 
