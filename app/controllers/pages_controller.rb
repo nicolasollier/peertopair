@@ -6,5 +6,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @events = Event.all
+    
   end
 end
