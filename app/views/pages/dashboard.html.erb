@@ -5,6 +5,7 @@
 <div class="background-dash">
   <h1>My events</h1>
   <hr>
+
   <% @current_user_events.each do |event| %>
     <div class="card-dash mb-2">
       <div class="badge card-badge">
@@ -14,8 +15,9 @@
       <p class="date-place"><%= event.start_date %></p>
       <p class="date-place"> KFC La Chapelle </p>
     </div>
-  <% else %>
-    <% @events.reverse.each do |event| %>
+  <% end %>
+
+    <% @current_user_events.reverse.each do |event| %>
       <%= link_to event_path(event) do %>
         <div class="card-dash mb-2">
           <div class="badge card-badge">
@@ -26,4 +28,6 @@
           <p class="date-place"> KFC La Chapelle </p>
         </div>
       <% end %>
+    <% end %>
+
 </div>
