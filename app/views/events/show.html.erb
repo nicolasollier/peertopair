@@ -25,6 +25,6 @@
       <h1>Your <%= @event.event_type %> the <%= @event.start_date.strftime("%F at %H:%M") %></h1>
       <h5>We still waiting your pair</h5>
   <% end %>
-
+  <%= link_to "Rank your #{@event.event_type}", new_event_venue_ranking_path(@event) %>
   <%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-secondary my-2" %>
 </div>
