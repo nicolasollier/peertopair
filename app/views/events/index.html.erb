@@ -1,12 +1,11 @@
 <!--Compter le nombre de réservations disponible -->
 <% iavailable = 0 %>
 <% @events.each do |event| %>
-    <% if event.status === "Pending" && event.user != current_user %>
+
+    <% if event.status === "Pending" && event.users.ids[0] != current_user.id %>
       <% iavailable += 1 %>
     <% end %>
 <% end %>
-
-
 
 
 <!--Affichage d'un formulaire pour proposer un créneau -->
@@ -42,7 +41,7 @@
   <p>There is <strong><%= iavailable %></strong> events available</p>
   <% @events.each do |event| %>
     <div class="container-event d-flex justify-content-between">
-      <% if event.status === "Pending" && event.user != current_user %>
+      <% if event.status === "Pending" && event.users != current_user %>
         <div class = "px-1">
           <%= link_to event_path(event) do %>
             <p>From <%= event.start_date.strftime("%B, %e %Y at %H:%M") %> to <%= event.end_date.strftime("%B, %e %Y at %H:%M")  %></p>
@@ -55,7 +54,3 @@
     </div>
   <% end %>
 </div>
-
-<% if policy(Event).create? %>
-  <%= link_to "New event", new_event_path %>
-<% end %>

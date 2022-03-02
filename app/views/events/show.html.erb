@@ -1,4 +1,5 @@
-<!--Test pour savoir si ils sont bien deux dans l'event-->
+<%=  @event.event_type%>
+<%=  @event.id%>
 
 <div class="col-6 offset-3 mt-5">
   <% if @userevents.length === 2 %>
@@ -6,11 +7,20 @@
       <h1> This appointment will start the <%= @event.start_date.strftime("%B, %e %Y at %H:%M") %> and
       finish at <%= @event.start_date.strftime("%H:%M")%> </h1>
       <!--Besoin de connaître l'event type pour agir en fonction -->
-      <% if @event.event_type = "Drink" %>
+
+      <% if @event.event_type === "Drink" %>
+      <%= raise %>
         <h1>We are going to propose you some cool bar !</h1>
-      <% elsif @event.event_type = "Lunch" %>
+      <% elsif @event.event_type === "Lunch" %>
         <h1>We are going to propose you some cool restaurants !</h1>
-      <% elsif @event.event_type = "Coffee" %>
+        <ul>
+          <% @response["results"].each {|result| %>
+            <% if result["rating"].class != NilClass %>
+              <li><%= result["name"].capitalize%> <%= result["rating"]%>/5 for <%= result["user_ratings_total"]%> reviews </li>
+            <% end %>
+          <% } %>
+        </ul>
+      <% elsif @event.event_type === "Coffee" %>
         <h1>We are going to propose you some cool coffee !</h1>
       <% end %>
   <% else %>
@@ -19,4 +29,3 @@
 
   <%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-secondary my-2" %>
 </div>
-
