@@ -1,8 +1,6 @@
-
-
 <div class="col-6 offset-3 mt-5">
-<%=  @event.event_type%>
-<%=  @event.id%>
+  <%=  @event.event_type%>
+  <%=  @event.id%>
   <% if @userevents.length === 2 %>
       <h1>There is two participants</h1>
       <h1> This appointment will start the <%= @event.start_date.strftime("%B, %e %Y at %H:%M") %> and
@@ -10,7 +8,6 @@
       <!--Besoin de connaître l'event type pour agir en fonction -->
 
       <% if @event.event_type === "Drink" %>
-      <%= raise %>
         <h1>We are going to propose you some cool bar !</h1>
       <% elsif @event.event_type === "Lunch" %>
         <h1>We are going to propose you some cool restaurants !</h1>
@@ -25,7 +22,8 @@
         <h1>We are going to propose you some cool coffee !</h1>
       <% end %>
   <% else %>
-      <h1>We still waiting your pair</h1>
+      <h1>Your <%= @event.event_type %> the <%= @event.start_date.strftime("%F at %H:%M") %></h1>
+      <h5>We still waiting your pair</h5>
   <% end %>
 
   <%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-secondary my-2" %>
