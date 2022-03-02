@@ -1,12 +1,33 @@
-<div class="container-fluid p-5">
-  <%# For each event display: %>
-  <% if @events.empty? %>
-    <h3>There's no events here...</h3>
-  <% else %>
-    <% @events.each do |event| %>
-      <h3><%= event.event_type %></h3>
-      <p><%= event.status %></p>
-      <hr>
-    <% end %>
+<h2>coucou</h2>
+<%= link_to 'sign out', destroy_user_session_path, method: :delete %>
+<h2>coucou</h2>
+
+<div class="background-dash">
+  <h1>My events</h1>
+  <hr>
+
+  <% @current_user_events.each do |event| %>
+    <div class="card-dash mb-2">
+      <div class="badge card-badge">
+      <%=  event.status %>
+      </div>
+      <p class="card-event-type"><%= event.event_type %></p>
+      <p class="date-place"><%= event.start_date %></p>
+      <p class="date-place"> KFC La Chapelle </p>
+    </div>
   <% end %>
+
+    <% @current_user_events.reverse.each do |event| %>
+      <%= link_to event_path(event) do %>
+        <div class="card-dash mb-2">
+          <div class="badge card-badge">
+          <%=  event.status %>
+          </div>
+          <p class="card-event-type"><%= event.event_type %></p>
+          <p class="date-place"><%= event.start_date %></p>
+          <p class="date-place"> KFC La Chapelle </p>
+        </div>
+      <% end %>
+    <% end %>
+
 </div>
