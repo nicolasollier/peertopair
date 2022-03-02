@@ -26,11 +26,16 @@
 .card-event-type {
   font-size: 20px;
   font-weight: 600;
-  margin-bottom: .4rem;
+  margin-bottom: .7rem;
+  line-height: 16px;
 }
 
 .date-place {
   margin: 0;
   color: gray;
   font-size: 14px;
+}
+
+.hide {
+  display: none;
 }

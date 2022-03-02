@@ -4,16 +4,25 @@
 
 <div class="background-dash">
   <%# For each event display: %>
-  <h1>My events</h1>
-  <hr>
-  <% @current_user_events.each do |event| %>
-    <div class="card-dash mb-2">
-      <div class="badge card-badge">
-      <%=  event.status %>
+
+    <% current_user.events.each do |event| %>
+      <div class="card-dash mb-2"
+           data-controller="card-dash"
+           data-action="click->card-dash#unfold">
+
+        <div class="badge card-badge">
+        <%=  event.status %>
+        </div>
+
+        <p class="card-event-type"><%= event.event_type %></p>
+        <p class="date-place"><%= event.start_date %></p>
+        <p class="date-place"> KFC La Chapelle </p>
+
+        <div data-card-dash-target="unfold" class="fold hide">
+          <h1> coucou ! </h1>
+        </div>
+
       </div>
-      <p class="card-event-type"><%= event.event_type %></p>
-      <p class="date-place"><%= event.start_date %></p>
-      <p class="date-place"> KFC La Chapelle </p>
-    </div>
     <% end %>
+
 </div>
