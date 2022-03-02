@@ -2,8 +2,8 @@ class EventsController < ApplicationController
   # before_action :set_event
 
   def index
-    # @events = Event.all
-    @events = policy_scope(current_user.events)
+    @events = Event.all
+    # @events = policy_scope(current_user.events)
   end
 
   def new
