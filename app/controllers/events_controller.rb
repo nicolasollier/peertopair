@@ -1,30 +1,34 @@
 class EventsController < ApplicationController
   # before_action :set_event
+  require "open-uri"
+  require "net/http"
+  require 'json'
 
   def index
-    # @events = Event.all
-    @events = policy_scope(current_user.events)
+    @events = Event.all
+    @event = Event.new
   end
 
   def new
-
+    @event = Event.new
   end
 
   def show
     @event = Event.find(params[:id])
-    authorize @event
     @userevents = UserEvent.where("event_id = ?", params[:id])
-    # raise
+    @response = GetRestaurants.new(current_user, @event).call
   end
 
   def create
     @event = Event.new(event_params)
     @event.status = "Pending"
     authorize @event
+
     if @event.save!
       @userevent = UserEvent.new
       @userevent.user = current_user
       @userevent.event = @event
+
       if @userevent.save!
         redirect_to dashboard_path
       else
