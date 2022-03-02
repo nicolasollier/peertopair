@@ -47,7 +47,7 @@
             <p>From <%= event.start_date.strftime("%B, %e %Y at %H:%M") %> to <%= event.end_date.strftime("%B, %e %Y at %H:%M")  %></p>
           <% end %>
           <%= link_to event_user_events_path(event) , method: :post do %>
-            <i class="fa-solid fa-plus"></i>
+            <i class="fas fa-plus"></i>
           <% end %>
         </div>
       <% end %>

@@ -13,17 +13,17 @@
       </div>
     </div>
   <% else %>
-    <% @events.each do |event| %>
-      <div class="card-dash mb-2">
-        <div class="badge card-badge">
-        <%=  event.status %>
+    <% @events.reverse.each do |event| %>
+      <%= link_to event_path(event) do %>
+        <div class="card-dash mb-2">
+          <div class="badge card-badge">
+          <%=  event.status %>
+          </div>
+          <p class="card-event-type"><%= event.event_type %></p>
+          <p class="date-place"><%= event.start_date %></p>
+          <p class="date-place"> KFC La Chapelle </p>
         </div>
-        <p class="card-event-type"><%= event.event_type %></p>
-        <p class="date-place"><%= event.start_date %></p>
-        <p class="date-place"> KFC La Chapelle </p>
-
-      </div>
-
+      <% end %>
     <% end %>
   <% end %>
 </div>
