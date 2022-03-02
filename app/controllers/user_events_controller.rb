@@ -1,5 +1,4 @@
 class UserEventsController < ApplicationController
-
   def create
     @userevent = UserEvent.new
     @event = Event.find(params[:event_id])
@@ -14,5 +13,4 @@ class UserEventsController < ApplicationController
       render :new
     end
   end
-
 end
