@@ -1,1 +1,28 @@
 // Specific CSS for your home-page
+
+h1, h5, p {
+  font-family: quicksand;
+  text-align: center;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 32px;
+}
+
+h5 {
+  font-weight: lighter;
+  font-size: 18px;
+  color: #746d75;
+}
+
+p {
+  font-weight: lighter;
+  font-size: 16px;
+}
+
+.logos-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
