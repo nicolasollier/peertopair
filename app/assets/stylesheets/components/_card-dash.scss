@@ -1,0 +1,36 @@
+* {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.card-dash {
+  position: relative;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: $white;
+}
+
+.background-dash {
+  margin: 0;
+  padding: 8px;
+}
+
+.card-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  color: $matched;
+  background-color: $matched-bg;
+}
+
+
+.card-event-type {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: .4rem;
+}
+
+.date-place {
+  margin: 0;
+  color: gray;
+  font-size: 14px;
+}

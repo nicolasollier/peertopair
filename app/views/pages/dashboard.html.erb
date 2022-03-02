@@ -1,18 +1,29 @@
-<div class="container-fluid p-5">
+<h2>coucou</h2>
+<%= link_to 'sign out', destroy_user_session_path, method: :delete %>
+<h2>coucou</h2>
+
+<div class="background-dash">
   <%# For each event display: %>
   <h1>My events</h1>
   <hr>
   <% if @events.empty? %>
-    <h3>There's no events here...</h3>
+    <div class="card-dash">
+      <div class="card-badge">
+        There's no events here...
+      </div>
+    </div>
   <% else %>
-    <ul class="list-group" >
-      <% @events.each do |event| %>
-        <div class="card list-group-item p-4 my-2">
-          <h3><%= event.event_type %></h3>
-          <p><%= event.status %></p>
-          <%= link_to "Details", event_path(event), class: "btn btn-primary" %>
+    <% @events.each do |event| %>
+      <div class="card-dash mb-2">
+        <div class="badge card-badge">
+        <%=  event.status %>
         </div>
-      <% end %>
-    </ul>
+        <p class="card-event-type"><%= event.event_type %></p>
+        <p class="date-place"><%= event.start_date %></p>
+        <p class="date-place"> KFC La Chapelle </p>
+
+      </div>
+
+    <% end %>
   <% end %>
 </div>
