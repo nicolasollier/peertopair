@@ -1,12 +1,18 @@
 <div class="container-fluid p-5">
   <%# For each event display: %>
+  <h1>My events</h1>
+  <hr>
   <% if @events.empty? %>
     <h3>There's no events here...</h3>
   <% else %>
-    <% @events.each do |event| %>
-      <h3><%= event.event_type %></h3>
-      <p><%= event.status %></p>
-      <hr>
-    <% end %>
+    <ul class="list-group" >
+      <% @events.each do |event| %>
+        <div class="card list-group-item p-4 my-2">
+          <h3><%= event.event_type %></h3>
+          <p><%= event.status %></p>
+          <%= link_to "Details", event_path(event), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </ul>
   <% end %>
 </div>

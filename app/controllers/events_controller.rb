@@ -7,14 +7,12 @@ class EventsController < ApplicationController
   end
 
   def new
-
   end
 
   def show
     @event = Event.find(params[:id])
     authorize @event
     @userevents = UserEvent.where("event_id = ?", params[:id])
-    # raise
   end
 
   def create
