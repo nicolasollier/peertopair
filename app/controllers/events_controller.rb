@@ -10,6 +10,13 @@ class EventsController < ApplicationController
 
   end
 
+  def show
+    @event = Event.find(params[:id])
+    authorize @event
+    @userevents = UserEvent.where("event_id = ?", params[:id])
+    # raise
+  end
+
   def create
     @event = Event.new(event_params)
     @event.status = "Pending"

@@ -30,7 +30,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
 gem 'pundit'
-
+gem "geocoder"
 gem 'autoprefixer-rails', '~>10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'

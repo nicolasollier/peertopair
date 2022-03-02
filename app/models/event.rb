@@ -9,4 +9,5 @@ class Event < ApplicationRecord
   validates :format, inclusion: { in: FORMAT}
   validates :event_type, inclusion: { in: EVENT_TYPE }
   validates :status, inclusion: { in: STATUS }
+
 end
