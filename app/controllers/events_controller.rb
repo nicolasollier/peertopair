@@ -14,8 +14,8 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     authorize @event
-    @userevent = UserEvent.where("event_id = ?", params[:id])
-    raise
+    @userevents = UserEvent.where("event_id = ?", params[:id])
+    # raise
   end
 
   def create
