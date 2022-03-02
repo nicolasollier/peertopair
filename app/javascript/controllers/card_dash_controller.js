@@ -9,8 +9,6 @@ export default class extends Controller {
   unfold() {
     const everything = document.querySelectorAll(".fold");
     const somethings = this.unfoldTarget.classList;
-    console.log(somethings);
-    console.log(somethings.contains("hide"));
 
     if (somethings.contains("hide")) {
       everything.forEach((item) => {
@@ -23,6 +21,12 @@ export default class extends Controller {
       this.unfoldTarget.classList.add("hide");
 
     }
-
   }
+
+  coucou() {
+    console.log('coucou')
+    event.stopPropagation();
+    event.preventDefault();
+  }
+
 }
