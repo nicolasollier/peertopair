@@ -6,24 +6,14 @@
   <%# For each event display: %>
   <h1>My events</h1>
   <hr>
-  <% if @events.empty? %>
-    <div class="card-dash">
-      <div class="card-badge">
-        There's no events here...
+  <% @current_user_events.each do |event| %>
+    <div class="card-dash mb-2">
+      <div class="badge card-badge">
+      <%=  event.status %>
       </div>
+      <p class="card-event-type"><%= event.event_type %></p>
+      <p class="date-place"><%= event.start_date %></p>
+      <p class="date-place"> KFC La Chapelle </p>
     </div>
-  <% else %>
-    <% @events.each do |event| %>
-      <div class="card-dash mb-2">
-        <div class="badge card-badge">
-        <%=  event.status %>
-        </div>
-        <p class="card-event-type"><%= event.event_type %></p>
-        <p class="date-place"><%= event.start_date %></p>
-        <p class="date-place"> KFC La Chapelle </p>
-
-      </div>
-
     <% end %>
-  <% end %>
 </div>

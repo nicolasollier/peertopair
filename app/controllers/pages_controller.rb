@@ -5,6 +5,6 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @events = policy_scope(current_user.events)
+    @current_user_events = policy_scope(current_user.events)
   end
 end
