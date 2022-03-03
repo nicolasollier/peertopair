@@ -1,0 +1,17 @@
+<div class="sticky-navbar">
+  <%= image_tag "peertopair-text-logo.png", class: "navbar-logo" %>
+  <% if user_signed_in? %>
+    <div class="dropdown">
+      <button class="btn dropdown-toggle rounded-pill px-3 py-2" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+        <%= current_user.first_name %> <%= current_user.last_name %>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <li><%= link_to "My dashboard", dashboard_path, class:"dropdown-item" %></li>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class:"dropdown-item" %></li>
+      </ul>
+    </div>
+
+  <% else %>
+    <%= link_to "Log in", new_user_session_path, class:"navbar-login" %>
+  <% end %>
+</div>
