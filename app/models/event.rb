@@ -14,13 +14,15 @@ class Event < ApplicationRecord
   end
 
   def status(user_current)
+
+    @userevents = UserEvent.where("event_id = ?", params[:id])
     event = self
     if event.canceled == true
       status = "canceled"
     else
       if event.end_date < Time.now
         status = "passed"
-      elsif !event.other_user(user_current)
+      elsif event.userevents.length == 1
         status = "pairing"
       elsif event.end_date < (Time.now + (60 * 60 * 2))
         status = "now"
