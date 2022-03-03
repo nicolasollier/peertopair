@@ -1,0 +1,50 @@
+.card-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: fit-content;
+  list-style-type: none;
+
+  p {
+    font-size: 14px;
+  }
+}
+
+.card-list__item {
+  position: relative;
+  cursor: grab;
+
+  margin-bottom: 6px;
+  border-radius: 3px;
+  border: 1px solid #e4e4e4;
+  background-color: white;
+
+  :hover {
+    cursor: grabbing;
+  }
+  .ghost {
+    filter: grayscale(1);
+    opacity: 0.5;
+  }
+
+  .badge-pill-primary {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: fit-content;
+    padding: 4px 12px;
+
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+
+    border-radius: 50px;
+    background-color: #2563eb;
+  }
+}

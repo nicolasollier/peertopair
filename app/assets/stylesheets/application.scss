@@ -11,8 +11,9 @@
 // Your CSS partials
 @import "components/index";
 @import "components/buttons";
-@import "pages/index";
 @import "components/card-dash";
+@import "components/card-list";
+@import "pages/index";
 
 body {
   background-color: white;
