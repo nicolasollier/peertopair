@@ -22,7 +22,7 @@
         <% end %>
 
         <p class="card-event-type"><%= event.event_type %></p>
-        <p class="date-place"><%= event.start_date %></p>
+        <p class="date-place"><%= event.start_date.strftime("%d-%m-%Y %H:%M") %></p>
         <p class="date-place"> KFC La Chapelle </p>
 
         <div data-card-dash-target="unfold" class="fold hide">
