@@ -1,0 +1,22 @@
+
+  <% if event.users.length === 2 %>
+      <p>There is two participants</p>
+      <p> This appointment will start the <%= event.start_date.strftime("%B, %e %Y at %H:%M") %> and
+      finish at <%= event.start_date.strftime("%H:%M")%> </p>
+      <!--Besoin de connaître l'event type pour agir en fonction -->
+
+      <% if event.event_type === "Drink" %>
+        <p>We are going to propose you some cool bar !</p>
+      <% elsif event.event_type === "Lunch" %>
+        <p>We are going to propose you some cool restaurants !</p>
+        <ul>
+
+        </ul>
+      <% elsif event.event_type === "Coffee" %>
+        <p>We are going to propose you some cool coffee !</p>
+      <% end %>
+  <% else %>
+      <p>Your <%= event.event_type %> the <%= event.start_date.strftime("%F at %H:%M") %></p>
+      <p>We still waiting your pair</p>
+  <% end %>
+  <%= link_to "Rank your #{event.event_type}", new_event_venue_ranking_path(event), class:"btn btn-outline-secondary mt-2" %>

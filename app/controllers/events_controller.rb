@@ -17,7 +17,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @userevents = UserEvent.where("event_id = ?", params[:id])
-    @response = GetRestaurants.new(current_user, @event).call
+    @userevent_current = UserEvent.where(user: current_user).where(event: params[:id])
   end
 
   def create

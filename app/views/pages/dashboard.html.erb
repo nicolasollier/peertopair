@@ -1,33 +1,35 @@
-<h2>coucou</h2>
 <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
-<h2>coucou</h2>
 
 <div class="background-dash">
-  <h1>My events</h1>
-  <hr>
+  <%# For each event display: %>
 
-  <% @current_user_events.each do |event| %>
-    <div class="card-dash mb-2">
-      <div class="badge card-badge">
-      <%=  event.status %>
-      </div>
-      <p class="card-event-type"><%= event.event_type %></p>
-      <p class="date-place"><%= event.start_date %></p>
-      <p class="date-place"> KFC La Chapelle </p>
-    </div>
-  <% end %>
+    <% current_user.events.each do |event| %>
+      <div class="card-dash mb-2"
+           style="Max-width: 600px"
+           data-controller="card-dash"
+           data-action="click->card-dash#unfold">
+        <% case event.status.downcase %>
+        <% when 'pending' %>
+        <div class="badge card-badge pending"> matched </div>
+        <% when 'current' %>
+        <div class="badge card-badge current"> current </div>
+        <% when 'canceled' %>
+        <div class="badge card-badge canceled"> canceled </div>
+        <% when 'passed' %>
+        <div class="badge card-badge over"> over </div>
+        <% when 'coming' %>
+        <div class="badge card-badge coming"> coming </div>
+        <% end %>
 
-    <% @current_user_events.reverse.each do |event| %>
-      <%= link_to event_path(event) do %>
-        <div class="card-dash mb-2">
-          <div class="badge card-badge">
-          <%=  event.status %>
-          </div>
-          <p class="card-event-type"><%= event.event_type %></p>
-          <p class="date-place"><%= event.start_date %></p>
-          <p class="date-place"> KFC La Chapelle </p>
+        <p class="card-event-type"><%= event.event_type %></p>
+        <p class="date-place"><%= event.start_date %></p>
+        <p class="date-place"> KFC La Chapelle </p>
+
+        <div data-card-dash-target="unfold" class="fold hide">
+            <%= render "event_in_dash", event: event %>
+            <button type="button" class="btn btn-outline-secondary mt-2" data-action="card-dash#coucou">Delete</button>
         </div>
-      <% end %>
-    <% end %>
 
+      </div>
+    <% end %>
 </div>

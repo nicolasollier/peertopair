@@ -1,12 +1,44 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.sticky-navbar {
+  position: sticky;
+  top: 0;
+  height: 80px;
+
+  padding: 20px;
+  background-color: white;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar-logo {
+  height: 40px;
+  vertical-align: middle;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-login {
+  float: right;
+  vertical-align: middle;
+  text-decoration: none;
+  color: #03256C;
+}
+
+.navbar-login:hover {
+  color: #2541B2;
+}
+
+.dropdown {
+  float: right;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+.btn {
+  background-color: #03256C;
+  color: white;
+}
+
+.btn:hover {
+  background-color: #2541B2;
+  color: white;
 }

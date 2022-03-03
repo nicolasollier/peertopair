@@ -21,4 +21,5 @@
       <% num += 1 %>
     <% } %>
   </ul>
+  <%= link_to "Submit", event_user_event_path(@event, @userevent) , method: :patch %>
 </div>
