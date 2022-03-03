@@ -7,7 +7,7 @@
     <!--Besoin savoir si les deux utilisateurs ont ranké leurs restaurants -->
     <% drapeau = true %>
     <% @userevents.each do |ue| %>
-      <% if (ue.ranking_done) === false %>
+      <% if (ue.ranking_done) != true %>
         <% drapeau = false %>
       <% end %>
     <% end %>
@@ -18,8 +18,14 @@
     <% if (drapeau === true) %>
 
       <h1>Congrats your pair and you have ranked the venues</h1>
+      <% if (Time.now - @event.start_date) < 900  %>
 
-      <h1>You will discover the profile of your pair 15 min before the beginning of the appointment</h1>
+        <h3>Tadaaa <% current_user.first_name %> you will meet  </h3>
+      <% else %>
+      <% raise %>
+        <h1>You will discover the profile of your pair 15 min before the beginning of the appointment</h1>
+      <% end %>
+
 
     <% else %>
 
