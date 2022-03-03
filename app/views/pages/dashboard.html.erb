@@ -1,18 +1,25 @@
-<h2>coucou</h2>
 <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
-<h2>coucou</h2>
 
 <div class="background-dash">
   <%# For each event display: %>
 
     <% current_user.events.each do |event| %>
       <div class="card-dash mb-2"
+           style="Max-width: 600px"
            data-controller="card-dash"
            data-action="click->card-dash#unfold">
-
-        <div class="badge card-badge">
-        <%=  event.status %>
-        </div>
+        <% case event.status.downcase %>
+        <% when 'pending' %>
+        <div class="badge card-badge pending"> matched </div>
+        <% when 'current' %>
+        <div class="badge card-badge current"> current </div>
+        <% when 'canceled' %>
+        <div class="badge card-badge canceled"> canceled </div>
+        <% when 'passed' %>
+        <div class="badge card-badge over"> over </div>
+        <% when 'coming' %>
+        <div class="badge card-badge coming"> coming </div>
+        <% end %>
 
         <p class="card-event-type"><%= event.event_type %></p>
         <p class="date-place"><%= event.start_date %></p>

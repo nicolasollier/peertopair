@@ -11,8 +11,17 @@ $light-gray: #e4e4e4;
 $white: white;
 
 //card badges
-$pending: rgb(255, 255, 255);
-$pending-bg: rgb(0, 134, 0);
+$current: rgb(255, 255, 255);
+$current-bg: rgb(22, 173, 2);
 
-$matched: rgb(23, 124, 23);
-$matched-bg: rgba(53, 153, 53, 0.15);
+$pending: rgb(23, 124, 23);
+$pending-bg: rgba(53, 153, 53, 0.15);
+
+$canceled: rgb(255, 255, 255);
+$canceled-bg: rgb(218, 33, 0);
+
+$over: rgb(0, 0, 0);
+$over-bg: rgba(3, 3, 3, 0.15);
+
+$coming: rgb(199, 136, 0);
+$coming-bg: rgba(199, 136, 0, 0.15);

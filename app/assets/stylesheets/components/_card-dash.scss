@@ -5,7 +5,7 @@
 .card-dash {
   position: relative;
   padding: 16px;
-  border-radius: 16px;
+  border-radius: 8px;
   background-color: $white;
 }
 
@@ -18,10 +18,32 @@
   position: absolute;
   top: 16px;
   right: 16px;
-  color: $matched;
-  background-color: $matched-bg;
 }
 
+.pending {
+  color: $pending;
+  background-color: $pending-bg;
+}
+
+.current {
+  color: $current;
+  background-color: $current-bg;
+}
+
+.canceled {
+  color: $canceled;
+  background-color: $canceled-bg;
+}
+
+.over {
+  color: $over;
+  background-color: $over-bg;
+}
+
+.coming {
+  color: $coming;
+  background-color: $coming-bg;
+}
 
 .card-event-type {
   font-size: 23px;

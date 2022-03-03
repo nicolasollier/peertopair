@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   FORMAT = %w(Remote Office)
   EVENT_TYPE = %w(Lunch Drink Coffee)
-  STATUS = %w(Passed Pending Current Coming)
+  STATUS = %w(Passed Pending Current Coming Canceled)
 
   has_many :user_events
   has_many :users, through: :user_events
