@@ -18,5 +18,4 @@ class UserEventsController < ApplicationController
     userevent = UserEvent.where(user: current_user).where(event: params[:event_id])
     userevent.update(ranking_done: true)
   end
-
 end
