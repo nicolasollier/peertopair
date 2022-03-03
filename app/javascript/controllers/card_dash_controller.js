@@ -23,7 +23,7 @@ export default class extends Controller {
     }
   }
 
-  coucou() {
+  cancel() {
     console.log('coucou')
     event.stopPropagation();
     event.preventDefault();

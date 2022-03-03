@@ -16,17 +16,17 @@ $blue3: #1768AC;
 $blue4: #06BEE1;
 
 //card badges
-$current: rgb(255, 255, 255);
-$current-bg: rgb(22, 173, 2);
+$now: rgb(255, 255, 255);
+$now-bg: rgb(22, 173, 2);
 
-$pending: rgb(23, 124, 23);
-$pending-bg: rgba(53, 153, 53, 0.15);
+$paired: rgb(23, 124, 23);
+$paired-bg: rgba(53, 153, 53, 0.15);
 
 $canceled: rgb(255, 255, 255);
 $canceled-bg: rgb(218, 33, 0);
 
-$over: rgb(0, 0, 0);
-$over-bg: rgba(3, 3, 3, 0.15);
+$passed: rgb(0, 0, 0);
+$passed-bg: rgba(3, 3, 3, 0.15);
 
-$coming: rgb(199, 136, 0);
-$coming-bg: rgba(199, 136, 0, 0.15);
+$pairing: rgb(199, 136, 0);
+$pairing-bg: rgba(199, 136, 0, 0.15);
