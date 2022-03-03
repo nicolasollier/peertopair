@@ -24,5 +24,72 @@ p {
 .logos-wrapper {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  opacity: 0.8;
+}
+
+.drawing-collection {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.drawing-1 {
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+
+.d-shape-1 {
+  height: 100px;
+  width: 100px;
+  background-image: image-url("woman-1.png");
+  background-size: cover;
+  border-radius: 0% 50% 50% 0%;
+  float: right;
+}
+
+.d-shape-reverse-1 {
+  height: 100px;
+  width: 100px;
+  background-image: image-url("man-1.png");
+  background-size: cover;
+  position: center;
+  border-radius: 50% 0% 0% 50%;
+  transform: translate(0%, 100%);
+}
+
+.drawing-2 {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  float: right;
+  margin-top: -100px;
+}
+
+.d-shape-2 {
+  height: 100px;
+  width: 100px;
+  background-image: image-url("woman-2.png");
+  background-size: cover;
+  border-radius: 0% 50% 50% 0%;
+  float: right;
+}
+
+.d-shape-reverse-2 {
+  height: 100px;
+  width: 100px;
+  background-image: image-url("man-2.png");
+  background-size: cover;
+  position: center;
+  border-radius: 50% 0% 0% 50%;
+  transform: translate(0%, 100%);
+}
+
+.match-circle {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  margin-left: -25px;
+  margin-top: -25px;
 }
