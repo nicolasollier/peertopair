@@ -20,14 +20,14 @@
   right: 16px;
 }
 
-.pending {
-  color: $pending;
-  background-color: $pending-bg;
+.pairing {
+  color: $pairing;
+  background-color: $pairing-bg;
 }
 
-.current {
-  color: $current;
-  background-color: $current-bg;
+.paired {
+  color: $paired;
+  background-color: $paired-bg;
 }
 
 .canceled {
@@ -35,14 +35,14 @@
   background-color: $canceled-bg;
 }
 
-.over {
-  color: $over;
-  background-color: $over-bg;
+.passed {
+  color: $passed;
+  background-color: $passed-bg;
 }
 
-.coming {
-  color: $coming;
-  background-color: $coming-bg;
+.now {
+  color: $now;
+  background-color: $now-bg;
 }
 
 .card-event-type {

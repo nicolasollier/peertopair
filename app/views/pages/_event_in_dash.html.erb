@@ -1,19 +1,20 @@
-
-  <% if event.users.length === 2 %>
-      <p class="status-message text-center">There is two participants</p>
-      <!--Besoin de connaître l'event type pour agir en fonction -->
-
-      <% if event.event_type === "Drink" %>
-        <p class="text-center">We are going to propose you some cool bar !</p>
-      <% elsif event.event_type === "Lunch" %>
-        <p class="text-center">We are going to propose you some cool restaurants !</p>
-        <ul>
-
-        </ul>
-      <% elsif event.event_type === "Coffee" %>
-        <p class="status-message text-center">We are going to propose you some cool coffee !</p>
-      <% end %>
-  <% else %>
-      <p class="status-message text-center">We still waiting your pair</p>
+<% case event.status(current_user) %>
+<% when "paired" %>
+  <p class="status-message text-center">There is two participants</p>
+  <!--Besoin de connaître l'event type pour agir en fonction -->
+  <% if event.event_type === "Drink" %>
+    <p class="text-center">We are going to propose you some cool bar !</p>
+  <% elsif event.event_type === "Lunch" %>
+    <p class="text-center">We are going to propose you some cool restaurants !</p>
+  <% elsif event.event_type === "Coffee" %>
+    <p class="status-message text-center">We are going to propose you some cool coffee !</p>
   <% end %>
-  <%= link_to "Rank your #{event.event_type}", new_event_venue_ranking_path(event), class:"btn btn-outline-secondary mt-2" %>
+<% when "canceled" %>
+  <p class="status-message text-center">This event has been canceled ...</p>
+<% when "passed" %>
+  <p class="status-message text-center">This event is over now ...</p>
+<% when "now" %>
+  <p class="status-message text-center">Get ready ! The time is now !</p>
+<% when "pairing" %>
+  <p class="status-message text-center">We still waiting your pair</p>
+<% end %>
