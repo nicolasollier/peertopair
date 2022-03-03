@@ -9,15 +9,25 @@
 @import "font-awesome";
 
 // Your CSS partials
-@import "components/index";
-@import "components/buttons";
-@import "components/card-dash";
-@import "pages/index";
-@import "pages/venue_rankings";
+
 
 ul {
   list-style-type: none;
 }
+
+@import "pages/home";
+@import "pages/index";
+@import "components/alert";
+@import "components/avatar";
+@import "components/buttons";
+@import "components/card-dash";
+@import "pages/devise";
+@import "components/index";
+@import "components/navbar";
+@import "components/index";
+@import "pages/venue_rankings";
+
+
 
 body {
   background-color: white;

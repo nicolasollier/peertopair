@@ -1,4 +1,3 @@
-<%= link_to 'sign out', destroy_user_session_path, method: :delete %>
 
 <div class="background-dash">
   <%# For each event display: %>
@@ -8,28 +7,29 @@
            style="Max-width: 600px"
            data-controller="card-dash"
            data-action="click->card-dash#unfold">
-        <% case event.status.downcase %>
-        <% when 'pending' %>
-        <div class="badge card-badge pending"> matched </div>
-        <% when 'current' %>
-        <div class="badge card-badge current"> current </div>
+        <% case event.status(current_user).downcase %>
+        <% when 'paired' %>
+        <div class="badge card-badge paired"> paired </div>
+        <% when 'pairing' %>
+        <div class="badge card-badge pairing"> pairing </div>
         <% when 'canceled' %>
         <div class="badge card-badge canceled"> canceled </div>
         <% when 'passed' %>
-        <div class="badge card-badge over"> over </div>
-        <% when 'coming' %>
-        <div class="badge card-badge coming"> coming </div>
+        <div class="badge card-badge passed"> passed </div>
+        <% when 'now' %>
+        <div class="badge card-badge now"> now ! </div>
         <% end %>
 
         <p class="card-event-type"><%= event.event_type %></p>
-        <p class="date-place"><%= event.start_date %></p>
+        <p class="date-place"><%= event.start_date.strftime("%d-%m-%Y at  %H:%M") %></p>
         <p class="date-place"> KFC La Chapelle </p>
 
         <div data-card-dash-target="unfold" class="fold hide">
             <%= render "event_in_dash", event: event %>
-            <button type="button" class="btn btn-outline-secondary mt-2" data-action="card-dash#coucou">Delete</button>
+            <button type="button" class="btn btn-outline-secondary mt-2" data-action="card-dash#cancel">Cancel</button>
         </div>
 
       </div>
     <% end %>
 </div>
+<% console %>
