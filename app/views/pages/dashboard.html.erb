@@ -2,7 +2,7 @@
 <div class="background-dash">
   <%# For each event display: %>
 
-    <% current_user.events.each do |event| %>
+    <% current_user.events.sort_by{ |e| e.start_date }.reverse.each do |event| %>
       <div class="card-dash mb-2"
            style="Max-width: 600px"
            data-controller="card-dash"
@@ -16,16 +16,11 @@
 
         <div data-card-dash-target="unfold" class="fold hide">
             <%= render "event_in_dash", event: event %>
-
-            <%# test de méthode %>
-            <%= event.other_user(current_user) %>
-            <%= event.id %>
-            <%# test de méthode %>
-
-            <button type="button" class="btn btn-outline-secondary mt-2" data-action="card-dash#cancel">Cancel</button>
+            <%= link_to "Cancel", cancel_event_path(event), method: :get, class:"btn rounded-pill px-3 py-2" %>
         </div>
 
       </div>
     <% end %>
 </div>
-<% console %>
+
+<%= console %>
