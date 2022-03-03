@@ -2,7 +2,9 @@
   position: sticky;
   top: 0;
   height: 80px;
-
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 20px;
   background-color: white;
 }
@@ -13,8 +15,7 @@
 }
 
 .navbar-login {
-  float: right;
-  vertical-align: middle;
+  padding: 20px;
   text-decoration: none;
   color: #03256C;
 }
