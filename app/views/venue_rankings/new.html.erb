@@ -1,24 +1,9 @@
 <div class="col-6 offset-3 mt-5">
-  <div class="top-wrapper">
-    <h1>Rank your favorite place</h1>
-    <p>Tips, Drag it by order</p>
-  </div>
-  <ul id="card_list" class="list-group card-list">
-    <% num = 1 %>
-    <% @response["results"].first(5).each { |result| %>
+  <ul class="list-group">
+    <% @response["results"].each { |result| %>
       <% if result["rating"].class != NilClass %>
-        <li class="card-list__item p-3">
-          <span class="badge-pill-primary"><%= num %></span>
-          <div class="infos">
-            <h5><%= result["name"].capitalize%></h5>
-            <div class="note d-flex">
-              <p class="me-2">Note: <%= result["rating"] %>/5</p>
-              <p>Reviews: <%= result["user_ratings_total"]%></p>
-            </div>
-          </div>
-        </li>
+        <li class="list-group-item my-2 p-3"><%= result["name"].capitalize%> <%= result["rating"]%>/5 for <%= result["user_ratings_total"]%> reviews </li>
       <% end %>
-      <% num += 1 %>
     <% } %>
   </ul>
   <%= link_to "Submit", event_user_event_path(@event, @userevent) , method: :patch %>
