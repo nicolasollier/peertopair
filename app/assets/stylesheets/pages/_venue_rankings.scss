@@ -1,0 +1,23 @@
+.results_list {
+  display: flex;
+  flex-direction: column;
+
+  height: fit-content;
+}
+
+.result-list__item {
+  cursor: grab;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  border: solid 1px rgb(211, 211, 211);
+  background-color: white;
+
+  :active {
+    cursor: grabbing;
+  }
+  
+  .ghost {
+    filter: grayscale(1);
+    opacity: 0.5;
+  }
+}

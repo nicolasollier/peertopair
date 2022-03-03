@@ -9,6 +9,12 @@
 @import "font-awesome";
 
 // Your CSS partials
+
+
+ul {
+  list-style-type: none;
+}
+
 @import "pages/home";
 @import "pages/index";
 @import "components/alert";
@@ -18,6 +24,9 @@
 @import "pages/devise";
 @import "components/index";
 @import "components/navbar";
+@import "components/index";
+@import "pages/venue_rankings";
+
 
 
 body {

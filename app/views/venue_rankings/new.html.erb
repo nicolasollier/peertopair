@@ -1,8 +1,11 @@
 <div class="col-6 offset-3 mt-5">
-  <ul class="list-group">
+  <ul id="results" class="list-group results-lists mb-3">
     <% @response["results"].each { |result| %>
       <% if result["rating"].class != NilClass %>
-        <li class="list-group-item my-2 p-3"><%= result["name"].capitalize%> <%= result["rating"]%>/5 for <%= result["user_ratings_total"]%> reviews </li>
+        <li class="result-list__item p-3">
+        <%= result["name"].capitalize%> <%= result["rating"]%>/5 for 
+        <%= result["user_ratings_total"]%> reviews 
+        </li>
       <% end %>
     <% } %>
   </ul>
