@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2022_03_03_103054) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,6 +32,7 @@ ActiveRecord::Schema.define(version: 2022_03_03_103054) do
     t.bigint "event_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "ranking_done"
     t.index ["event_id"], name: "index_user_events_on_event_id"
     t.index ["user_id"], name: "index_user_events_on_user_id"
   end

@@ -5,7 +5,7 @@
 .card-dash {
   position: relative;
   padding: 16px;
-  border-radius: 16px;
+  border-radius: 8px;
   background-color: $white;
 }
 
@@ -18,19 +18,46 @@
   position: absolute;
   top: 16px;
   right: 16px;
-  color: $matched;
-  background-color: $matched-bg;
 }
 
+.pending {
+  color: $pending;
+  background-color: $pending-bg;
+}
+
+.current {
+  color: $current;
+  background-color: $current-bg;
+}
+
+.canceled {
+  color: $canceled;
+  background-color: $canceled-bg;
+}
+
+.over {
+  color: $over;
+  background-color: $over-bg;
+}
+
+.coming {
+  color: $coming;
+  background-color: $coming-bg;
+}
 
 .card-event-type {
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 600;
-  margin-bottom: .4rem;
+  margin-bottom: .7rem;
+  line-height: 16px;
 }
 
 .date-place {
   margin: 0;
   color: gray;
   font-size: 14px;
+}
+
+.hide {
+  display: none;
 }
