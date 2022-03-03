@@ -3,10 +3,10 @@
 
 import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
-import { initSortable } from "../../plugins/init_sortable"
+// import { initSortable } from "../../plugins/init_sortable"
 
 const application = Application.start()
 const context = require.context("controllers", true, /_controller\.js$/)
 application.load(definitionsFromContext(context))
 
-initSortable()
+// initSortable()
