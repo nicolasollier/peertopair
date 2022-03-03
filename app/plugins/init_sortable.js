@@ -1,2 +1,11 @@
 import Sortable from "sortablejs"
-// Need api results to config sortable
+
+const list = document.querySelector("#card_list")
+const initSortable = () => {
+  Sortable.create(list, {
+    ghostClass: "ghost",
+    animation: 150,
+  })
+}
+
+export { initSortable }

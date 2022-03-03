@@ -37,6 +37,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'faker'
 gem 'sortable', '~> 0.1'
+gem 'rails_env_config', '~> 1.0'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
