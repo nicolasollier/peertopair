@@ -11,13 +11,6 @@
         <h1>We are going to propose you some cool bar !</h1>
       <% elsif @event.event_type === "Lunch" %>
         <h1>We are going to propose you some cool restaurants !</h1>
-        <ul>
-          <% @response["results"].each {|result| %>
-            <% if result["rating"].class != NilClass %>
-              <li><%= result["name"].capitalize%> <%= result["rating"]%>/5 for <%= result["user_ratings_total"]%> reviews </li>
-            <% end %>
-          <% } %>
-        </ul>
       <% elsif @event.event_type === "Coffee" %>
         <h1>We are going to propose you some cool coffee !</h1>
       <% end %>
@@ -25,6 +18,8 @@
       <h1>Your <%= @event.event_type %> the <%= @event.start_date.strftime("%F at %H:%M") %></h1>
       <h5>We still waiting your pair</h5>
   <% end %>
-  <%= link_to "Rank your #{@event.event_type}", new_event_venue_ranking_path(@event) %>
-  <%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-secondary my-2" %>
+  <% if (@userevent_current.first.ranking_done != true) %>
+    <%= link_to "Rank your #{@event.event_type}", new_event_venue_ranking_path(@event) %>
+    <%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-secondary my-2" %>
+  <% end %>
 </div>
