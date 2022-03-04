@@ -117,13 +117,30 @@
       </div>
       <div class="modal-body">
 
-        Create lunch..
+      <%# dragable restaurant list %>
+
+        <div class="col-6 offset-3 mt-5">
+          <ul id="results" class="list-group results-lists mb-3">
+            <% unless @response.nil? %>
+              <% @response["results"].first(5).each do |result| %>
+                <% if result["rating"].class != NilClass %>
+                  <li class="result-list__item p-3">
+                  <%= result["name"].capitalize%> <%= result["rating"]%>/5 for
+                  <%= result["user_ratings_total"]%> reviews
+                  </li>
+                <% end %>
+              <% end %>
+            <% end %>
+          </ul>
+          <%# <%= link_to "Submit", event_user_event_path(@event, @userevent) , method: :patch, class: "btn btn-primary" %>
+        </div>
+
 
 
       </div>
       <div class="modal-footer">
         <%# Bouton retour au départ %>
-        <button class="btn btn-primary" data-bs-target="#ModalCreateEvent" data-bs-toggle="modal">Back to first</button>
+        <button class="btn btn-primary" data-bs-target="#Modal_finish" data-bs-toggle="modal">Create event</button>
       </div>
     </div>
   </div>
@@ -145,6 +162,30 @@
       <div class="modal-footer">
         <%# Bouton retour au départ %>
         <button class="btn btn-primary" data-bs-target="#ModalCreateEvent" data-bs-toggle="modal">Back to first</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="Modal_finish" aria-hidden="true" aria-labelledby="Modal_finish" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="Modal_finish">End</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        Your event has been created !
+        <br>
+        Next friday, march 12 for Lunch.
+
+
+      </div>
+      <div class="modal-footer">
+        <%# Bouton retour au départ %>
+        <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Close</button>
       </div>
     </div>
   </div>

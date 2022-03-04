@@ -7,6 +7,7 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "mapbox-gl/dist/mapbox-gl";
 
 // Your CSS partials
 
@@ -18,6 +19,7 @@ ul {
 @import "pages/home";
 @import "pages/index";
 @import "components/alert";
+@import "components/hero";
 @import "components/avatar";
 @import "components/buttons";
 @import "components/card-dash";
@@ -25,10 +27,13 @@ ul {
 @import "components/index";
 @import "components/navbar";
 @import "components/index";
+@import "components/footer";
 @import "pages/venue_rankings";
 @import "components/modal";
 
-
+* {
+  font-family: 'Quicksand', sans-serif !important;
+}
 
 body {
   background-color: white;
