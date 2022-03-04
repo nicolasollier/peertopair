@@ -4,22 +4,50 @@
 
 .card-dash {
   position: relative;
-  padding: 16px;
+  width: 100%;
+  padding: 24px;
   border-radius: 8px;
   background-color: $white;
   box-shadow: 0 3px 3px -1px rgba(10,22,70,.1),0 0 1px 0 rgba(10,22,70,.06);
 }
 
-.background-dash {
+.dash-card-list {
+  position: relative;
   margin: 0;
-  padding: 8px;
   background-color: $light-gray;
+
+  .list-header {
+    width: 100%;
+    left: 0;
+    float: left;
+  }
+}
+
+.card-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: 980px;
+  padding: 40px 20px;
+  margin: 0 auto;
 }
 
 .card-badge {
   position: absolute;
   top: 16px;
   right: 16px;
+  padding: 8px 12px;
+
+  border-radius: 50px;
+}
+
+.cancel-card {
+  float: right;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #fb024a !important;
 }
 
 .pairing {
@@ -68,7 +96,7 @@
 
 .status-message {
   margin-top: 20px;
-  font-size: 25px;
+  font-size: 22px;
   font-weight: 600;
-  color: gray;
+  color: black;
 }

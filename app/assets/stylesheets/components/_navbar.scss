@@ -9,6 +9,20 @@
   padding: 20px;
   background-color: white;
   box-shadow: 0 3px 3px -1px rgba(10,22,70,.1),0 0 1px 0 rgba(10,22,70,.06);
+
+  .btn:focus {
+    box-shadow: none;
+  }
+  
+  .btn {
+    background-color: #03256C;
+    color: white;
+  }
+  
+  .btn:hover {
+    background-color: #2541B2;
+    color: white;
+  }
 }
 
 .navbar-logo {
@@ -30,18 +44,4 @@
   float: right;
   vertical-align: middle;
   text-decoration: none;
-}
-
-.btn:focus {
-  box-shadow: none;
-}
-
-.btn {
-  background-color: #03256C;
-  color: white;
-}
-
-.btn:hover {
-  background-color: #2541B2;
-  color: white;
 }

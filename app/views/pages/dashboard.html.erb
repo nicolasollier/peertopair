@@ -1,10 +1,21 @@
+<section class="hero hero-dashboard">
+  <div class="text-wrappe">
+    <h1 class="mb-4 ">Create a new event!</h1>
+    <a class="btn btn-primary w-100 py-2" href="/events/new">Let's go!</a>
+  </div>
+  <%= image_tag 'family-pack/family7.svg', class: "illustation-hero-left" %>
+  <%= image_tag 'family-pack/family4.svg', class: "illustation-hero-right" %>
+</section>
 
-<div class="background-dash">
+<section class="dash-card-list">
   <%# For each event display: %>
-
+  <ul class="card-list-wrapper">
+    <div class="list-header my-4 py-2">
+      <h3>My events</h3>
+      <hr>
+    </div>
     <% current_user.events.sort_by{ |e| e.start_date }.reverse.each do |event| %>
       <div class="card-dash mb-2"
-           style="Max-width: 600px"
            data-controller="card-dash"
            data-action="click->card-dash#unfold">
 
@@ -16,9 +27,12 @@
 
         <div data-card-dash-target="unfold" class="fold hide">
             <%= render "event_in_dash", event: event %>
-            <%= link_to "Cancel", cancel_event_path(event), method: :get, class:"btn rounded-pill px-3 py-2" %>
+            <%= link_to "Cancel", cancel_event_path(event), method: :get, class:"btn rounded-pill cancel-card px-3 py-2"%>
         </div>
-
       </div>
     <% end %>
-</div>
+  </ul>
+  <div class="overlay"></div>
+</section>
+
+<%= render "footer" %>
