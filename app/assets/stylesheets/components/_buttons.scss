@@ -1,3 +1,16 @@
+.btn {
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  color: white;
+
+  background-color: $blue4;
+}
+
+.btn:hover {
+  color: white;
+}
+
 .sign-up-btn {
   width: 100%;
   padding: 16px 32px;
