@@ -1,4 +1,4 @@
-class Event < ApplicationRecord
+ class Event < ApplicationRecord
   FORMAT = %w(Remote Office)
   EVENT_TYPE = %w(Lunch Drink Coffee)
 
