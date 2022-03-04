@@ -1,0 +1,30 @@
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100vw;
+  min-height: 320px;
+  overflow: hidden;
+
+  margin: 0 auto;
+  color: black;
+
+  background-color: #ecf1f5;
+}
+
+.illustation-hero-left {
+  position: absolute;
+  transform: translate(62%, 0%);
+  width: 760px;
+  min-height: 760px;
+}
+
+.illustation-hero-right {
+  position: absolute;
+  transform: translate(-60%, 0%);
+  width: 760px;
+  min-height: 760px;
+}
+
