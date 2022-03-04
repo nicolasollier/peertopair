@@ -1,7 +1,7 @@
 <section class="hero hero-dashboard">
   <div class="text-wrappe">
     <h1 class="mb-4 ">Create a new event!</h1>
-    <a class="btn btn-primary w-100 py-2" href="/events/new">Let's go!</a>
+    <a class="btn btn-primary w-100 py-2" data-bs-toggle="modal" data-bs-target="#ModalCreateEvent">Let's go!</a>
   </div>
   <%= image_tag 'family-pack/family7.svg', class: "illustation-hero-left" %>
   <%= image_tag 'family-pack/family4.svg', class: "illustation-hero-right" %>
@@ -35,6 +35,18 @@
         </div>
       </div>
     <% end %>
+
+  <!-- Button trigger modal -->
+<button type="button" class="btn rounded-pill sign-up-btn mt-5 mb-5" data-bs-toggle="modal" data-bs-target="#ModalCreateEvent">
+Add new event
+</button>
+
+<!-- Modal -->
+
+<%= render "modal_new_event" %>
+
+
+</div>
   </ul>
   <div class="overlay"></div>
 </section>
