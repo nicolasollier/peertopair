@@ -27,7 +27,11 @@
 
         <div data-card-dash-target="unfold" class="fold hide">
             <%= render "event_in_dash", event: event %>
-            <%= link_to "Cancel", cancel_event_path(event), method: :get, class:"btn rounded-pill cancel-card px-3 py-2"%>
+            <% if event.status(current_user) != "passed" && event.status(current_user) != "canceled" %>
+              <%= link_to "Cancel", cancel_event_path(event), method: :get, class:"btn rounded-pill cancel-card px-3 py-2"%>
+            <% else %>
+              <br>
+            <% end %>
         </div>
       </div>
     <% end %>
