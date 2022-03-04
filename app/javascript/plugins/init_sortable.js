@@ -1,7 +1,7 @@
 import Sortable from "sortablejs"
 
-const list = document.querySelector("#results")
 const initSortable = () => {
+  const list = document.querySelector("#results")
   if (list) {
     Sortable.create(list, {
       ghostClass: "ghost",

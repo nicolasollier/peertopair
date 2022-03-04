@@ -2,6 +2,9 @@ class Event < ApplicationRecord
   FORMAT = %w(Remote Office)
   EVENT_TYPE = %w(Lunch Drink Coffee)
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   has_many :user_events
   has_many :users, through: :user_events
   validates :start_date, :end_date, presence: true
