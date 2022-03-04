@@ -40,6 +40,13 @@ class EventsController < ApplicationController
     end
   end
 
+  def cancel
+    @event = Event.find(params[:id])
+    @event.canceled = true
+    @event.save
+    redirect_to dashboard_path
+  end
+
   private
 
   def event_params
