@@ -13,6 +13,10 @@ class Event < ApplicationRecord
     self.save
   end
 
+  def self.to_be_paired(user)
+    Event.all.filter { |e| e.users.length == 1 && e.other_user(user) }
+  end
+
   def status(user)
     event = self
     if event.canceled == true
