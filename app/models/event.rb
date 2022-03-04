@@ -13,14 +13,14 @@ class Event < ApplicationRecord
     self.save
   end
 
-  def status(user_current)
+  def status(user)
     event = self
     if event.canceled == true
       status = "canceled"
     else
       if event.end_date < Time.now
         status = "passed"
-      elsif !event.other_user(user_current)
+      elsif event.other_user(user)
         status = "pairing"
       elsif event.end_date < (Time.now + (60 * 60 * 2))
         status = "now"
@@ -30,7 +30,14 @@ class Event < ApplicationRecord
     end
   end
 
-  def other_user(user_current)
-    return self.users.where.not(id: user_current.id)
+  def other_user(user)
+    return self.users.where.not(id: user.id).empty?
   end
+
+  def current_user_events(user)
+    user.events
+  end
+
+
+
 end

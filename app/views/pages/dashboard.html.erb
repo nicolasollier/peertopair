@@ -2,23 +2,13 @@
 <div class="background-dash">
   <%# For each event display: %>
 
-    <% current_user.events.each do |event| %>
+    <% current_user.events.sort_by{ |e| e.start_date }.reverse.each do |event| %>
       <div class="card-dash mb-2"
            style="Max-width: 600px"
            data-controller="card-dash"
            data-action="click->card-dash#unfold">
-        <% case event.status(current_user).downcase %>
-        <% when 'paired' %>
-        <div class="badge card-badge paired"> paired </div>
-        <% when 'pairing' %>
-        <div class="badge card-badge pairing"> pairing </div>
-        <% when 'canceled' %>
-        <div class="badge card-badge canceled"> canceled </div>
-        <% when 'passed' %>
-        <div class="badge card-badge passed"> passed </div>
-        <% when 'now' %>
-        <div class="badge card-badge now"> now ! </div>
-        <% end %>
+
+        <div class="badge card-badge <%= event.status(current_user)%>"> <%= event.status(current_user)%> </div>
 
         <p class="card-event-type"><%= event.event_type %></p>
         <p class="date-place"><%= event.start_date.strftime("%d-%m-%Y at  %H:%M") %></p>
@@ -26,10 +16,11 @@
 
         <div data-card-dash-target="unfold" class="fold hide">
             <%= render "event_in_dash", event: event %>
-            <button type="button" class="btn btn-outline-secondary mt-2" data-action="card-dash#cancel">Cancel</button>
+            <%= link_to "Cancel", cancel_event_path(event), method: :get, class:"btn rounded-pill px-3 py-2" %>
         </div>
 
       </div>
     <% end %>
 </div>
-<% console %>
+
+<%= console %>
