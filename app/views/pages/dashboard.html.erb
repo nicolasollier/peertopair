@@ -14,6 +14,7 @@
       <h3>My events</h3>
       <hr>
     </div>
+
     <% current_user.events.sort_by{ |e| e.start_date }.reverse.each do |event| %>
       <div class="card-dash mb-2"
            data-controller="card-dash"
@@ -43,7 +44,10 @@ Add new event
 
 <!-- Modal -->
 
-<%= render "modal_new_event" %>
+<%# test JS %>
+<%= render "sandbox_form_design" %>
+<%# <%= render "modal_new_event" %>
+
 
 
 </div>

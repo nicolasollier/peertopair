@@ -21,172 +21,50 @@
 </div>
 
 
-<div class="modal fade" id="Modal_week" aria-hidden="true" aria-labelledby="Modal_week" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="Modal_week">Modal 2</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <input type="button" class="btn rounded-pill sign-up-btn mb-3" data-bs-target="#Modal_day" data-bs-toggle="modal" value="Next week ...">
-        <input type="button" class="btn rounded-pill sign-up-btn mb-3" data-bs-target="#Modal_day" data-bs-toggle="modal" value="In two weeks ...">
-        <input type="button" class="btn rounded-pill sign-up-btn mb-3" data-bs-target="#Modal_day" data-bs-toggle="modal" value="In three weeks ...">
-      </div>
-      <div class="modal-footer">
-        <%# Bouton retour au départ %>
-        <button class="btn btn-primary" data-bs-target="#ModalCreateEvent" data-bs-toggle="modal">Back to first</button>
-      </div>
-    </div>
-  </div>
-</div>
+
+<%# THIS MONTH %>
+
+  <input type="button" class="btn rounded-pill sign-up-btn mb-3" data-bs-target="#Modal_day" data-bs-toggle="modal" value="Next week ...">
+  <input type="button" class="btn rounded-pill sign-up-btn mb-3" data-bs-target="#Modal_day" data-bs-toggle="modal" value="In two weeks ...">
+  <input type="button" class="btn rounded-pill sign-up-btn mb-3" data-bs-target="#Modal_day" data-bs-toggle="modal" value="In three weeks ...">
+
+<%# THIS WEEK %>
+
+  <button type="button" class="btn rounded-pill sign-up-btn mb-3" data-bs-target="#Modal_what" data-bs-toggle="modal">Monday ...</button>
+  <button type="button" class="btn rounded-pill sign-up-btn mb-3" data-bs-target="#Modal_what" data-bs-toggle="modal">Tuesday ...</button>
+  <button type="button" class="btn rounded-pill sign-up-btn mb-3" data-bs-target="#Modal_what" data-bs-toggle="modal">Wednesday ...</button>
+  <button type="button" class="btn rounded-pill sign-up-btn mb-3" data-bs-target="#Modal_what" data-bs-toggle="modal">Thursday ...</button>
+  <button type="button" class="btn rounded-pill sign-up-btn mb-3" data-bs-target="#Modal_what" data-bs-toggle="modal">Friday ...</button>
+
+<%# TODAY %>
+
+  <button type="button" class="btn rounded-pill sign-up-btn mb-3" data-bs-target="#Modal_coffee" data-bs-toggle="modal">Coffe break ...</button>
+  <button type="button" class="btn rounded-pill sign-up-btn mb-3" data-bs-target="#Modal_lunch" data-bs-toggle="modal">Lunch ...</button>
+  <button type="button" class="btn rounded-pill sign-up-btn mb-3" data-bs-target="#Modal_drink" data-bs-toggle="modal">Drink ...</button>
 
 
-
-<div class="modal fade" id="Modal_day" aria-hidden="true" aria-labelledby="Modal_day" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="Modal_day">Modal 2</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <button type="button" class="btn rounded-pill sign-up-btn mb-3" data-bs-target="#Modal_what" data-bs-toggle="modal">Monday ...</button>
-        <button type="button" class="btn rounded-pill sign-up-btn mb-3" data-bs-target="#Modal_what" data-bs-toggle="modal">Tuesday ...</button>
-        <button type="button" class="btn rounded-pill sign-up-btn mb-3" data-bs-target="#Modal_what" data-bs-toggle="modal">Wednesday ...</button>
-        <button type="button" class="btn rounded-pill sign-up-btn mb-3" data-bs-target="#Modal_what" data-bs-toggle="modal">Thursday ...</button>
-        <button type="button" class="btn rounded-pill sign-up-btn mb-3" data-bs-target="#Modal_what" data-bs-toggle="modal">Friday ...</button>
-      </div>
-      <div class="modal-footer">
-        <%# Bouton retour au départ %>
-        <button class="btn btn-primary" data-bs-target="#ModalCreateEvent" data-bs-toggle="modal">Back to first</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="modal fade" id="Modal_what" aria-hidden="true" aria-labelledby="Modal_what" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="Modal_what">Modal 2</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <button type="button" class="btn rounded-pill sign-up-btn mb-3" data-bs-target="#Modal_coffee" data-bs-toggle="modal">Coffe break ...</button>
-        <button type="button" class="btn rounded-pill sign-up-btn mb-3" data-bs-target="#Modal_lunch" data-bs-toggle="modal">Lunch ...</button>
-        <button type="button" class="btn rounded-pill sign-up-btn mb-3" data-bs-target="#Modal_drink" data-bs-toggle="modal">Drink ...</button>
-      </div>
-      <div class="modal-footer">
-        <%# Bouton retour au départ %>
-        <button class="btn btn-primary" data-bs-target="#ModalCreateEvent" data-bs-toggle="modal">Back to first</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="modal fade" id="Modal_coffee" aria-hidden="true" aria-labelledby="Modal_coffee" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="Modal_coffee">Modal 2</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
+<%# COFFEE %>
 
         Create coffee..
 
-      </div>
-      <div class="modal-footer">
-        <%# Bouton retour au départ %>
-        <button class="btn btn-primary" data-bs-target="#ModalCreateEvent" data-bs-toggle="modal">Back to first</button>
-      </div>
-    </div>
+<%# RESTAURANT %>
+  <%# dragable restaurant list %>
+
+  <div class="col-6 offset-3 mt-5">
+    <ul id="results" class="list-group results-lists mb-3">
+      <% unless @response.nil? %>
+        <% @response["results"].first(5).each do |result| %>
+          <% if result["rating"].class != NilClass %>
+            <li class="result-list__item p-3">
+            <%= result["name"].capitalize%> <%= result["rating"]%>/5 for
+            <%= result["user_ratings_total"]%> reviews
+            </li>
+          <% end %>
+        <% end %>
+      <% end %>
+    </ul>
+    <%# <%= link_to "Submit", event_user_event_path(@event, @userevent) , method: :patch, class: "btn btn-primary" %>
   </div>
-</div>
 
-
-<div class="modal fade" id="Modal_lunch" aria-hidden="true" aria-labelledby="Modal_lunch" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="Modal_lunch">Modal 2</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-
-      <%# dragable restaurant list %>
-
-        <div class="col-6 offset-3 mt-5">
-          <ul id="results" class="list-group results-lists mb-3">
-            <% unless @response.nil? %>
-              <% @response["results"].first(5).each do |result| %>
-                <% if result["rating"].class != NilClass %>
-                  <li class="result-list__item p-3">
-                  <%= result["name"].capitalize%> <%= result["rating"]%>/5 for
-                  <%= result["user_ratings_total"]%> reviews
-                  </li>
-                <% end %>
-              <% end %>
-            <% end %>
-          </ul>
-          <%# <%= link_to "Submit", event_user_event_path(@event, @userevent) , method: :patch, class: "btn btn-primary" %>
-        </div>
-
-
-
-      </div>
-      <div class="modal-footer">
-        <%# Bouton retour au départ %>
-        <button class="btn btn-primary" data-bs-target="#Modal_finish" data-bs-toggle="modal">Create event</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="modal fade" id="Modal_drink" aria-hidden="true" aria-labelledby="Modal_drink" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="Modal_drink">Modal 2</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
 
         Create drink..
-
-      </div>
-      <div class="modal-footer">
-        <%# Bouton retour au départ %>
-        <button class="btn btn-primary" data-bs-target="#ModalCreateEvent" data-bs-toggle="modal">Back to first</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="modal fade" id="Modal_finish" aria-hidden="true" aria-labelledby="Modal_finish" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="Modal_finish">End</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-
-        Your event has been created !
-        <br>
-        Next friday, march 12 for Lunch.
-
-
-      </div>
-      <div class="modal-footer">
-        <%# Bouton retour au départ %>
-        <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Close</button>
-      </div>
-    </div>
-  </div>
-</div>

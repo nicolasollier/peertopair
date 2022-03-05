@@ -1,0 +1,26 @@
+<div class="modal fade" id="ModalCreateEvent" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ModalCreateEventLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalCreateEventLabel">When ?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="creation p-3"
+           data-controller="creation">
+
+
+        <%= render "when" %>
+        <%= render "month" %>
+        <%= render "week" %>
+
+      </div>
+
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn rounded-pill px-3 py-2" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
