@@ -1,32 +1,11 @@
-import { Controller } from "@hotwired/stimulus"
+
 const when = document.querySelectorAll(".when")
 const month = document.querySelectorAll(".month")
 const week = document.querySelectorAll(".week")
 const day = document.querySelectorAll(".day")
 let deltaDay = 0;
 
-
-  connect() {
-
-    when.forEach((elt) => {
-      this.when(elt)
-    })
-
-    month.forEach((elt) => {
-      this.month(elt)
-    })
-
-    week.forEach((elt) => {
-      this.week(elt)
-    })
-
-    day.forEach((elt) => {
-      this.day(elt)
-    })
-
-  };
-
-  when(elt) {
+  function thisWhen(elt) {
     console.log('when')
 
     elt.addEventListener("click", (event) => {
@@ -36,25 +15,25 @@ let deltaDay = 0;
       switch (screen_1) {
         case 'today':
           deltaDay = 0
-          this.onOff(elt,when, day)
+          onOff(elt,when, day)
           break;
 
         case 'week':
-          this.onOff(elt,when, week)
+          onOff(elt,when, week)
           break;
 
         case 'month':
-          this.onOff(elt,when, month)
+          onOff(elt,when, month)
           break;
 
       }
     })
   }
 
-  month(elt) {
+  function thisMonth(elt) {
 
     elt.addEventListener("click", (event) => {
-      console.log('month')
+      console.log(elt)
 
       const screen_2 = elt.value
 
@@ -78,17 +57,17 @@ let deltaDay = 0;
           break;
       }
 
-      this.onOff(elt,month, week)
+      onOff(elt,month, week)
     })
   }
 
-  week(elt) {
+  function thisWeek(elt) {
 
     elt.addEventListener("click", (event) => {
       const today = new Date().getDay();
-      const screen_3 = elt
+      const screen_3 = elt.value
       let delta = 0
-      console.log(screen_3)
+      console.log(elt)
 
       switch (screen_3) {
         case 'mon':
@@ -115,11 +94,11 @@ let deltaDay = 0;
       console.log(deltaDay)
       deltaDay += delta - today
       console.log(deltaDay)
-      this.onOff(elt,week, day)
+      onOff(elt,week, day)
     })
   }
 
-  day(elt) {
+  function thisDay(elt) {
 
     elt.addEventListener("click", (event) => {
       console.log(deltaDay)
@@ -127,15 +106,15 @@ let deltaDay = 0;
 
       switch (screen_4) {
         case 'today':
-          this.onOff(elt,when, day)
+          onOff(elt,when, day)
           break;
 
         case 'week':
-          this.onOff(elt,when, week)
+          onOff(elt,when, week)
           break;
 
         case 'month':
-          this.onOff(elt,when, month)
+          onOff(elt,when, month)
           break;
 
         default:
@@ -145,12 +124,25 @@ let deltaDay = 0;
   }
 
 
-  onOff(elt, commingFrom, goingTo) {
+  function onOff(elt, commingFrom, goingTo) {
 
     commingFrom.forEach((elt) => elt.style.display = "none")
     goingTo.forEach((elt) => elt.style.display = "")
 
   }
-export default class extends Controller {
 
-}
+  when.forEach((elt) => {
+    thisWhen(elt)
+  })
+
+  month.forEach((elt) => {
+    thisMonth(elt)
+  })
+
+  week.forEach((elt) => {
+    thisWeek(elt)
+  })
+
+  day.forEach((elt) => {
+    thisDay(elt)
+  })
