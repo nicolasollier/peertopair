@@ -1,12 +1,37 @@
+import dateFormat from "dateformat"
 
+// récupération des valeurs des boutons
+
+const init = document.querySelector("#create-event-start")
 const when = document.querySelectorAll(".when")
 const month = document.querySelectorAll(".month")
 const week = document.querySelectorAll(".week")
 const day = document.querySelectorAll(".day")
+const lunch = document.querySelectorAll(".lunch")
 let deltaDay = 0;
+let timeSet = "";
+
+// logique de chaque page
+
+  function initialisation(elt) {
+
+    elt.addEventListener("click", (init) => {
+
+    // initialisation des variables
+    deltaDay = 0;
+
+    // réinitialisation de l'affichage
+    onOff(elt, day, when)
+    onOff(elt, month, when)
+    onOff(elt, week, when)
+    onOff(elt, day, when)
+    onOff(elt, lunch, when)
+
+    })
+
+  }
 
   function thisWhen(elt) {
-    console.log('when')
 
     elt.addEventListener("click", (event) => {
 
@@ -14,8 +39,8 @@ let deltaDay = 0;
 
       switch (screen_1) {
         case 'today':
-          deltaDay = 0
-          onOff(elt,when, day)
+          deltaDay = 0;
+          onOff(elt,when, day);
           break;
 
         case 'week':
@@ -91,38 +116,52 @@ let deltaDay = 0;
         break;
       }
 
-      console.log(deltaDay)
       deltaDay += delta - today
-      console.log(deltaDay)
       onOff(elt,week, day)
     })
   }
 
   function thisDay(elt) {
 
+
     elt.addEventListener("click", (event) => {
-      console.log(deltaDay)
       const screen_4 = elt.value
 
       switch (screen_4) {
-        case 'today':
-          onOff(elt,when, day)
+        case 'coffee':
+          onOff(elt,day, coffee)
           break;
 
-        case 'week':
-          onOff(elt,when, week)
+        case 'lunch':
+          onOff(elt,day, lunch)
           break;
 
-        case 'month':
-          onOff(elt,when, month)
+        case 'drink':
+          onOff(elt,day, drink)
           break;
 
         default:
           break;
       }
+
+      calculateDisplayDay(deltaDay);
     })
   }
 
+  function thisLunch(elt) {
+
+
+
+  }
+
+  // Fonctions additionnelles
+
+
+  function addDays(date, days) {
+    var result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+  }
 
   function onOff(elt, commingFrom, goingTo) {
 
@@ -130,6 +169,37 @@ let deltaDay = 0;
     goingTo.forEach((elt) => elt.style.display = "")
 
   }
+
+  function calculateDisplayDay(deltaDay) {
+    // calculates the day
+    const dayOut = addDays(new Date(), deltaDay)
+    console.log(dayOut);
+
+    // display the day on the page
+    const displayDay = document.getElementById("day-out")
+    let options = {weekday: "long", year: "numeric", month: "long", day: "numeric"};
+
+    const dayString = dayOut.toLocaleDateString("en-US", options);
+
+    displayDay.insertAdjacentHTML("beforeend", dayString)
+
+        //
+    // TEST AFFICHAGE
+    //
+    timeSet = document.getElementById("time-set")
+    const dayOutToHtml = `${dateFormat(dayOut, "yyyy-mm-dd")}T${timeSet.value}`
+    const defaultDate = document.getElementById("event-date");
+    console.log(dayOutToHtml)
+    defaultDate.value = dayOutToHtml;
+
+    console.log(timeSet.value)
+  }
+
+
+
+  // Flow du script
+
+  initialisation(init)
 
   when.forEach((elt) => {
     thisWhen(elt)
@@ -146,3 +216,5 @@ let deltaDay = 0;
   day.forEach((elt) => {
     thisDay(elt)
   })
+
+  thisLunch(lunch)
