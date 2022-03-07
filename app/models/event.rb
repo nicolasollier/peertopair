@@ -11,6 +11,8 @@
   validates :format, inclusion: { in: FORMAT}
   validates :event_type, inclusion: { in: EVENT_TYPE }
 
+  attr_accessor :venue_rankings
+
   def cancel
     self.cancel = true
     self.save
