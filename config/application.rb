@@ -24,5 +24,6 @@ module Peertopair
     config.time_zone = "Paris"
     config.active_record.default_timezone = :local
     # config.eager_load_paths << Rails.root.join("extras")
+    config.assets.initialize_on_precompile = false
   end
 end
