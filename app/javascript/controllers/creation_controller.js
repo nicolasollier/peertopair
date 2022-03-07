@@ -130,31 +130,35 @@ let timeSet = "";
       const screen_4 = elt.value
       let duration = 0
       let timeSet = ""
+      let eventType = ""
 
       switch (screen_4) {
         case 'coffee':
           onOff(elt,day, coffee)
           duration = 15
           timeSet = "11:00"
+          eventType = 'Coffe'
           break;
 
         case 'lunch':
           onOff(elt,day, lunch)
           duration = 60
           timeSet = "13:00"
+          eventType = 'Lunch'
           break;
 
         case 'drink':
           onOff(elt,day, drink)
           duration = 90
           timeSet = "19:00"
+          eventType = 'Drink'
           break;
 
         default:
           break;
       }
 
-      setUpTheDate(deltaDay, duration, timeSet);
+      setUpTheDate(deltaDay, duration, timeSet, eventType);
     })
   }
 
@@ -181,7 +185,7 @@ let timeSet = "";
 
   }
 
-  function setUpTheDate(deltaDay, eventDuration, timeSet) {
+  function setUpTheDate(deltaDay, eventDuration, timeSet, event_type) {
 
     // using the library dayjs
     // input vars
@@ -196,14 +200,13 @@ let timeSet = "";
     const dayString = dayOut.toLocaleDateString("en-US", options);
     displayDay.insertAdjacentHTML("beforeend", dayString)
 
-    // Get the time from form
-    // timeSet = document.getElementById("time-set")
+    // set the time from parameter timeSet
     const timeSetHours = timeSet.substring(0,2);
     const timeSetMinutes = timeSet.substring(3,5);
-
-    // Send start_date to form
     dayOut = dayjs(dayOut).set('hour', timeSetHours)
     dayOut = dayjs(dayOut).set('minute', timeSetMinutes)
+
+    // Send start_date to form
     const startDateToHtml = dayjs(dayOut).format('YYYY-MM-DDTHH:mm')
     const defaultStartDate = document.getElementById("event-start-date");
     defaultStartDate.value = startDateToHtml;
@@ -213,7 +216,17 @@ let timeSet = "";
     const defaultEndDate = document.getElementById("event-end-date");
     defaultEndDate.value = endDateToHtml;
 
+    // Send event_type
+    const eventTypeToHtml = document.getElementById("event-type");
+    eventTypeToHtml.value = event_type;
+
+    // Send event_format
+    const eventFormatToHtml = document.getElementById("event-format");
+    eventFormatToHtml.value = "Office";
+
     console.log(timeSet)
+    console.log(timeSetHours)
+    console.log(timeSetMinutes)
   }
 
 
