@@ -44,7 +44,7 @@ class EventsController < ApplicationController
       @userevent.event = @event
 
       if @userevent.save!
-        redirect_to dashboard_path
+
       else
         render :new
       end
@@ -58,6 +58,11 @@ class EventsController < ApplicationController
     @event.canceled = true
     @event.save
     redirect_to dashboard_path
+  end
+
+  def attach_ranking
+    @event = current_user.events.last
+
   end
 
   private
