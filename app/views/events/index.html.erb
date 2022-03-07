@@ -36,11 +36,11 @@
 <!--Affichage des events disponible si le status est coming
  et qu'ils ne sont pas deux utilisateurs dedans -->
 
-<div class="container w-80 my-5 py-4  ">
+<div class="container w-80 my-5 py-4">
   <h1 class ="my-4"> Events available</h1>
   <p>There is <strong><%= iavailable %></strong> events available</p>
   <% @events.each do |event| %>
-    <div class="container-event d-flex justify-content-between">
+    <div class="container-event d-flex justify-content-between" data-controller="event-subscription" data-event-subscription-event-id-value="<%= event.id %>">
       <% if event.users.length == 1 && event.other_user(current_user) %>
         <div class = "px-1">
           <%= link_to event_path(event) do %>

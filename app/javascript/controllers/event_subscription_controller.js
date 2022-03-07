@@ -6,6 +6,10 @@ export default class extends Controller {
   static targets = ["status"]
 
   connect() {
-    console.log(`Subscribe to the chatroom with the id ${this.eventIdValue}.`)
+    this.channel = consumer.subscriptions.create(
+      { channel: "EventChannel", id: this.eventIdValue },
+      { received: data => console.log(data) }
+    )
+    console.log(`Subscribed to the event with the id ${this.eventIdValue}.`)
   }
 }
