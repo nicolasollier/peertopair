@@ -15,7 +15,12 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
+import { eventCreation } from "../plugins/event_creation"
 
 document.addEventListener('turbolinks:load', () => {
   initSortable();
+  const init = document.querySelector("#create-event-start")
+  if (init) {
+    eventCreation();
+  }
 });
