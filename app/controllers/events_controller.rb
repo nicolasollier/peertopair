@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   require "open-uri"
   require "net/http"
   require 'json'
-  require 'pry-byebug'
+
 
   def index
     @events = Event.all
