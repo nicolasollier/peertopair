@@ -12,6 +12,7 @@ const eventCreation = () => {
   const week = document.querySelectorAll(".week")
   const day = document.querySelectorAll(".day")
   const lunch = document.querySelectorAll(".lunch")
+  const rank = document.querySelectorAll(".rank")
   let deltaDay = 0;
   let timeSet = "";
 
@@ -31,6 +32,7 @@ const eventCreation = () => {
       onOff(elt, week, when)
       onOff(elt, day, when)
       onOff(elt, lunch, when)
+      onOff(elt, rank, when)
 
       })
 
@@ -166,8 +168,13 @@ const eventCreation = () => {
     }
 
     function thisLunch(elt) {
+      const form = elt.querySelector("form");
 
+      form.addEventListener("submit", (event) => {
 
+        onOff(elt,lunch, rank)
+
+      })
 
     }
 
@@ -254,7 +261,10 @@ const eventCreation = () => {
       thisDay(elt)
     })
 
-    thisLunch(lunch);
+    lunch.forEach((elt) => {
+      thisLunch(elt)
+    })
+
 
 }
 
