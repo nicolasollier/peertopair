@@ -1,7 +1,7 @@
 <section class="hero hero-dashboard">
   <div class="text-wrappe">
     <h1 class="mb-4 ">Create a new event!</h1>
-    <a class="btn btn-primary w-100 py-2" data-bs-toggle="modal" data-bs-target="#ModalCreateEvent">Let's go!</a>
+    <a class="btn btn-primary w-100 py-2" id="create-event-start" data-bs-toggle="modal" data-bs-target="#ModalCreateEvent">Let's go!</a>
   </div>
   <%= image_tag 'family-pack/family7.svg', class: "illustation-hero-left" %>
   <%= image_tag 'family-pack/family4.svg', class: "illustation-hero-right" %>
@@ -14,6 +14,7 @@
       <h3>My events</h3>
       <hr>
     </div>
+
     <% current_user.events.sort_by{ |e| e.start_date }.reverse.each do |event| %>
       <div class="card-dash mb-2"
            data-controller="card-dash"
@@ -43,7 +44,10 @@ Add new event
 
 <!-- Modal -->
 
-<%= render "modal_new_event" %>
+<%# test JS %>
+<%= render "create_new_event" %>
+<%# <%= render "modal_new_event" %>
+
 
 
 </div>
