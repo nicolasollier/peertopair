@@ -1,0 +1,22 @@
+<div class="col-6 offset-3 mt-5 lunch">
+  <ul data-controller="rank" id="results" class="list-group results-lists mb-3" id="test" >
+    <% unless @response.nil? %>
+
+      <% @response["results"].first(5).each do |result| %>
+        <% if result["rating"].class != NilClass %>
+
+          <li class="result-list item p-3" >
+          <p><%= result["name"].capitalize%></p> <%= result["rating"]%>/5 for
+          <%= result["user_ratings_total"]%> reviews
+          </li>
+
+        <% end %>
+      <% end %>
+    <% end %>
+    <div class=''>
+      <%= simple_form_for @event do |f| %>
+        <%= f.input :venue_rankings, input_html: { data: {"rank-target" => "venueRanking"} }  %>
+      <% end %>
+    </div>
+  </ul>
+</div>
