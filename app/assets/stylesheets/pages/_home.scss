@@ -1,7 +1,7 @@
 .hero-section {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 75vh;
 
   padding-top: 12vh;
   padding-bottom: 90px;
@@ -27,6 +27,7 @@
     color: $gray;
   }
   .slogan {
+    max-width: 720px;
     color: #424853;
   }
   .cta-btn {
@@ -34,26 +35,39 @@
     max-width: 250px;
     margin-top: calc(18px + 2vw);
   }
+
+  .img-wrapper {
+    display: flex;
+    position: relative;
+    margin: 20px 3vw;
+  }
+
+  #img1 {
+    right: -40px;
+    z-index: 1;
+  }
+
+  #img2 {
+    position: absolute;
+    z-index: 2;
+    left: -40px;
+    bottom: 20px;
+
+    width: 160px;
+    height: 160px;
+  }
+
   .hero-img {
     position: relative;
     width: 300px;
     height: 400px;
 
-    margin: 0 6vw;
     object-fit: cover;
 
     border-radius: 6px;
-
-    &::before {
-      content: '';
-      display: inline-block;
-
-      width: 200px;
-      height: 200px;
-
-      background-color: #FFC216;
-    }
+    box-shadow: 0px 10px 35px -3px rgba(0,0,0,0.1);
   }
+
 }
 
 @media screen and (max-width: 1440px) {
@@ -85,10 +99,19 @@
       font-size: 8vw;
       letter-spacing: -1px;
     }
-
     .content-wrapper {
       flex-direction: column;
       align-items: center;
+    }
+    .img-wrapper {
+      margin-top: 60px;
+    }
+    #img1 {
+      width: 200px;
+      height: 300px;
+    }
+    #img2 {
+      left: -80px;
     }
   }
 }
@@ -103,6 +126,17 @@
   }
 }
 
+.credentials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  height: 200px;
+
+  background-color: darken($light-gray, $amount: 0);
+}
+
 .infos {
   display: flex;
   justify-content: center;
@@ -115,10 +149,10 @@
   height: 400px;
 
   background-color: $gray;
+
   .white {
     color: $white;
   }
-
   .btn-white {
     margin-top: calc(18px + 2vw);
     padding: 12px 40px;
