@@ -9,4 +9,8 @@ class VenueRankingsController < ApplicationController
   def show
     @venue_ranking = VenueRanking.new
   end
+
+  def create
+
+  end
 end
