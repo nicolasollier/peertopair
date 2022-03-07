@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   get '/events/:id/cancel', to: 'events#cancel', as: 'cancel_event'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :events do
-    resources :venue_rankings, only: [:new, :show, :create]
+    resources :venue_rankings, only: [:new, :show]
     resources :user_events
   end
-
+  post '/venue_rankings', to: 'venue_rankings#create'
 
 end
