@@ -1,4 +1,5 @@
 import dateFormat from "dateformat"
+import dayjs from 'dayjs'
 
 // récupération des valeurs des boutons
 
@@ -10,6 +11,7 @@ const day = document.querySelectorAll(".day")
 const lunch = document.querySelectorAll(".lunch")
 let deltaDay = 0;
 let timeSet = "";
+
 
 // logique de chaque page
 
@@ -126,25 +128,33 @@ let timeSet = "";
 
     elt.addEventListener("click", (event) => {
       const screen_4 = elt.value
+      let duration = 0
+      let timeSet = ""
 
       switch (screen_4) {
         case 'coffee':
           onOff(elt,day, coffee)
+          duration = 15
+          timeSet = "11:00"
           break;
 
         case 'lunch':
           onOff(elt,day, lunch)
+          duration = 60
+          timeSet = "13:00"
           break;
 
         case 'drink':
           onOff(elt,day, drink)
+          duration = 90
+          timeSet = "19:00"
           break;
 
         default:
           break;
       }
 
-      calculateDisplayDay(deltaDay);
+      setUpTheDate(deltaDay, duration, timeSet);
     })
   }
 
@@ -155,6 +165,7 @@ let timeSet = "";
   }
 
   // Fonctions additionnelles
+
 
 
   function addDays(date, days) {
@@ -170,29 +181,39 @@ let timeSet = "";
 
   }
 
-  function calculateDisplayDay(deltaDay) {
+  function setUpTheDate(deltaDay, eventDuration, timeSet) {
+
+    // using the library dayjs
+    // input vars
+
     // calculates the day
-    const dayOut = addDays(new Date(), deltaDay)
+    let dayOut = addDays(new Date(), deltaDay)
     console.log(dayOut);
 
     // display the day on the page
     const displayDay = document.getElementById("day-out")
     let options = {weekday: "long", year: "numeric", month: "long", day: "numeric"};
-
     const dayString = dayOut.toLocaleDateString("en-US", options);
-
     displayDay.insertAdjacentHTML("beforeend", dayString)
 
-        //
-    // TEST AFFICHAGE
-    //
-    timeSet = document.getElementById("time-set")
-    const dayOutToHtml = `${dateFormat(dayOut, "yyyy-mm-dd")}T${timeSet.value}`
-    const defaultDate = document.getElementById("event-date");
-    console.log(dayOutToHtml)
-    defaultDate.value = dayOutToHtml;
+    // Get the time from form
+    // timeSet = document.getElementById("time-set")
+    const timeSetHours = timeSet.substring(0,2);
+    const timeSetMinutes = timeSet.substring(3,5);
 
-    console.log(timeSet.value)
+    // Send start_date to form
+    dayOut = dayjs(dayOut).set('hour', timeSetHours)
+    dayOut = dayjs(dayOut).set('minute', timeSetMinutes)
+    const startDateToHtml = dayjs(dayOut).format('YYYY-MM-DDTHH:mm')
+    const defaultStartDate = document.getElementById("event-start-date");
+    defaultStartDate.value = startDateToHtml;
+
+    // Send _date to form
+    const endDateToHtml = dayjs(startDateToHtml).add(eventDuration, 'minute').format('YYYY-MM-DDTHH:mm')
+    const defaultEndDate = document.getElementById("event-end-date");
+    defaultEndDate.value = endDateToHtml;
+
+    console.log(timeSet)
   }
 
 
