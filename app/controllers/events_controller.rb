@@ -4,14 +4,10 @@ class EventsController < ApplicationController
   require "net/http"
   require 'json'
 
-
   def index
     @events = Event.all
     @current_user_events = policy_scope(current_user.events)
     @event = Event.new
-
-
-
   end
 
   def new
@@ -30,8 +26,6 @@ class EventsController < ApplicationController
         lng: @event.longitude,
         # info_window: render_to_string(partial: "info_window", locals: { event: event })
       })
-
-
   end
 
   def create
@@ -57,12 +51,17 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.canceled = true
     @event.save
+
+    EventChannel.broadcast_to(
+      @event.other_user(current_user),
+      @event.id
+    )
+
     redirect_to dashboard_path
   end
 
   def attach_ranking
     @event = current_user.events.last
-
   end
 
   private

@@ -9,33 +9,36 @@
 
 <section class="dash-card-list">
   <%# For each event display: %>
-  <ul class="card-list-wrapper">
+  <ul class="card-list-wrapper"
+      data-controller='event-subscriptions'
+      data-event-subscriptions-user-id-value="<%= current_user.id %>">
     <div class="list-header my-4 py-2">
       <h3>My events</h3>
       <hr>
     </div>
+    <div class="events" data-event-subscription-target="events">
+      <% current_user.events.sort_by{ |e| e.start_date }.reverse.each do |event| %>
+        <div class="card-dash mb-2"
+            data-controller="card-dash"
+            data-action="click->card-dash#unfold">
 
-    <% current_user.events.sort_by{ |e| e.start_date }.reverse.each do |event| %>
-      <div class="card-dash mb-2"
-           data-controller="card-dash"
-           data-action="click->card-dash#unfold">
+          <div class="badge card-badge <%= event.status(current_user)%>"> <%= event.status(current_user)%> </div>
 
-        <div class="badge card-badge <%= event.status(current_user)%>"> <%= event.status(current_user)%> </div>
+          <p class="card-event-type"><%= event.event_type %></p>
+          <p class="date-place"><%= event.start_date.strftime("%d-%m-%Y at %H:%M") %></p>
+          <p class="date-place"> KFC La Chapelle </p>
 
-        <p class="card-event-type"><%= event.event_type %></p>
-        <p class="date-place"><%= event.start_date.strftime("%d-%m-%Y at  %H:%M") %></p>
-        <p class="date-place"> KFC La Chapelle </p>
-
-        <div data-card-dash-target="unfold" class="fold hide">
-            <%= render "event_in_dash", event: event %>
-            <% if event.status(current_user) != "passed" && event.status(current_user) != "canceled" %>
-              <%= link_to "Cancel", cancel_event_path(event), method: :get, class:"btn rounded-pill cancel-card px-3 py-2"%>
-            <% else %>
-              <br>
-            <% end %>
+          <div data-card-dash-target="unfold" class="fold hide">
+              <%= render "event_in_dash", event: event %>
+              <% if event.status(current_user) != "passed" && event.status(current_user) != "canceled" %>
+                <%= link_to "Cancel", cancel_event_path(event), method: :get, class:"btn rounded-pill cancel-card px-3 py-2"%>
+              <% else %>
+                <br>
+              <% end %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
 
   <!-- Button trigger modal -->
 <button type="button" class="btn rounded-pill sign-up-btn mt-5 mb-5" data-bs-toggle="modal" data-bs-target="#ModalCreateEvent">
