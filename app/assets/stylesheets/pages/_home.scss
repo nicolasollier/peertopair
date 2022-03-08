@@ -1,95 +1,160 @@
-// Specific CSS for your home-page
-
-h1, h5, p {
-  font-family: quicksand;
-  text-align: center;
-}
-
-h1 {
-  font-weight: bold;
-  font-size: 32px;
-}
-
-h5 {
-  font-weight: lighter;
-  font-size: 18px;
-  color: #746d75;
-}
-
-p {
-  font-weight: lighter;
-  font-size: 16px;
-}
-
-.logos-wrapper {
+.hero-section {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  opacity: 0.8;
+  flex-direction: column;
+  min-height: 75vh;
+
+  padding-top: 12vh;
+  padding-bottom: 90px;
+
+  overflow: hidden;
+  background-color: darken($light-gray, $amount: 3);
+  
+  .content-wrapper {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1280px;
+    padding: 0 40px;
+  }
+  .tagline {
+    font-weight: 600;
+    color: $gray;
+  }
+  .slogan {
+    max-width: 720px;
+    color: #424853;
+  }
+  .cta-btn {
+    min-width: 25%;
+    max-width: 250px;
+    margin-top: calc(18px + 2vw);
+  }
+
+  .img-wrapper {
+    display: flex;
+    position: relative;
+    margin: 20px 3vw;
+  }
+
+  #img1 {
+    right: -40px;
+    z-index: 1;
+  }
+
+  #img2 {
+    position: absolute;
+    z-index: 2;
+    left: -40px;
+    bottom: 20px;
+
+    width: 160px;
+    height: 160px;
+  }
+
+  .hero-img {
+    position: relative;
+    width: 300px;
+    height: 400px;
+
+    object-fit: cover;
+
+    border-radius: 6px;
+    box-shadow: 0px 10px 35px -3px rgba(0,0,0,0.1);
+  }
+
 }
 
-.drawing-collection {
-  margin-top: 20px;
-  margin-bottom: 20px;
+@media screen and (max-width: 1440px) {
+  .hero-section {
+    margin: 0 auto;
+
+    .tagline {
+      font-size: 4vw;
+      letter-spacing: -.1vw;
+      line-height: 1.2;
+    }
+
+    .slogan {
+      font-size: 16px;
+      max-width: 600px;
+    }
+  }
 }
 
-.drawing-1 {
-  width: 200px;
+@media screen and (max-width: 768px) {
+  .hero-section {
+    padding-top: 50px;
+    padding-bottom: 20px;
+
+    .cta-btn {
+      min-width: 100%;
+    }
+    .tagline {
+      font-size: 8vw;
+      letter-spacing: -1px;
+    }
+    .content-wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+    .img-wrapper {
+      margin-top: 60px;
+    }
+    #img1 {
+      width: 200px;
+      height: 300px;
+    }
+    #img2 {
+      left: -80px;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .hero-section {
+    padding-top: 40px;
+
+    .tagline {
+      font-size: 12vw;
+    }
+  }
+}
+
+.credentials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
   height: 200px;
-  position: relative;
+
+  background-color: darken($light-gray, $amount: 0);
 }
 
-.d-shape-1 {
-  height: 100px;
-  width: 100px;
-  background-image: image-url("woman-1.png");
-  background-size: cover;
-  border-radius: 0% 50% 50% 0%;
-  float: right;
-}
+.infos {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  
+  text-align: center;
+  align-items: center;
 
-.d-shape-reverse-1 {
-  height: 100px;
-  width: 100px;
-  background-image: image-url("man-1.png");
-  background-size: cover;
-  position: center;
-  border-radius: 50% 0% 0% 50%;
-  transform: translate(0%, 100%);
-}
+  width: 100vw;
+  height: 400px;
 
-.drawing-2 {
-  width: 200px;
-  height: 200px;
-  position: relative;
-  float: right;
-  margin-top: -100px;
-}
+  background-color: $gray;
 
-.d-shape-2 {
-  height: 100px;
-  width: 100px;
-  background-image: image-url("woman-2.png");
-  background-size: cover;
-  border-radius: 0% 50% 50% 0%;
-  float: right;
-}
-
-.d-shape-reverse-2 {
-  height: 100px;
-  width: 100px;
-  background-image: image-url("man-2.png");
-  background-size: cover;
-  position: center;
-  border-radius: 50% 0% 0% 50%;
-  transform: translate(0%, 100%);
-}
-
-.match-circle {
-  position: absolute;
-  z-index: 1;
-  left: 50%;
-  top: 50%;
-  margin-left: -25px;
-  margin-top: -25px;
+  .white {
+    color: $white;
+  }
+  .btn-white {
+    margin-top: calc(18px + 2vw);
+    padding: 12px 40px;
+  }
 }

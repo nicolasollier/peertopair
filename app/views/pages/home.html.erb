@@ -2,41 +2,39 @@
   <title>Peer To Pair - Connect internally, create opportunities.</title>
 </head>
 <body>
-  <div class="col-6 offset-3 px-4 mt-5">
-    <div class="titles-wrapper mb-5">
-      <h1 class="mb-4">Connect internally.<br>Create opportunities.</h1>
-      <h5>Meet peers from your company, people you wouldn't have talked to otherwise. Based on people's availabilities and meeting preferences.</h3>
-    </div>
-    <%= link_to "Sign up", new_user_registration_path, class:"btn rounded-pill sign-up-btn mb-5" %>
-    <p>Join hundreds of large organizations</p>
-    <div class="logos-wrapper">
-      <%= image_tag "coca-cola-logo.png", width: 110, height: 40 %>
-      <%= image_tag "google-logo.png", width: 110, height: 40 %>
-      <%= image_tag "renault-logo.png", width: 100, height: 40 %>
-    </div>
-    <div class="drawing-collection mt-5">
-      <div class="drawing-1">
-        <div class="d-shape-1"></div>
-        <div class="d-shape-reverse-1"></div>
-        <div class="match-circle">
-          <svg width="50" height="50" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="20" cy="20" r="20" fill="#03256C"/>
-          <path d="M18.7071 20.7071C19.0976 20.3166 19.0976 19.6834 18.7071 19.2929L12.3431 12.9289C11.9526 12.5384 11.3195 12.5384 10.9289 12.9289C10.5384 13.3195 10.5384 13.9526 10.9289 14.3431L16.5858 20L10.9289 25.6569C10.5384 26.0474 10.5384 26.6805 10.9289 27.0711C11.3195 27.4616 11.9526 27.4616 12.3431 27.0711L18.7071 20.7071ZM2 21L18 21V19L2 19L2 21Z" fill="white"/>
-          <path d="M21.2929 19.2929C20.9024 19.6834 20.9024 20.3166 21.2929 20.7071L27.6569 27.0711C28.0474 27.4616 28.6805 27.4616 29.0711 27.0711C29.4616 26.6805 29.4616 26.0474 29.0711 25.6569L23.4142 20L29.0711 14.3431C29.4616 13.9526 29.4616 13.3195 29.0711 12.9289C28.6805 12.5384 28.0474 12.5384 27.6569 12.9289L21.2929 19.2929ZM38 19L22 19V21L38 21V19Z" fill="white"/>
-          </svg>
-        </div>
+  <div class= "hero-section">
+    <div class="content-wrapper">
+
+      <div class="text-wrapper">
+        <h1 class="tagline">
+          Connect internally, 
+          <br>
+          Create opportunities.
+        </h1>  
+        <p class="slogan mt-4 pe-5">
+          Meet peers from your company, people you wouldn’t have talked to otherwise.
+          Based on people’s availabilities and meeting preferences.
+        </p>
+        <a href="#" class="btn btn-primary cta-btn">Try Peertopair!</a>
       </div>
-      <div class="drawing-2">
-        <div class="d-shape-2"></div>
-        <div class="d-shape-reverse-2"></div>
-        <div class="match-circle">
-          <svg width="50" height="50" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="20" cy="20" r="20" fill="#03256C"/>
-          <path d="M18.7071 20.7071C19.0976 20.3166 19.0976 19.6834 18.7071 19.2929L12.3431 12.9289C11.9526 12.5384 11.3195 12.5384 10.9289 12.9289C10.5384 13.3195 10.5384 13.9526 10.9289 14.3431L16.5858 20L10.9289 25.6569C10.5384 26.0474 10.5384 26.6805 10.9289 27.0711C11.3195 27.4616 11.9526 27.4616 12.3431 27.0711L18.7071 20.7071ZM2 21L18 21V19L2 19L2 21Z" fill="white"/>
-          <path d="M21.2929 19.2929C20.9024 19.6834 20.9024 20.3166 21.2929 20.7071L27.6569 27.0711C28.0474 27.4616 28.6805 27.4616 29.0711 27.0711C29.4616 26.6805 29.4616 26.0474 29.0711 25.6569L23.4142 20L29.0711 14.3431C29.4616 13.9526 29.4616 13.3195 29.0711 12.9289C28.6805 12.5384 28.0474 12.5384 27.6569 12.9289L21.2929 19.2929ZM38 19L22 19V21L38 21V19Z" fill="white"/>
-          </svg>
-        </div>
+
+      <div class="img-wrapper">
+        <%= image_tag "people/woman-2.png", class: "hero-img", id:"img1" %>
+        <%= image_tag "people/man-2.png", class: "hero-img", id: "img2" %>
       </div>
     </div>
   </div>
+
+  <section class="credentials">
+    <h3>They already trust us:</h3>
+  </section>
+
+  <section class="infos">
+    <h1 class="tagline white">Don't miss any news! <br>
+    Subscribe to our newsletter.
+    </h1> 
+    <a href="#" class="btn btn-white">Subscribe</a>
+  </section>
+
+  <%= render "footer" %>
 </body>
