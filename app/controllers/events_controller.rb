@@ -36,12 +36,7 @@ class EventsController < ApplicationController
       @userevent = UserEvent.new
       @userevent.user = current_user
       @userevent.event = @event
-
-      if @userevent.save!
-
-      else
-        render :new
-      end
+      render :new unless @userevent.save
     else
       render :new
     end
