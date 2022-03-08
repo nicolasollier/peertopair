@@ -12,7 +12,7 @@
   margin: 0 auto;
   color: black;
 
-  background-color: #ecf1f5;
+  background-color: darken($light-gray, $amount: 3);
 }
 
 .illustation-hero-left {

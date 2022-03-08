@@ -1,5 +1,31 @@
 <div class="main-wrapper">
-  <nav class="main-nav aside w-25"></nav>
+  <nav class="main-nav aside w-25">
+    <div class="user-section user-menu">
+      <div class="user-avatar"><%= current_user.first_name.first %></div>
+      <div class="txt-wrapper">
+        <p>Bienvenue</p>
+        <p><%= current_user.first_name %></p>
+      </div>
+    </div>
+
+    <div class="user-section user-feature">
+      <div class="feat-avatar">
+        <i class="fa-solid fa-acorn"></i>
+      </div>
+      <div class="txt-wrapper">
+        <p>My Events</p>
+      </div>
+    </div>
+
+    <div class="user-section user-feature">
+      <div class="feat-avatar">
+        <i class="fa-solid fa-acorn"></i>
+      </div>
+      <div class="txt-wrapper">
+        <p>Dashboard</p>
+      </div>
+    </div>
+  </nav>
 
   <div class="content w-75">
     <section class="dash-card-list">
@@ -14,7 +40,7 @@
           <%= image_tag 'family-pack/family4.svg', class: "illustation-hero-right" %>
         </div>
         <div class="list-header my-4 py-2">
-          <h3>My events</h3>
+          <h3>My Dashboard</h3>
           <hr>
         </div>
 
