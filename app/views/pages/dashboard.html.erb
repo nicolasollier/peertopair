@@ -1,58 +1,51 @@
-<section class="hero hero-dashboard">
-  <div class="text-wrappe">
-    <h1 class="mb-4 ">Create a new event!</h1>
-    <a class="btn btn-primary w-100 py-2" id="create-event-start" data-bs-toggle="modal" data-bs-target="#ModalCreateEvent">Let's go!</a>
-  </div>
-  <%= image_tag 'family-pack/family7.svg', class: "illustation-hero-left" %>
-  <%= image_tag 'family-pack/family4.svg', class: "illustation-hero-right" %>
-</section>
+<div class="main-wrapper">
+  <nav class="main-nav aside w-25"></nav>
 
-<section class="dash-card-list">
-  <%# For each event display: %>
-  <ul class="card-list-wrapper">
-    <div class="list-header my-4 py-2">
-      <h3>My events</h3>
-      <hr>
-    </div>
-
-    <% current_user.events.sort_by{ |e| e.start_date }.reverse.each do |event| %>
-      <div class="card-dash mb-2"
-           data-controller="card-dash"
-           data-action="click->card-dash#unfold">
-
-        <div class="badge card-badge <%= event.status(current_user)%>"> <%= event.status(current_user)%> </div>
-
-        <p class="card-event-type"><%= event.event_type %></p>
-        <p class="date-place"><%= event.start_date.strftime("%d-%m-%Y at  %H:%M") %></p>
-        <p class="date-place"> KFC La Chapelle </p>
-
-        <div data-card-dash-target="unfold" class="fold hide">
-            <%= render "event_in_dash", event: event %>
-            <% if event.status(current_user) != "passed" && event.status(current_user) != "canceled" %>
-              <%= link_to "Cancel", cancel_event_path(event), method: :get, class:"btn rounded-pill cancel-card px-3 py-2"%>
-            <% else %>
-              <br>
-            <% end %>
+  <div class="content w-75">
+    <section class="dash-card-list">
+      <%# For each event display: %>
+      <ul class="card-list-wrapper">
+        <div class="hero hero-dashboard">
+          <div class="text-wrappe">
+            <h1 class="mb-4 ">Create a new event!</h1>
+            <a class="btn btn-primary w-100 py-2" id="create-event-start" data-bs-toggle="modal" data-bs-target="#ModalCreateEvent">Let's go!</a>
+          </div>
+          <%= image_tag 'family-pack/family7.svg', class: "illustation-hero-left" %>
+          <%= image_tag 'family-pack/family4.svg', class: "illustation-hero-right" %>
         </div>
-      </div>
-    <% end %>
+        <div class="list-header my-4 py-2">
+          <h3>My events</h3>
+          <hr>
+        </div>
 
-  <!-- Button trigger modal -->
-<button type="button" class="btn rounded-pill sign-up-btn mt-5 mb-5" data-bs-toggle="modal" data-bs-target="#ModalCreateEvent">
-Add new event
-</button>
+        <% current_user.events.sort_by{ |e| e.start_date }.reverse.each do |event| %>
+          <div class="card-dash mb-2"
+              data-controller="card-dash"
+              data-action="click->card-dash#unfold">
 
-<!-- Modal -->
+            <div class="badge card-badge <%= event.status(current_user)%>"> <%= event.status(current_user)%> </div>
 
-<%# test JS %>
-<%= render "create_new_event" %>
-<%# <%= render "modal_new_event" %>
+            <p class="card-event-type"><%= event.event_type %></p>
+            <p class="date-place"><%= event.start_date.strftime("%d-%m-%Y at  %H:%M") %></p>
+            <p class="date-place"> KFC La Chapelle </p>
 
+            <div data-card-dash-target="unfold" class="fold hide">
+                <%= render "event_in_dash", event: event %>
+                <% if event.status(current_user) != "passed" && event.status(current_user) != "canceled" %>
+                  <%= link_to "Cancel", cancel_event_path(event), method: :get, class:"btn rounded-pill cancel-card px-3 py-2"%>
+                <% else %>
+                  <br>
+                <% end %>
+            </div>
+          </div>
+        <% end %>
 
+      <!-- Button trigger modal -->
+    <button type="button" class="btn rounded-pill sign-up-btn mt-5 mb-5" data-bs-toggle="modal" data-bs-target="#ModalCreateEvent">
+    Add new event
+    </button>
 
+    <!-- Modal -->
+    <%= render "create_new_event" %>
+  </div>
 </div>
-  </ul>
-  <div class="overlay"></div>
-</section>
-
-<%= render "footer" %>

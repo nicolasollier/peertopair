@@ -1,0 +1,11 @@
+.main-wrapper {
+  display: flex;
+  width: 100vw;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.main-nav {
+  min-height: 100vh;
+  background-color: darken($light-gray, $amount: 3);
+}
