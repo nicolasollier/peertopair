@@ -11,11 +11,6 @@
 
 // Your CSS partials
 
-
-ul {
-  list-style-type: none;
-}
-
 @import "components/alert";
 @import "components/avatar";
 @import "components/buttons";
@@ -33,10 +28,18 @@ ul {
 @import "pages/index";
 @import "pages/venue_rankings";
 
+ul {
+  list-style-type: none;
+}
+
 * {
-  font-family: 'Quicksand', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
 }
 
 body {
-  background-color: white;
+  background-color: $light-gray;
+}
+
+ul {
+  list-style-type: none;
 }
