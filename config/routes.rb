@@ -8,6 +8,4 @@ Rails.application.routes.draw do
     resources :venue_rankings, only: [:new, :show, :create]
     resources :user_events
   end
-
-
 end

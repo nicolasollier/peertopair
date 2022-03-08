@@ -1,32 +1,5 @@
 <div class="main-wrapper">
-  <nav class="main-nav aside w-25">
-    <div class="user-section user-menu">
-      <div class="user-avatar"><%= current_user.first_name.first %></div>
-      <div class="txt-wrapper">
-        <p>Bienvenue</p>
-        <p><%= current_user.first_name %></p>
-      </div>
-    </div>
-
-    <div class="user-section user-feature">
-      <div class="feat-avatar">
-        <i class="fa-solid fa-binoculars"></i>
-        
-      </div>
-      <div class="txt-wrapper">
-        <p>My Events</p>
-      </div>
-    </div>
-
-    <div class="user-section user-feature">
-      <div class="feat-avatar">
-        <i class="fa-solid fa-circle-arrow-up"></i>
-      </div>
-      <div class="txt-wrapper">
-        <p>Dashboard</p>
-      </div>
-    </div>
-  </nav>
+  <%= render 'devise/shared/main-nav' %>
 
   <div class="content w-75">
     <section class="dash-card-list">
