@@ -88,3 +88,43 @@
     }
   }
 }
+
+.panel-menu {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  width: 100vw;
+  height: calc(100vh - 100px);
+  padding: clamp(20px, 10vw, 80px);
+
+  left: 0;
+  z-index: 99;
+  background-color: $light-gray;
+  transition: all 0.4s ease-in-out;
+
+  .menu-wrapper {
+    display: absolute;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    height: 100%;
+    padding: 10px;
+  }
+  .menu-item {
+    cursor: pointer;
+    font-size: clamp(32px, 4vw, 48px);
+    margin: 10px auto;
+  }
+  .cta-btn {
+    width: clamp(220px, 620px, 100%);
+
+    margin-top: 24px;
+  }
+}
+
+  .panel-menu.inactive {
+    left: -200%;
+  }
