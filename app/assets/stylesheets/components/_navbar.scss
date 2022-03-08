@@ -126,5 +126,5 @@
 }
 
   .panel-menu.inactive {
-    left: -200%;
+    left: calc(-200% - 200px);
   }

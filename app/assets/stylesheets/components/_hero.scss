@@ -4,14 +4,15 @@
   align-items: center;
   justify-content: center;
 
-  width: 100vw;
+  width: 100%;
   min-height: 320px;
   overflow: hidden;
+  border-radius: 10px;
 
   margin: 0 auto;
   color: black;
 
-  background-color: #ecf1f5;
+  background-color: darken($light-gray, $amount: 3);
 }
 
 .illustation-hero-left {

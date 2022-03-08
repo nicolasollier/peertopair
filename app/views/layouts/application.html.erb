@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+        
     <title>Peer To Pair. Connect internally, create opportunities.</title>
     <meta name="description" content="<%= meta_description %>">
 
@@ -33,11 +34,13 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+
     <%= render 'shared/ios_pwa_links' %>
 
   </head>
   <body data-controller="menu">
     <%= render 'shared/alert-event' %>
     <%= yield %>
+    <script src="https://kit.fontawesome.com/8e93905009.js" crossorigin="anonymous"></script>
   </body>
 </html>
