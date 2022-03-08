@@ -1,10 +1,18 @@
 .btn {
   border: none;
-  border-radius: 6px;
+  border-radius: 50px;
   font-weight: 600;
   color: white;
 
-  background-color: $blue4;
+  background-color: $blue3;
+}
+
+.btn-white {
+  color: $gray;
+  background-color: white;
+  &:hover {
+    color: $gray !important;
+  }
 }
 
 .btn:hover {
@@ -14,4 +22,11 @@
 .sign-up-btn {
   width: 100%;
   padding: 16px 32px;
+}
+
+.cta-btn {
+  font-weight: 500;
+  padding: 14px 34px;
+
+  box-shadow: rgb(57, 113, 255) 0px 16px 70px -18px
 }
