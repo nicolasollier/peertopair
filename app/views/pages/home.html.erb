@@ -1,10 +1,17 @@
-<head>
-  <title>Peer To Pair - Connect internally, create opportunities.</title>
-</head>
-<body>
-  <div class= "hero-section">
-    <div class="content-wrapper">
+<%= render 'devise/shared/navbar' %>
 
+<div class="panel-menu inactive" data-menu-target="panel">
+  <ul class="menu-wrapper">
+    <li class="menu-item">Our Product</li>
+    <li class="menu-item">Our Team</li>
+    <li class="menu-item">Contacts</li>
+    <li class="menu-item">F.A.Q</li>
+  </ul>
+  <a href="/dashboard" class="btn cta-btn">Log in</a>
+</div>
+
+<div class= "hero-section">
+  <div class="content-wrapper">
       <div class="text-wrapper">
         <h1 class="tagline">
           Connect internally, 
@@ -36,5 +43,4 @@
     <a href="#" class="btn btn-white">Subscribe</a>
   </section>
 
-  <%= render "footer" %>
-</body>
+<%= render "footer" %>
