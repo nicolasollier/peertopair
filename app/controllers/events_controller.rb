@@ -9,9 +9,6 @@ class EventsController < ApplicationController
     @events = Event.all
     @current_user_events = policy_scope(current_user.events)
     @event = Event.new
-
-
-
   end
 
   def new
@@ -30,8 +27,6 @@ class EventsController < ApplicationController
         lng: @event.longitude,
         # info_window: render_to_string(partial: "info_window", locals: { event: event })
       })
-
-
   end
 
   def create
@@ -42,12 +37,7 @@ class EventsController < ApplicationController
       @userevent = UserEvent.new
       @userevent.user = current_user
       @userevent.event = @event
-
-      if @userevent.save!
-
-      else
-        render :new
-      end
+      render :new unless @userevent.save
     else
       render :new
     end
@@ -62,7 +52,6 @@ class EventsController < ApplicationController
 
   def attach_ranking
     @event = current_user.events.last
-
   end
 
   private
