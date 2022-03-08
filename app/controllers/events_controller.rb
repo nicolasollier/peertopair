@@ -46,12 +46,10 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.canceled = true
     @event.save
-
     EventChannel.broadcast_to(
       @event.other_user(current_user),
-      @event.id
+      render_to_string(partial: "events/cancel_alert", locals: {event: @event})
     )
-
     redirect_to dashboard_path
   end
 

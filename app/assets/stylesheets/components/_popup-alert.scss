@@ -1,12 +1,21 @@
-#popup_frame {
+#popup-frame {
   background-color: rgba(0, 0, 0, 0.8) ;
   color: white;
-  height: 140px;
+  height: fit-content;
   width: fit-content;
   margin: 16px;
   padding: 24px;
   border-radius: 16px;
   position: fixed;
-  z-index: 2 ;
+  z-index: 101 ;
   text-align: center;
+}
+
+.now-you-see-me {
+  display: block;
+}
+
+.now-you-don-t {
+  transition: 1500ms;
+  display: none;
 }
