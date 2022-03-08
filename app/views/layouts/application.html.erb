@@ -36,9 +36,10 @@
     <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
 
     <%= render 'shared/ios_pwa_links' %>
-  </head>
 
+  </head>
   <body data-controller="menu">
+    <%= render 'shared/alert-event' %>
     <%= yield %>
     <script src="https://kit.fontawesome.com/8e93905009.js" crossorigin="anonymous"></script>
   </body>

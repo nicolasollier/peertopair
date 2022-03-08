@@ -4,7 +4,6 @@ class EventsController < ApplicationController
   require "net/http"
   require 'json'
 
-
   def index
     @events = Event.all
     @current_user_events = policy_scope(current_user.events)
@@ -47,6 +46,10 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.canceled = true
     @event.save
+    EventChannel.broadcast_to(
+      @event.other_user(current_user),
+      render_to_string(partial: "events/cancel_alert", locals: {event: @event})
+    )
     redirect_to dashboard_path
   end
 
