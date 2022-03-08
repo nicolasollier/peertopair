@@ -8,7 +8,7 @@
 
   overflow: hidden;
   background-color: darken($light-gray, $amount: 3);
-  
+
   .content-wrapper {
     display: flex;
     position: relative;
@@ -67,8 +67,9 @@
     border-radius: 6px;
     box-shadow: 0px 10px 35px -3px rgba(0,0,0,0.1);
   }
-
 }
+
+
 
 @media screen and (max-width: 1440px) {
   .hero-section {
@@ -129,19 +130,40 @@
 .credentials {
   display: flex;
   justify-content: center;
-  align-items: center;
-
+  flex-direction: column;
   width: 100vw;
-  height: 200px;
-
+  height: 360px;
   background-color: darken($light-gray, $amount: 0);
+  align-items: center;
+  padding: 20px;
+  .clients {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 80%;
+    gap: 20px;
+    .client-img {
+      width: 66%;
+    }
+  }
+}
+
+@media screen and (min-width: 550px) {
+  .credentials .clients {
+    flex-direction: row;
+    .client-img {
+      max-width: 30vw;
+    }
+  }
 }
 
 .infos {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  
+
   text-align: center;
   align-items: center;
 
@@ -150,8 +172,9 @@
 
   background-color: $gray;
 
-  .white {
+  .tagline-white {
     color: $white;
+    width: 80%;
   }
   .btn-white {
     margin-top: calc(18px + 2vw);
