@@ -1,0 +1,12 @@
+#popup_frame {
+  background-color: rgba(0, 0, 0, 0.8) ;
+  color: white;
+  height: 140px;
+  width: fit-content;
+  margin: 16px;
+  padding: 24px;
+  border-radius: 16px;
+  position: fixed;
+  z-index: 2 ;
+  text-align: center;
+}

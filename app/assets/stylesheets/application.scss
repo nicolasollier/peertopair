@@ -16,20 +16,22 @@ ul {
   list-style-type: none;
 }
 
-@import "pages/home";
-@import "pages/index";
 @import "components/alert";
-@import "components/hero";
 @import "components/avatar";
 @import "components/buttons";
 @import "components/card-dash";
-@import "pages/devise";
-@import "components/index";
-@import "components/navbar";
-@import "components/index";
 @import "components/footer";
-@import "pages/venue_rankings";
+@import "components/hero";
+@import "components/index";
+@import "components/index";
 @import "components/modal";
+@import "components/navbar";
+@import "components/popup-alert";
+
+@import "pages/devise";
+@import "pages/home";
+@import "pages/index";
+@import "pages/venue_rankings";
 
 * {
   font-family: 'Quicksand', sans-serif !important;

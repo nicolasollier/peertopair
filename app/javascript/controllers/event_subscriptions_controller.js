@@ -7,8 +7,15 @@ export default class extends Controller {
   connect() {
     this.channel = consumer.subscriptions.create(
       { channel: "EventChannel", id: this.userIdValue },
-      { received: data => console.log(data) }
+      // { received: data => console.log(data) }
+
+      { received: data => subscriptionsActions(data)}
     )
     console.log(`Subscribed to the event with the id ${this.userIdValue}.`)
   }
+
+  subscriptionsActions(data) {
+
+  }
+
 }
