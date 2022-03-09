@@ -7,7 +7,11 @@
     <li class="menu-item">Contacts</li>
     <li class="menu-item">F.A.Q</li>
   </ul>
-  <a href="/dashboard" class="btn cta-btn">Log in</a>
+  <% if user_signed_in? %>
+    <a href="/dashboard" class="btn cta-btn">My account</a>
+  <% else %>
+    <a href="/users/sign_in" class="btn cta-btn">Log in</a>
+  <% end %>
 </div>
 
 <div class= "hero-section">
