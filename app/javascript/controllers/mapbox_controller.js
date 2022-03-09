@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
-import mapboxgl from "!mapbox-gl"
+import mapboxgl from "mapbox-gl"
 
 export default class extends Controller {
   static values = {
@@ -15,12 +15,11 @@ export default class extends Controller {
       height: '900px',
       style: "mapbox://styles/mapbox/streets-v10"
     })
-    this.map.once('load', () => {
-      this.map.resize();
-    })
-
+    
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+    this.element.parentNode.classList.add("fold")
+    this.element.parentNode.classList.add("hide")
   }
 
   #addMarkersToMap() {
