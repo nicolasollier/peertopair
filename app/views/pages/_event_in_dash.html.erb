@@ -1,13 +1,13 @@
 <% case event.status(current_user) %>
   <% when "paired" %>
-    <p class="status-message text-center">There are two participants</p>
+    <p class="status-message text-center">We found your Peer!</p>
     <!--Besoin de connaître l'event type pour agir en fonction -->
     <% if event.event_type === "Drink" %>
-      <p class="text-center">Here's some cool bars for you where you could meet!</p>
+      <p class="text-center">According to your tastes, <%= event.venue %> is the best place to have a drink</p>
     <% elsif event.event_type === "Lunch" %>
-      <p class="text-center">Here's some cool restaurants for you where you could meet!</p>
+      <p class="text-center">According to your tastes, <%= event.venue %> is the best place to have lunch</p>
     <% elsif event.event_type === "Coffee" %>
-      <p class="status-message text-center">Here's some cool cafes for you where you could meet!</p>
+      <p class="status-message text-center">According to your tastes, <%= event.venue %> is the best place to have a coffee</p>
     <% end %>
   <% when "canceled" %>
     <p class="status-message text-center">This event has been canceled...💔</p>
