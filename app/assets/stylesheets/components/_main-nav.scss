@@ -17,6 +17,10 @@
     height: 18px;
     fill: #bbccda;
   }
+  .icn.active {
+    fill: #f8494b;
+  }
+  
   .feat-logout {
     position: absolute;
     bottom: 20px;
@@ -109,6 +113,9 @@
     margin-right: 14px;
 
     color: $gray;
+  }
+  .feat-avatar.active {
+    background-color: rgba(255, 255, 255, 0.5);
   }
 }
 
