@@ -11,7 +11,7 @@ User.destroy_all
 puts 'previous seed destroyed'
 puts 'creating new seed'
 
-user1 = User.new(email: "abc@gmail.com", password: "123456", first_name: "Nicolas", last_name: "Ollier", address: "5 rue de Menilmontant")
+user1 = User.new(email: "abc@gmail.com", password: "123456", first_name: "Nicolas", last_name: "Ollier", address: "28 rue Meslay")
 user1.save!
 puts 'user1 done!'
 
