@@ -7,7 +7,6 @@ export default class extends Controller {
 
   connect() {
     const list = document.querySelector("#results")
-    console.log(this.venueRankingTarget)
     if (list) {
       Sortable.create(this.element, {
         ghostClass: "ghost",
