@@ -13,7 +13,9 @@
 
 .dash-card-list {
   position: relative;
+  width: 100%;
   margin: 0;
+  padding-bottom: 40px;
   background-color: $light-gray;
 
   .list-header {
