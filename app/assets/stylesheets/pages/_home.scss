@@ -67,7 +67,6 @@
     border-radius: 6px;
     box-shadow: 0px 10px 35px -3px rgba(0,0,0,0.1);
   }
-
 }
 
 @media screen and (max-width: 1440px) {
@@ -128,13 +127,40 @@
 
 .credentials {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
   width: 100vw;
-  height: 200px;
+  height: 400px;
 
   background-color: darken($light-gray, $amount: 0);
+
+  .logos-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    max-width: 720px;
+    margin-top: 50px;
+  }
+
+  .brand-img {
+    object-fit: cover;
+    margin: 18px;
+    opacity: .4;
+  }
+  #renault {
+    height: 56px;  
+  }
+
+  #google {
+    height: 42px;
+  }
+  #microsoft {
+    height: 38px;
+  }
 }
 
 .infos {
@@ -157,5 +183,24 @@
   .btn-white {
     margin-top: calc(18px + 2vw);
     padding: 12px 40px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .logos-wrapper {
+    flex-direction: column;
+    margin-top: 24px !important;
+  }
+  .brand-img {
+    margin: 22px !important;
+  }
+  #renault {
+    height: 50px !important;  
+  }
+  #google {
+    height: 38px !important;
+  }
+  #microsoft {
+    height: 32px !important;
   }
 }
