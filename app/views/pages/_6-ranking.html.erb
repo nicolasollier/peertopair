@@ -1,15 +1,12 @@
 <div class="col-6 offset-3 mt-5 rank">
   <ul data-controller="rank" id="results" class="list-group results-lists mb-3" id="test" >
     <% unless @response.nil? %>
-
-      <% @response["results"].first(5).each do |result| %>
-        <% if result["rating"].class != NilClass %>
-
+      <% @response.first(5).each do |result| %>
+        <% if result["rating"].class != NilClass && result["rating"] > 2 && result["name"] != "Franprix" %>
           <li class="result-list item p-3" >
-          <p><%= result["name"].capitalize%></p> <%= result["rating"]%>/5 for
+          <p><%= result["name"]%></p> <%= result["rating"]%>/5 for
           <%= result["user_ratings_total"]%> reviews
           </li>
-
         <% end %>
       <% end %>
     <% end %>

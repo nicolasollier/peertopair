@@ -29,17 +29,15 @@ class VenueRankingsController < ApplicationController
 end
 
   def update
-    #si la somme des utilisateurs pour cette id dans la table de ranking est égal a 2 alors on rentre
-    if (UserEvent.where(event: @event.id).count) == 1
-      #On group by les notes des deux choix de chaque user pour un restaurant
+    if (UserEvent.where(event: @event.id).count) == 2
       @venues = VenueRanking.select("place_name, sum(note) as note").where(event: @event.id).where(user: current_user).group("place_name")
-      #on prend le dernier pour récupérer la best note
       @max_note = @venues.sort_by { |venue| venue.note}.last
-      #Il faut update la venue de l'event
       @event.venue = @max_note.place_name
+      address = Venue.select("address").find_by(name: @max_note.place_name)
+      @event.address = address.address
       @event.save!
     else
-      raise
+
     end
   end
 end
