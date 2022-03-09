@@ -20,9 +20,9 @@ export default class extends Controller {
   rank() {
     // evt.preventDefault()
     const list = document.querySelectorAll(".result-list p")
-    const input = document.querySelectorAll("#event_venue_rankings")
+    const input = document.querySelector("#venue_rankings_ranking")
     const ranking = Array.from(list).map(item => item.innerText).join(',')
-    input[0].value = JSON.stringify(ranking)
+    input.value = JSON.stringify(ranking)
     // const form = new FormData
     // form.append('event[ranking]', ranking)
 

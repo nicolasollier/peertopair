@@ -28,7 +28,7 @@ user4.save!
 puts 'user4 done!'
 
 event1 = Event.new(start_date: ("2022-03-04 17:30:00"), end_date: ("2022-03-04 18:00:00"),
-format: Format.sample, event_type: "Coffee", canceled: false, address: "8 rue des nanettes")
+format: Format.sample, event_type: "Coffee", canceled: false)
 event1.save!
 puts 'event1 done!'
 
@@ -41,7 +41,7 @@ user_event2.save!
 puts 'user_event2 done!'
 
 event2 = Event.new(start_date: ("2022-03-08 16:00:00"), end_date: ("2022-03-08 16:30:00"),
-format: Format.sample, event_type: "Coffee", canceled: false, address: "8 rue des nanettes")
+format: Format.sample, event_type: "Coffee", canceled: false)
 event2.save!
 puts 'event2 done!'
 
@@ -54,7 +54,7 @@ user_event8.save!
 puts 'user_event8 done!'
 
 event3 = Event.new(start_date: ("2022-03-18 13:00:00"), end_date: ("2022-03-18 14:00:00"),
-format: Format.sample, event_type: "Lunch", canceled: false, address: "8 rue des nanettes")
+format: Format.sample, event_type: "Lunch", canceled: false)
 event3.save!
 puts 'event3 done!'
 
@@ -63,7 +63,7 @@ user_event4.save!
 puts 'user_event4 done!'
 
 event4 = Event.new(start_date: ("2022-03-01 12:00:00"), end_date: ("2022-03-01 13:00:00"),
-format: Format.sample, event_type: "Lunch", canceled: false, address: "8 rue des nanettes")
+format: Format.sample, event_type: "Lunch", canceled: false)
 event4.save!
 puts 'event4 done!'
 
@@ -72,7 +72,7 @@ user_event5.save!
 puts 'user_event5 done!'
 
 event5 = Event.new(start_date: ("2022-02-15 13:00:00"), end_date: ("2022-02-15 14:00:00"),
-format: Format.sample, event_type: "Lunch", canceled: false, address: "8 rue des nanettes")
+format: Format.sample, event_type: "Lunch", canceled: false)
 event5.save!
 puts 'event5 done!'
 
@@ -81,7 +81,7 @@ user_event6.save!
 puts 'user_event6 done!'
 
 event6 = Event.new(start_date: ("2022-02-03 18:00:00"), end_date: ("2022-02-03 19:00:00"),
-format: Format.sample, event_type: "Drink", canceled: true, address: "8 rue des nanettes")
+format: Format.sample, event_type: "Drink", canceled: true)
 event6.save!
 puts 'event6 done!'
 
@@ -90,7 +90,7 @@ user_event7.save!
 puts 'user_event7 done!'
 
 # event7 = Event.new(start_date: ("2022-03-04 12:00:00"), end_date: ("2022-03-04 14:00:00"),
-# format: Format.sample, event_type: event_type.sample, canceled: false, address: "8 rue des nanettes")
+# format: Format.sample, event_type: event_type.sample, canceled: false)
 # event7.save!
 # puts 'event7 done!'
 

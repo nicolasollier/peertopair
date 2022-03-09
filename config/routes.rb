@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   get '/events/:id/cancel', to: 'events#cancel', as: 'cancel_event'
 
   resources :events do
-    resources :venue_rankings, only: [:new, :show, :create]
+    resources :venue_rankings, only: [:new, :show]
     resources :user_events
   end
+
+  post '/venue_rankings', to: 'venue_rankings#create'
+
+
 end

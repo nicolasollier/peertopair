@@ -55,6 +55,7 @@ class EventsController < ApplicationController
 
   def attach_ranking
     @event = current_user.events.last
+
   end
 
   private

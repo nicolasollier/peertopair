@@ -11,6 +11,33 @@ class VenueRankingsController < ApplicationController
   end
 
   def create
+    @event = current_user.events.last
+    i = 1
+    n = 1
+    params.dig(:venue_rankings, :ranking).gsub(/["\"]/,'').split(",").each do |rest|
+      @venueranking = VenueRanking.new
+      @venueranking.user = current_user
+      @venueranking.event = @event
+      @venueranking.rank = i
+      @venueranking.place_name = rest
+      @venueranking.note = n.round(2)
+      @venueranking.save!
+      i += 1
+      n -= 0.20
+  end
+  update()
+end
 
+  def update
+    if (UserEvent.where(event: @event.id).count) == 2
+      @venues = VenueRanking.select("place_name, sum(note) as note").where(event: @event.id).where(user: current_user).group("place_name")
+      @max_note = @venues.sort_by { |venue| venue.note}.last
+      @event.venue = @max_note.place_name
+      address = Venue.select("address").find_by(name: @max_note.place_name)
+      @event.address = address.address
+      @event.save!
+    else
+
+    end
   end
 end
