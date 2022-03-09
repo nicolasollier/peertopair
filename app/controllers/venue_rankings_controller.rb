@@ -61,6 +61,7 @@ class VenueRankingsController < ApplicationController
     address = Venue.select("address").find_by(name: @max_note.place_name)
     event.address = address.address
     event.save!
+    redirect_to dashboard_path
     else
       redirect_to dashboard_path
     end
