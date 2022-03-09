@@ -3,7 +3,11 @@ class VenueRankingsController < ApplicationController
     # @venue_ranking = VenueRanking.new
     @event = Event.find(params[:event_id])
     @userevent = UserEvent.where(user: current_user).where(event: params[:event_id])
-    @response = GetRestaurants.new(current_user, @event).call
+    # @response = GetRestaurants.new(current_user, @event).call
+    if (UserEvent.where(event: @event.id).count) == 2
+      @venues = VenueRanking.select("name").where(event: @event)
+      raise
+    end
   end
 
   def show
@@ -11,9 +15,11 @@ class VenueRankingsController < ApplicationController
   end
 
   def create
+
     @event = current_user.events.last
     i = 1
     n = 1
+    #Permet de looper sur la réponse d-none de la modal avec les restaurants
     params.dig(:venue_rankings, :ranking).gsub(/["\"]/,'').split(",").each do |rest|
       @venueranking = VenueRanking.new
       @venueranking.user = current_user
@@ -24,11 +30,13 @@ class VenueRankingsController < ApplicationController
       @venueranking.save!
       i += 1
       n -= 0.20
-  end
+    end
   update()
-end
+  end
 
   def update
+    #Si ils sont deux dans l'user event et qu'il rentre ici c'est qu'il a submit son formulaire
+    # Dans ce cas on récupère le best compromise des deux
     if (UserEvent.where(event: @event.id).count) == 2
       @venues = VenueRanking.select("place_name, sum(note) as note").where(event: @event.id).where(user: current_user).group("place_name")
       @max_note = @venues.sort_by { |venue| venue.note}.last

@@ -15,6 +15,7 @@ class EventsController < ApplicationController
   end
 
   def show
+
     @event = Event.find(params[:id])
     @events = Event.all
     @userevents = UserEvent.where("event_id = ?", params[:id])
@@ -29,6 +30,7 @@ class EventsController < ApplicationController
   end
 
   def create
+
     @event = Event.new(event_params)
     authorize @event
 
@@ -55,7 +57,6 @@ class EventsController < ApplicationController
 
   def attach_ranking
     @event = current_user.events.last
-
   end
 
   private
