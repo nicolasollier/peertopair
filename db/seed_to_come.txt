@@ -1,0 +1,70 @@
+=> [#<VenueRanking:0x0000558b98a68938
+  id: 1,
+  user_id: 5,
+  event_id: 7,
+  rank: 1,
+  place_name: "Renoma Café Gallery",
+  created_at: Wed, 09 Mar 2022 11:59:43.859288000 CET +01:00,
+  updated_at: Wed, 09 Mar 2022 11:59:43.859288000 CET +01:00,
+  note: 1.0,
+  final_note: nil>,
+ #<VenueRanking:0x0000558b98bb3518
+  id: 2,
+  user_id: 5,
+  event_id: 7,
+  rank: 2,
+  place_name: "Le Cinq",
+  created_at: Wed, 09 Mar 2022 11:59:43.900887000 CET +01:00,
+  updated_at: Wed, 09 Mar 2022 11:59:43.900887000 CET +01:00,
+  note: 0.8,
+  final_note: nil>,
+ #<VenueRanking:0x0000558b98bb3450
+  id: 3,
+  user_id: 5,
+  event_id: 7,
+  rank: 3,
+  place_name: "Hotel De Sers",
+  created_at: Wed, 09 Mar 2022 11:59:43.919995000 CET +01:00,
+  updated_at: Wed, 09 Mar 2022 11:59:43.919995000 CET +01:00,
+  note: 0.6,
+  final_note: nil>,
+ #<VenueRanking:0x0000558b98bb3360
+  id: 4,
+  user_id: 5,
+  event_id: 7,
+  rank: 4,
+  place_name: "Le Paradis du Fruit",
+  created_at: Wed, 09 Mar 2022 11:59:43.929497000 CET +01:00,
+  updated_at: Wed, 09 Mar 2022 11:59:43.929497000 CET +01:00,
+  note: 0.4,
+  final_note: nil>,
+ #<VenueRanking:0x0000558b98bb3298
+  id: 5,
+  user_id: 5,
+  event_id: 7,
+  rank: 5,
+  place_name: "Fouquet's Paris",
+  created_at: Wed, 09 Mar 2022 11:59:43.937743000 CET +01:00,
+  updated_at: Wed, 09 Mar 2022 11:59:43.937743000 CET +01:00,
+  note: 0.2,
+  final_note: nil>]
+[7] pry(main)> Event.last
+  Event Load (0.3ms)  SELECT "events".* FROM "events" ORDER BY "events"."id" DESC LIMIT $1  [["LIMIT", 1]]
+=> #<Event:0x0000558b9917c648
+ id: 7,
+ start_date: Fri, 11 Mar 2022 13:00:00.000000000 CET +01:00,
+ end_date: Fri, 11 Mar 2022 14:00:00.000000000 CET +01:00,
+ format: "Office",
+ event_type: "Lunch",
+ venue: nil,
+ created_at: Wed, 09 Mar 2022 11:59:33.290203000 CET +01:00,
+ updated_at: Wed, 09 Mar 2022 11:59:33.290203000 CET +01:00,
+ canceled: nil,
+ status: nil,
+ latitude: nil,
+ longitude: nil,
+ address: nil>
+
+
+
+not_paired.each { |event| sample_rank.each { |ranking| VenueRanking.create!(user_id: event.users.first.id, event_id: event.id, rank: ranking.rank, note: ranking.note) } }
