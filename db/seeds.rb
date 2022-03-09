@@ -55,7 +55,7 @@ user7.photo.attach(io: photo7, filename: "#{user7.first_name}.jpg")
 user7.save!
 puts 'user7 done!'
 
-event1 = Event.new(start_date: ("2022-03-09 16:00:00"), end_date: ("2022-03-09 16:30:00"), format: "Office", event_type: "Coffee", canceled: false)
+event1 = Event.new(start_date: ("2022-03-09 16:00:00"), end_date: ("2022-03-09 16:30:00"), format: "Office", event_type: "Coffee", canceled: false, venue: "Surpriz", address: "3 Rue Saint-Sébastien, 75011 Paris")
 event1.save!
 puts 'event1 done!'
 
@@ -63,17 +63,15 @@ user_event1 = UserEvent.new(user: user3, event: event1, ranking_done: false)
 user_event1.save!
 puts 'user_event1 done!'
 
-event2 = Event.new(start_date: ("2022-03-11 16:00:00"), end_date: ("2022-03-11 16:30:00"), format: "Office", event_type: "Coffee", canceled: false, address: "8 rue des nanettes", venue: "L'Etincelle")
-event2.save!
-puts 'event2 done!'
-
-user_event2 = UserEvent.new(user: user2, event: event1, ranking_done: false)
+user_event2 = UserEvent.new(user: user4, event: event1, ranking_done: false)
 user_event2.save!
 puts 'user_event2 done!'
 
+event2 = Event.new(start_date: ("2022-03-11 16:00:00"), end_date: ("2022-03-11 16:30:00"), format: "Office", event_type: "Coffee", canceled: false, venue: "L'Etincelle", address: "3 Rue Saint-Sébastien, 75011 Paris")
+event2.save!
+puts 'event2 done!'
 
-
-user_event3 = UserEvent.new(user: user2, event: event2, ranking_done: false)
+user_event3 = UserEvent.new(user: user3, event: event2, ranking_done: false)
 user_event3.save!
 puts 'user_event3 done!'
 
