@@ -11,24 +11,15 @@
   max-width: 360px;
   height: 100vh;
   background-color: darken($light-gray, $amount: 3);
-  
+
   .icn {
     width: 18px;
     height: 18px;
     fill: #bbccda;
   }
-  .logout-link {
+  .feat-logout {
     position: absolute;
-    bottom: 40px;
-    text-decoration: none;
-    width: 50%;
-    margin: 0 auto;
-    padding: 12px;
-    border-radius: 6px;
-    text-align: center;
-    color: lighten($light-gray, $amount: 3);
-
-    background-color: $gray;
+    bottom: 20px;
   }
 }
 
@@ -47,7 +38,7 @@
 
   border-radius: 6px;
   transition: all 0.1s ease;
-  
+
   &.user-menu {
     margin-top: 40px;
   }
@@ -63,27 +54,41 @@
     flex-direction: column;
     justify-content: center;
     height: 100%;
-  
+
     p {
       font-size: clamp(11px, 1vw, 18px);
       margin: 0;
       padding: 0;
     }
   }
+
+  .user-photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+
+    margin-right: 14px;
+
+    border-radius: 50%;
+  }
+
   .user-avatar {
     display: flex;
     align-items: center;
     justify-content: center;
-  
+
     width: 50px;
     height: 50px;
-  
+
     border-radius: 50%;
-  
+
     font-size: 24px;
     font-weight: 600;
     margin-right: 14px;
-  
+
     color: white;
     background-color: #f8494b;
   }
@@ -92,17 +97,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  
+
     width: 50px;
     height: 50px;
-  
+
     border-radius: 50%;
     border: 1px solid darken($light-gray, $amount: 10);
-  
+
     font-size: 24px;
     font-weight: 600;
     margin-right: 14px;
-  
+
     color: $gray;
   }
 }
