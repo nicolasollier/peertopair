@@ -3,7 +3,6 @@ class EventsController < ApplicationController
   require "open-uri"
   require "net/http"
   require 'json'
-  require 'pry-byebug'
 
   def index
     @events = Event.all
@@ -37,12 +36,7 @@ class EventsController < ApplicationController
       @userevent = UserEvent.new
       @userevent.user = current_user
       @userevent.event = @event
-
-      if @userevent.save!
-
-      else
-        render :new
-      end
+      render :new unless @userevent.save
     else
       render :new
     end
@@ -52,12 +46,16 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.canceled = true
     @event.save
+    EventChannel.broadcast_to(
+      @event.other_user(current_user),
+      render_to_string(partial: "events/cancel_alert", locals: {event: @event})
+    )
     redirect_to dashboard_path
   end
 
   def attach_ranking
     @event = current_user.events.last
-    raise
+
   end
 
   private

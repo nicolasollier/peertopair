@@ -5,36 +5,34 @@
 
 // External libraries
 @import "bootstrap/scss/bootstrap";
-@import "font-awesome-sprockets";
-@import "font-awesome";
 @import "mapbox-gl/dist/mapbox-gl";
 
 // Your CSS partials
-
-
-ul {
-  list-style-type: none;
-}
-
 @import "pages/home";
 @import "pages/index";
+@import "pages/dashboard";
+@import "pages/devise";
 @import "components/alert";
 @import "components/hero";
 @import "components/avatar";
 @import "components/buttons";
 @import "components/card-dash";
-@import "pages/devise";
 @import "components/index";
 @import "components/navbar";
+@import "components/main-nav";
 @import "components/index";
 @import "components/footer";
 @import "pages/venue_rankings";
 @import "components/modal";
 
 * {
-  font-family: 'Quicksand', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
 }
 
 body {
-  background-color: white;
+  background-color: $light-gray;
+}
+
+ul {
+  list-style-type: none;
 }

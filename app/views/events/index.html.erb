@@ -7,50 +7,52 @@
     <% end %>
 <% end %>
 
-
-<!--Affichage d'un formulaire pour proposer un créneau -->
-
-<div class="container w-80">
-  <H1>Propose a new appointment</H1>
-  <%= simple_form_for [@event] do |f| %>
-    <div class="d-flex justify-content-between flex-wrap">
-      <div class="border rounded p-2 me-1 col-5">
-        <%= f.input :start_date, label: "Start time", html5: true%>
-      </div>
-      <div class="border rounded p-2 col-5">
-        <%= f.input :end_date, html5: true %>
-      </div>
-      <div class="border rounded p-2 me-1 col-5">
-        <%= f.input :format, collection: Event::FORMAT %>
-      </div>
-      <div class="border rounded p-2 me-1 col-5">
-        <%= f.input :event_type, collection: Event::EVENT_TYPE %>
-      </div>
-    </div>
-    <%= f.button :submit, label: "End time", class: "btn-submit-green"%>
-  <% end %>
-</div>
-
-
-
 <!--Affichage des events disponible si le status est coming
  et qu'ils ne sont pas deux utilisateurs dedans -->
-
-<div class="container w-80 my-5 py-4  ">
-  <h1 class ="my-4"> Events available</h1>
-  <p>There is <strong><%= iavailable %></strong> events available</p>
-  <% @events.each do |event| %>
-    <div class="container-event d-flex justify-content-between">
-      <% if event.users.length == 1 && event.other_user(current_user) %>
-        <div class = "px-1">
-          <%= link_to event_path(event) do %>
-            <p>From <%= event.start_date.strftime("%B, %e %Y at %H:%M") %> to <%= event.end_date.strftime("%B, %e %Y at %H:%M")  %></p>
-          <% end %>
-          <%= link_to event_user_events_path(event), method: :post do %>
-            <i class="fas fa-plus"></i>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+<div class="main-wrapper">
+  <%= render 'devise/shared/main-nav' %>
+  
+  <div class="content w-75 my-5 py-4">
+    <h1 class ="my-4"> Events available</h1>
+    <p>There is <strong><%= iavailable %></strong> events available</p>
+    <% @events.each do |event| %>
+      <div class="container-event d-flex justify-content-between">
+        <% if event.users.length == 1 && event.other_user(current_user) %>
+          <div class = "px-1">
+            <%= link_to event_path(event) do %>
+              <p>From <%= event.start_date.strftime("%B, %e %Y at %H:%M") %> to <%= event.end_date.strftime("%B, %e %Y at %H:%M")  %></p>
+            <% end %>
+            <%= link_to event_user_events_path(event), method: :post do %>
+              <i class="fas fa-plus"></i>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
+
+
+<!--Affichage d'un formulaire pour proposer un créneau -->
+<%#
+<div class="container w-80">
+  <H1>Propose a new appointment</H1>
+  <%# simple_form_for [@event] do |f| %>
+    <div class="d-flex justify-content-between flex-wrap">
+      <div class="border rounded p-2 me-1 col-5">
+        <%# f.input :start_date, label: "Start time", html5: true%>
+      </div>
+      <div class="border rounded p-2 col-5">
+        <%# f.input :end_date, html5: true %>
+      </div>
+      <div class="border rounded p-2 me-1 col-5">
+        <%# f.input :format, collection: Event::FORMAT %>
+      </div>
+      <div class="border rounded p-2 me-1 col-5">
+        <%# f.input :event_type, collection: Event::EVENT_TYPE %>
+      </div>
+    </div>
+    <%# f.button :submit, label: "End time", class: "btn-submit-green"%>
+  <%# end %>
+</div>
+%>
