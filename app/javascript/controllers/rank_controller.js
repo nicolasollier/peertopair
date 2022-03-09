@@ -15,6 +15,7 @@ export default class extends Controller {
         onEnd: this.rank.bind(this)
       })
     }
+    this.rank()
   }
 
   rank() {

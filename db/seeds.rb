@@ -11,9 +11,11 @@ User.destroy_all
 puts 'previous seed destroyed'
 puts 'creating new seed'
 
+
 user1 = User.new(email: "nicolas@renault.com", password: "123456", first_name: "Nicolas", last_name: "Ollier", address: "5 rue de Menilmontant", department: "IT", job_title: "Chief Technical Officer")
 photo1 = URI.open('https://media-exp1.licdn.com/dms/image/C5603AQHtPYPXOcW6_A/profile-displayphoto-shrink_800_800/0/1563874170099?e=1652313600&v=beta&t=EfQGdWFw_X7rKBEAPZIx2k62BvsSGTkNXUru8O0Viwk')
 user1.photo.attach(io: photo1, filename: "#{user1.first_name}.jpg")
+
 user1.save!
 puts 'user1 done!'
 

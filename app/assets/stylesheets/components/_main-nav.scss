@@ -17,6 +17,19 @@
     height: 18px;
     fill: #bbccda;
   }
+  .logout-link {
+    position: absolute;
+    bottom: 40px;
+    text-decoration: none;
+    width: 50%;
+    margin: 0 auto;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    color: lighten($light-gray, $amount: 3);
+
+    background-color: $gray;
+  }
 }
 
 .user-section {
@@ -112,5 +125,11 @@
     .feat-avatar {
       margin: 0 auto
     }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main-nav {
+    display: none;
   }
 }
