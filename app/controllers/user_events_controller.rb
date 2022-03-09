@@ -8,9 +8,10 @@ class UserEventsController < ApplicationController
     authorize @userevent
 
     if @userevent.save!
+      raise
       EventChannel.broadcast_to(
         @event.other_user(current_user),
-        render_to_string(partial: "events/pairing_alert", locals: {event: @event})
+        render_to_string(partial: "events/pairing_alert", locals: { event: @event })
       )
       redirect_to event_path(@event)
     else
