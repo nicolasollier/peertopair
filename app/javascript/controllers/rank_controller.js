@@ -6,8 +6,10 @@ export default class extends Controller {
   static targets = ["submit", "venueRanking", "result", "element"]
 
   connect() {
+
     console.log(this.element)
     if (this.resultTarget) {
+
       Sortable.create(this.element, {
         ghostClass: "ghost",
         animation: 150,

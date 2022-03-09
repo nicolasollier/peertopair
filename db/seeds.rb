@@ -55,7 +55,9 @@ user7.photo.attach(io: photo7, filename: "#{user7.first_name}.jpg")
 user7.save!
 puts 'user7 done!'
 
+
 # #######Vincent start
+
 
 # event1 = Event.new(start_date: ("2022-03-09 16:00:00"), end_date: ("2022-03-09 16:30:00"), format: "Office", event_type: "Coffee", canceled: false)
 # event1.save!
@@ -69,6 +71,7 @@ puts 'user7 done!'
 # user_event2.save!
 # puts 'user_event2 done!'
 
+
 # event2 = Event.new(start_date: ("2022-03-11 16:00:00"), end_date: ("2022-03-11 16:30:00"), format: "Office", event_type: "Coffee", canceled: false)
 # event2.save!
 # puts 'event2 done!'
@@ -76,6 +79,7 @@ puts 'user7 done!'
 # user_event3 = UserEvent.new(user: user3, event: event2, ranking_done: false)
 # user_event3.save!
 # puts 'user_event3 done!'
+
 
 # user_event8 = UserEvent.new(user: user5, event: event2, ranking_done: false)
 # user_event8.save!
@@ -88,6 +92,7 @@ puts 'user7 done!'
 # user_event4 = UserEvent.new(user: user3, event: event3, ranking_done: false)
 # user_event4.save!
 # puts 'user_event4 done!'
+
 
 # event4 = Event.new(start_date: ("2022-03-04 12:00:00"), end_date: ("2022-03-04 13:00:00"), format: "Office", event_type: "Lunch", canceled: false)
 # event4.save!

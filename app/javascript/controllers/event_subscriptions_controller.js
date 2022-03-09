@@ -13,7 +13,6 @@ export default class extends Controller {
         this.#displayAlert(data)
       },
     )
-    console.log(`Subscribed to the event with the id ${this.userIdValue}.`)
   }
 
   reset() {

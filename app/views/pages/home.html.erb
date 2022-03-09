@@ -7,7 +7,11 @@
     <li class="menu-item">Contacts</li>
     <li class="menu-item">F.A.Q</li>
   </ul>
-  <a href="/dashboard" class="btn cta-btn">Log in</a>
+  <% if user_signed_in? %>
+    <a href="/dashboard" class="btn cta-btn">My account</a>
+  <% else %>
+    <a href="/users/sign_in" class="btn cta-btn">Log in</a>
+  <% end %>
 </div>
 
 <div class= "hero-section">
@@ -35,9 +39,9 @@
 <section class="credentials">
   <h3>They already trust us:</h3>
   <div class="logos-wrapper">
-    <%= image_tag "brands/google", class: "brand-img", id:"google" %>
-    <%= image_tag "brands/microsoft", class: "brand-img", id:"microsoft" %>
-    <%= image_tag "brands/renault", class: "brand-img", id:"renault" %>
+    <%= image_tag "brands/google.png", class: "brand-img", id:"google" %>
+    <%= image_tag "brands/microsoft.png", class: "brand-img", id:"microsoft" %>
+    <%= image_tag "brands/renault.png", class: "brand-img", id:"renault" %>
   </div>
 </section>
 

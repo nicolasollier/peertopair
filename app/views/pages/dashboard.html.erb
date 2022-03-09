@@ -1,6 +1,5 @@
- 4.5/5 for 253 reviews
-Ran<%= render 'devise/shared/mobile-nav' %>
 
+<%= render 'devise/shared/mobile-nav' %>
 <div class="main-wrapper">
   <%= render 'devise/shared/main-nav' %>
 
@@ -30,12 +29,26 @@ Ran<%= render 'devise/shared/mobile-nav' %>
 
             <p class="card-event-type"><%= event.event_type %></p>
             <p class="date-place"><%= event.start_date.strftime("%d-%m-%Y at  %H:%M") %></p>
-            <p class="date-place"> KFC La Chapelle </p>
+            <p class="date-place"> <%= event.venue %> </p>
 
             <div data-card-dash-target="unfold" class="fold hide">
                 <%= render "event_in_dash", event: event %>
+                <% if event.status(current_user) == "paired" %>
+                  <div style="width: 100%; height: 300px;"
+                       data-controller="mapbox"
+                       data-mapbox-markers-value="<%=
+                        [{lat: event.latitude, lng: event.longitude}].to_json
+                        %>"
+                       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+                  </div>
+                <% end %>
                 <% if event.status(current_user) != "passed" && event.status(current_user) != "canceled" %>
-                  <%= link_to "Cancel", cancel_event_path(event), method: :get, class:"btn rounded-pill cancel-card px-3 py-2"%>
+                  <%=
+                    link_to "Cancel",
+                            cancel_event_path(event),
+                            method: :get,
+                            class:"btn rounded-pill cancel-card px-3 py-2"
+                  %>
                 <% else %>
                   <br>
                 <% end %>
