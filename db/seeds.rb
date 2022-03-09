@@ -63,15 +63,17 @@ user_event1 = UserEvent.new(user: user3, event: event1, ranking_done: false)
 user_event1.save!
 puts 'user_event1 done!'
 
-user_event2 = UserEvent.new(user: user4, event: event1, ranking_done: false)
-user_event2.save!
-puts 'user_event2 done!'
-
-event2 = Event.new(start_date: ("2022-03-11 16:00:00"), end_date: ("2022-03-11 16:30:00"), format: "Office", event_type: "Coffee", canceled: false)
+event2 = Event.new(start_date: ("2022-03-11 16:00:00"), end_date: ("2022-03-11 16:30:00"), format: "Office", event_type: "Coffee", canceled: false, address: "8 rue des nanettes", venue: "L'Etincelle")
 event2.save!
 puts 'event2 done!'
 
-user_event3 = UserEvent.new(user: user3, event: event2, ranking_done: false)
+user_event2 = UserEvent.new(user: user2, event: event1, ranking_done: false)
+user_event2.save!
+puts 'user_event2 done!'
+
+
+
+user_event3 = UserEvent.new(user: user2, event: event2, ranking_done: false)
 user_event3.save!
 puts 'user_event3 done!'
 
@@ -79,7 +81,7 @@ user_event8 = UserEvent.new(user: user5, event: event2, ranking_done: false)
 user_event8.save!
 puts 'user_event8 done!'
 
-event3 = Event.new(start_date: ("2022-03-22 13:00:00"), end_date: ("2022-03-22 14:00:00"), format: "Office", event_type: "Lunch", canceled: false)
+event3 = Event.new(start_date: ("2022-03-22 13:00:00"), end_date: ("2022-03-22 14:00:00"), format: "Office", event_type: "Lunch", canceled: false, address: "8 rue des nanettes")
 event3.save!
 puts 'event3 done!'
 
