@@ -7,6 +7,8 @@
   position: sticky;
   top: 0;
 
+  width: 30vw;
+  max-width: 360px;
   height: 100vh;
   background-color: darken($light-gray, $amount: 3);
   
@@ -50,6 +52,7 @@
     height: 100%;
   
     p {
+      font-size: clamp(11px, 1vw, 18px);
       margin: 0;
       padding: 0;
     }
@@ -92,8 +95,13 @@
 }
 
 @media screen and (max-width: 950px) {
+  .main-nav {
+    width: 18vw;
+  }
+
   .user-section {
     justify-content: center;
+    padding: 0;
 
     .user-avatar {
       margin: 0 auto;
@@ -105,5 +113,10 @@
       margin: 0 auto
     }
   }
+}
 
+@media screen and (max-width: 480px) {
+  .main-nav {
+    display: none;
+  }
 }
