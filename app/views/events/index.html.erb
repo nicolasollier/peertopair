@@ -4,71 +4,83 @@
 <div class="main-wrapper">
   <%= render 'devise/shared/main-nav' %>
 
-  <div class="content w-75">
+  <div class="content">
     <section class="dash-card-list">
       <%# For each event display: %>
       <ul class="card-list-wrapper">
         <div class="hero hero-dashboard">
           <div class="text-wrappe">
-            <h1 class="mb-4 ">Create a new event!</h1>
-            <a class="btn btn-primary w-100 py-2" id="create-event-start" data-bs-toggle="modal" data-bs-target="#ModalCreateEvent">Let's go!</a>
+            <h1 class="mb-4 ">
+              Join an existing event!
+            </h1>
+            <a class="btn btn-primary w-100 py-2" id="create-event-start" data-bs-toggle="modal" data-bs-target="#ModalCreateEvent">
+              Or create your own !
+            </a>
           </div>
           <%= image_tag 'family-pack/family7.svg', class: "illustation-hero-left" %>
           <%= image_tag 'family-pack/family4.svg', class: "illustation-hero-right" %>
         </div>
+
         <div class="list-header my-4 py-2">
-          <h3>My Dashboard</h3>
+          <h3>Browse through events</h3>
           <hr>
         </div>
 
-        <% @events.each do |event| %>
+        <% @events.filter { |e| e.status(e.users.first) == "pairing"}.each do |event| %>
           <div class="card-dash mb-2">
             <p class="card-event-type"><%= event.event_type %></p>
             <p class="date-place"><%= event.start_date.strftime("%d-%m-%Y at  %H:%M") %></p>
               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sortting-<%= event.id %>">
-                Launch static backdrop modal
+              <button type="button" class="btn btn-primary join-btn" data-bs-toggle="modal" data-bs-target="#sortting-<%= event.id %>">
+                Join this event !
               </button>
           </div>
 
-              <!-- Modal -->
-              <div class="modal fade" id="sortting-<%= event.id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="sortting-p<%= event.id %>Label" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
+          <!-- Modal -->
+          <div class="modal fade" id="sortting-<%= event.id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="sortting-p<%= event.id %>Label" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
 
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Rate the venues</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <div data-controller="rank" data-rank-target="result" class="list-group results-lists mb-3" >
+                    <ul>
 
-                    <div class="modal-body">
-                      <ul data-controller="rank" id="results" class="list-group results-lists mb-3" id="test" >
-                          <% VenueRanking.all.where(event: event).each do |result| %>
-                            <li class="result-list item p-3" >
+                      <% VenueRanking.all.where(event: event).each do |result| %>
+                        <li class="result-list item p-3" >
+                          <p data-rank-target="element">
+                            <%= result.place_name%>
+                          </p>
+                          <%= result["rating"]%>/5 for
+                          <%= result["user_ratings_total"]%> reviews
+                        </li>
+                      <% end %>
 
-                            <p><%= result.place_name%></p> <%= result["rating"]%>/5 for
-                            <%= result["user_ratings_total"]%> reviews
-                            </li>
-                          <% end %>
-                        <div class=''>
-                          <%= simple_form_for @event do |f| %>
-                            <%= f.input :venue_rankings, input_html: { data: {"rank-target" => "venueRanking"} }  %>
-                          <% end %>
-                        </div>
-                      </ul>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Understood</button>
-                    </div>
+                      <%= simple_form_for :venue_rankings, url: venue_rankings_path, method: :post  do |f| %>
+                        <%= f.input :ranking, input_html: { data: {"rank-target" => "venueRanking"} }  %>
+                        <%= f.input :event_id, input_html: { value: event.id } %>
+                        <%= f.input :user_id, input_html: { value: event.users.first.id } %>
+                        <%= f.submit "Rank!", class: "btn btn-primary" %>
+                      <% end %>
+                    </ul>
                   </div>
                 </div>
-              </div>
-        <% end %>
 
-      <!-- Button trigger modal -->
-    <button type="button" class="btn rounded-pill sign-up-btn mt-5 mb-5" data-bs-toggle="modal" data-bs-target="#ModalCreateEvent">
-    Add new event
-    </button>
-  </div>
+                <div class="modal-footer">
+
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+        <% end %>
+      </div>
+    </ul>
+  </section>
 </div>

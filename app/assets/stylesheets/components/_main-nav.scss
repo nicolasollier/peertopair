@@ -17,6 +17,10 @@
     height: 18px;
     fill: #bbccda;
   }
+  .icn.active {
+    fill: #f8494b;
+  }
+  
   .feat-logout {
     position: absolute;
     bottom: 20px;
@@ -110,6 +114,9 @@
 
     color: $gray;
   }
+  .feat-avatar.active {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
 }
 
 @media screen and (max-width: 950px) {
@@ -122,6 +129,9 @@
     padding: 0;
 
     .user-avatar {
+      margin: 0 auto;
+    }
+    .user-photo {
       margin: 0 auto;
     }
     .txt-wrapper {

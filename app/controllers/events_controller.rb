@@ -40,7 +40,7 @@ class EventsController < ApplicationController
       @userevent.event = @event
       render :new unless @userevent.save
     else
-      render :new
+
     end
   end
 
