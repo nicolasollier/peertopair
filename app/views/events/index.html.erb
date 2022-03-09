@@ -1,58 +1,71 @@
-<!--Compter le nombre de réservations disponible -->
-<% iavailable = 0 %>
-<% @events.each do |event| %>
-
-    <% if event.users.length == 1 && event.other_user(current_user) %>
-      <% iavailable += 1 %>
-    <% end %>
-<% end %>
-
-<!--Affichage des events disponible si le status est coming
- et qu'ils ne sont pas deux utilisateurs dedans -->
 <div class="main-wrapper">
   <%= render 'devise/shared/main-nav' %>
-  
-  <div class="content w-75 my-5 py-4">
-    <h1 class ="my-4"> Events available</h1>
-    <p>There is <strong><%= iavailable %></strong> events available</p>
-    <% @events.each do |event| %>
-      <div class="container-event d-flex justify-content-between">
-        <% if event.users.length == 1 && event.other_user(current_user) %>
-          <div class = "px-1">
-            <%= link_to event_path(event) do %>
-              <p>From <%= event.start_date.strftime("%B, %e %Y at %H:%M") %> to <%= event.end_date.strftime("%B, %e %Y at %H:%M")  %></p>
-            <% end %>
-            <%= link_to event_user_events_path(event), method: :post do %>
-              <i class="fas fa-plus"></i>
-            <% end %>
+
+  <div class="content w-75">
+    <section class="dash-card-list">
+      <%# For each event display: %>
+      <ul class="card-list-wrapper">
+        <div class="hero hero-dashboard">
+          <div class="text-wrappe">
+            <h1 class="mb-4 ">Create a new event!</h1>
+            <a class="btn btn-primary w-100 py-2" id="create-event-start" data-bs-toggle="modal" data-bs-target="#ModalCreateEvent">Let's go!</a>
           </div>
+          <%= image_tag 'family-pack/family7.svg', class: "illustation-hero-left" %>
+          <%= image_tag 'family-pack/family4.svg', class: "illustation-hero-right" %>
+        </div>
+        <div class="list-header my-4 py-2">
+          <h3>My Dashboard</h3>
+          <hr>
+        </div>
+
+        <% @events.each do |event| %>
+          <div class="card-dash mb-2">
+            <p class="card-event-type"><%= event.event_type %></p>
+            <p class="date-place"><%= event.start_date.strftime("%d-%m-%Y at  %H:%M") %></p>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sortting-<%= event.id %>">
+                Launch static backdrop modal
+              </button>
+          </div>
+
+              <!-- Modal -->
+              <div class="modal fade" id="sortting-<%= event.id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="sortting-p<%= event.id %>Label" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                      <ul data-controller="rank" id="results" class="list-group results-lists mb-3" id="test" >
+                          <% VenueRanking.all.where(event: event).each do |result| %>
+                            <li class="result-list item p-3" >
+
+                            <p><%= result.place_name%></p> <%= result["rating"]%>/5 for
+                            <%= result["user_ratings_total"]%> reviews
+                            </li>
+                          <% end %>
+                        <div class=''>
+                          <%= simple_form_for @event do |f| %>
+                            <%= f.input :venue_rankings, input_html: { data: {"rank-target" => "venueRanking"} }  %>
+                          <% end %>
+                        </div>
+                      </ul>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Understood</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
         <% end %>
-      </div>
-    <% end %>
+
+      <!-- Button trigger modal -->
+    <button type="button" class="btn rounded-pill sign-up-btn mt-5 mb-5" data-bs-toggle="modal" data-bs-target="#ModalCreateEvent">
+    Add new event
+    </button>
   </div>
 </div>
-
-
-<!--Affichage d'un formulaire pour proposer un créneau -->
-<%#
-<div class="container w-80">
-  <H1>Propose a new appointment</H1>
-  <%# simple_form_for [@event] do |f| %>
-    <div class="d-flex justify-content-between flex-wrap">
-      <div class="border rounded p-2 me-1 col-5">
-        <%# f.input :start_date, label: "Start time", html5: true%>
-      </div>
-      <div class="border rounded p-2 col-5">
-        <%# f.input :end_date, html5: true %>
-      </div>
-      <div class="border rounded p-2 me-1 col-5">
-        <%# f.input :format, collection: Event::FORMAT %>
-      </div>
-      <div class="border rounded p-2 me-1 col-5">
-        <%# f.input :event_type, collection: Event::EVENT_TYPE %>
-      </div>
-    </div>
-    <%# f.button :submit, label: "End time", class: "btn-submit-green"%>
-  <%# end %>
-</div>
-%>
