@@ -6,13 +6,22 @@ export default class extends Controller {
   static targets = [ "alert", "content" ]
 
   connect() {
+    console.log(this.hasTotoTarget)
     this.channel = consumer.subscriptions.create(
       { channel: "EventChannel", id: this.userIdValue },
       // { received: data => console.log(data) }
-      { received: data =>
+      { received: (data) => {
         this.#displayAlert(data)
+        // window.location.reload()
+        console.log(data.event_status)
+        console.log(data.event_id)
+      }
       },
     )
+  }
+
+  disconnect() {
+    this.channel.unsubscribe()
   }
 
   reset() {
@@ -21,8 +30,13 @@ export default class extends Controller {
   }
 
   #displayAlert(data) {
-    this.alertTarget.insertAdjacentHTML("beforeend", data)
-    this.alertTarget.classList.remove("now-you-don-t")
+    this.alertTarget.insertAdjacentHTML("beforeend", data.alert);
+    this.alertTarget.classList.remove("now-you-don-t");
+    if (data.event_status === "canceled") {
+      const destroy = document.getElementById(data.event_id);
+      console.log(destroy);
+      destroy.remove()
+    }
     setTimeout(() => this.reset(), 5000)
   }
 }

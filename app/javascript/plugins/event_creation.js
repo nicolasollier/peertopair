@@ -20,9 +20,13 @@ const eventCreation = () => {
   const initDown = document.querySelector("#create-event-start-down")
 
     // Flow du script
+  if (init) {
+    docVar.deltaDay = initialisation(init, docVar)
+  }
 
-  docVar.deltaDay = initialisation(init, docVar)
-  docVar.deltaDay = initialisation(initDown, docVar)
+  if (initDown) {
+    docVar.deltaDay = initialisation(initDown, docVar)
+  }
 
   docVar.when.forEach((elt) => {
     thisWhen(elt, docVar)

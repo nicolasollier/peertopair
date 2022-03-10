@@ -32,7 +32,8 @@
 
             <div class="card-dash mb-2"
                  data-controller="card-dash"
-                 data-action="click->card-dash#unfold">
+                 data-action="click->card-dash#unfold"
+                 id=<%= event.id %>>
 
               <div class="badge card-badge <%= event.status(current_user)%>">
                 <% if event.status(current_user) == "now" %>

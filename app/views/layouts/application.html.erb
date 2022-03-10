@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-        
+
     <title>Peer To Pair. Connect internally, create opportunities.</title>
     <meta name="description" content="<%= meta_description %>">
 
@@ -38,9 +38,12 @@
     <%= render 'shared/ios_pwa_links' %>
 
   </head>
-  <body data-controller="menu">
-    <%= render 'shared/alert-event' %>
-    <%= yield %>
-    <script src="https://kit.fontawesome.com/8e93905009.js" crossorigin="anonymous"></script>
+  <body data-controller="menu event-subscriptions"
+    data-event-subscriptions-user-id-value="<%= current_user.id %>">
+
+
+      <%= render 'shared/alert-event' %>
+      <%= yield %>
+      <script src="https://kit.fontawesome.com/8e93905009.js" crossorigin="anonymous"></script>
   </body>
 </html>
