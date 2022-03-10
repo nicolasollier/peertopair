@@ -1,6 +1,6 @@
 <% case event.status(current_user) %>
   <% when "paired" %>
-    <p class="status-message text-center">We found your Peer!</p>
+    <p class="status-message text-center">We found you a Peer!</p>
     <!--Besoin de connaître l'event type pour agir en fonction -->
     <% if event.event_type === "Drink" %>
       <p class="text-center">According to your tastes, <%= event.venue %> is the best place to have a drink</p>
