@@ -36,14 +36,13 @@
 
               <div class="badge card-badge <%= event.status(current_user)%>">
                 <% if event.status(current_user) == "now" %>
-                  Get ready in to meet in <%= time_ago_in_words(event.start_date) %>!
+                  Get ready to meet in <%= time_ago_in_words(event.start_date) %>!
                 <% elsif event.status(current_user) == "paired" %>
                   Event in <%= time_ago_in_words(event.start_date) %>
                 <% elsif event.status(current_user) == "pairing" %>
-                  Waiting for a Peer
+                  Waiting for a Peer to accept
                 <% end %>
               </div>
-
 
               <p class="card-event-type">
                 <% if event.event_type == "Coffee" %>
@@ -91,7 +90,6 @@
                 <% end %>
                 <%= event.event_type %> at <%= event.venue %>
               </p>
-
               <p class="date-place">on <%= event.start_date.strftime("%A %B %d, %Y at %l:%M%P") %></p>
 
               <div data-card-dash-target="unfold" class="<%= "hide fold" unless event.status(current_user) == "paired" %>">
@@ -105,6 +103,12 @@
                         data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
                     </div>
                   <% end %>
+                  <%# <div  class="chevron-container">
+                    <svg data-card-dash-target="chevron"
+                         class="chevron-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"  fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                        <path d="M30 20 L16 8 2 20" />
+                    </svg>
+                  </div> %>
                   <% if event.status(current_user) == "now" %>
                     <% counter = UserEvent.all.where.not(user: current_user).where(event: event) %>
                     <% id_user = counter[0].user_id %>
@@ -123,15 +127,21 @@
                   <% end %>
                   <% if event.status(current_user) != "passed" && event.status(current_user) != "canceled" %>
                     <%=
-                      link_to "Cancel",
+                      link_to "Cancel event",
                               cancel_event_path(event),
                               method: :get,
-                              class:"btn rounded-pill cancel-card px-3 py-2"
+                              class:"btn rounded-pill cancel-card btn-sm"
                     %>
                   <% else %>
                     <br>
                   <% end %>
               </div>
+                <div  class="chevron-container">
+                    <svg data-card-dash-target="chevron"
+                         class="chevron-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"  fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                        <path d="M30 20 L16 8 2 20" />
+                    </svg>
+                  </div>
             </div>
           <% end %>
         <% end %>
@@ -149,3 +159,10 @@
     <%= render "create_new_event" %>
   </div>
 </div>
+
+<style>
+  svg.rotate {
+    transform: rotate(180deg);
+  }
+
+</style>
