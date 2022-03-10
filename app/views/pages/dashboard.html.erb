@@ -102,21 +102,26 @@
                         data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
                     </div>
                   <% end %>
-                  <%# <div  class="chevron-container">
-                    <svg data-card-dash-target="chevron"
-                         class="chevron-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"  fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-                        <path d="M30 20 L16 8 2 20" />
-                    </svg>
-                  </div> %>
                   <% if event.status(current_user) == "now" %>
                     <% counter = UserEvent.all.where.not(user: current_user).where(event: event) %>
                     <% id_user = counter[0].user_id %>
                     <% counter = User.all.where(id: id_user) %>
-                    <%= cl_image_tag counter[0].photo.key, height: 300, width: 400, crop: :fill %>
-                    <p>Tadaaaa ! You will meet <%= counter[0].first_name %> <%= counter[0].last_name %>  </p>
-                    <p>Job title : <%= counter[0].job_title %></p>
-                    <p>Department : <%= counter[0].department %></p>
-                    <div style="width: 100%; height: 300px;"
+                    <hr>
+                    <div class="peer-card">
+                      <div class="peer-photo">
+                        <%= cl_image_tag counter[0].photo.key, :transformation=>[
+                          {:gravity=>"face", :height=>500, :width=>500, :crop=>"crop"},
+                          {:radius=>"max"},
+                          {:width=>58, :crop=>"scale"}
+                          ] %>
+                      </div>
+                      <div class="peer-desc">
+                        <p id="first-line">You will meet <strong><%= counter[0].first_name %> <%= counter[0].last_name %></strong>! </p>
+                        <p>Job title: <%= counter[0].job_title %></p>
+                        <p>Department: <%= counter[0].department %></p>
+                      </div>
+                    </div>
+                    <div class="event-map" style="width: 100%; height: 300px;"
                         data-controller="mapbox"
                         data-mapbox-markers-value="<%=
                           [{lat: event.latitude, lng: event.longitude}].to_json
@@ -129,18 +134,18 @@
                       link_to "Cancel event",
                               cancel_event_path(event),
                               method: :get,
-                              class:"btn rounded-pill cancel-card btn-sm"
+                              class:"cancel-btn"
                     %>
                   <% else %>
                     <br>
                   <% end %>
               </div>
-                <div  class="chevron-container">
-                    <svg data-card-dash-target="chevron"
-                         class="chevron-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"  fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-                        <path d="M30 20 L16 8 2 20" />
-                    </svg>
-                  </div>
+              <div class="chevron-container">
+                <svg data-card-dash-target="chevron"
+                  class="chevron-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"  fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                  <path d="M30 12 L16 24 2 12" />
+                </svg>
+              </div>
             </div>
           <% end %>
         <% end %>
