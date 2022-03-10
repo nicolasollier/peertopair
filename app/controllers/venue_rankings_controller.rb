@@ -83,7 +83,7 @@ class VenueRankingsController < ApplicationController
   private
 
   def venue_ranking_params
-    params.require(:venue_rankings).permit(:rank, :event_id, :user_id )
+    params.require(:venue_rankings).permit(:rank, :event_id, :user_id)
   end
 
 end
