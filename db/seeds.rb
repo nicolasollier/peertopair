@@ -56,7 +56,7 @@ puts 'user4 done!'
 
 # #######Vincent start
 
-event1 = Event.new(start_date: ("2022-03-10 11:00:00"), end_date: ("2022-03-10 12:00:00"), format: "Office", event_type: "Coffee", canceled: false)
+event1 = Event.new(start_date: ("2022-03-10 13:00:00"), end_date: ("2022-03-10 14:00:00"), format: "Office", event_type: "Coffee", canceled: false)
 event1.save!
 puts 'event1 done!'
 
