@@ -4,7 +4,7 @@
   font-weight: 600;
   color: white;
 
-  background-color: $blue3;
+  background-color: #E63946;
 }
 
 .btn-white {
@@ -29,4 +29,10 @@
   padding: 14px 34px;
 
   box-shadow: rgb(57, 113, 255) 0px 16px 70px -18px
+}
+
+.light-btn {
+  border-radius: 0 0 10px 10px;
+  border: none;
+  margin: 0;
 }
