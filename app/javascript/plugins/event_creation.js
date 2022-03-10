@@ -5,6 +5,7 @@ const eventCreation = () => {
   // récupération des valeurs des boutons
 
   const init = document.querySelector("#create-event-start")
+  const initDown = document.querySelector("#create-event-start-down")
   const when = document.querySelectorAll(".when")
   const month = document.querySelectorAll(".month")
   const week = document.querySelectorAll(".week")
@@ -18,7 +19,6 @@ const eventCreation = () => {
   // logique de chaque page
 
     function initialisation(elt) {
-
       elt.addEventListener("click", (init) => {
 
       // initialisation des variables
@@ -242,6 +242,8 @@ const eventCreation = () => {
     // Flow du script
 
     initialisation(init)
+
+    initialisation(initDown)
 
     when.forEach((elt) => {
       thisWhen(elt)

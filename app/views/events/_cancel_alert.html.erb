@@ -1,11 +1,23 @@
-<div id="content" data-event-subscriptions-target="content">
+<div id="content"
+    data-event-subscriptions-target="content"
+    class="alert alert-warning alert-dismissible fade show p-3"
+    role="alert">
+  <div class="d-flex align-items-center justify-content-between">
+    <h1>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-emoji-neutral" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M4 10.5a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7a.5.5 0 0 0-.5.5zm3-4C7 5.672 6.552 5 6 5s-1 .672-1 1.5S5.448 8 6 8s1-.672 1-1.5zm4 0c0-.828-.448-1.5-1-1.5s-1 .672-1 1.5S9.448 8 10 8s1-.672 1-1.5z"/>
+      </svg>
+    </h1>
+    <div class="p-3 me-3">
+      Your lunch on <%= event.start_date %> has been canceled !
+    </div>
 
-  <h4>Your lunch on <%= event.start_date %> has been canceled !</h4>
-    <a class="btn btn-primary w-100 py-2"
-    id="create-event-start"
-    data-controller="event_subscriptions"
-    data-action="click->event-subscriptions#reset">
-    Got it !
-  </a>
+    <button type="button"
+            class="btn-close p-3"
+            data-bs-dismiss="alert"
+            aria-label="Close">
+    </button>
+  </div>
 
 </div>

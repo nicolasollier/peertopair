@@ -10,7 +10,12 @@
         <div class="hero hero-dashboard">
           <div class="text-wrappe">
             <h1 class="mb-4 ">Create a new event!</h1>
-            <a class="btn btn-primary w-100 py-2" id="create-event-start" data-bs-toggle="modal" data-bs-target="#ModalCreateEvent">Let's go!</a>
+            <a class="btn btn-primary w-100 py-2"
+               id="create-event-start"
+               data-bs-toggle="modal"
+               data-bs-target="#ModalCreateEvent">
+                Let's go!
+            </a>
           </div>
           <%= image_tag 'family-pack/family7.svg', class: "illustation-hero-left" %>
           <%= image_tag 'family-pack/family4.svg', class: "illustation-hero-right" %>
@@ -26,8 +31,8 @@
           event.status(current_user) =="pairing" %>
 
             <div class="card-dash mb-2"
-                data-controller="card-dash"
-                data-action="click->card-dash#unfold">
+                 data-controller="card-dash"
+                 data-action="click->card-dash#unfold">
 
               <div class="badge card-badge <%= event.status(current_user)%>">
                 <% if event.status(current_user) == "now" %>
@@ -132,8 +137,12 @@
         <% end %>
 
       <!-- Button trigger modal -->
-    <button type="button" class="btn rounded-pill sign-up-btn mt-5 mb-5" data-bs-toggle="modal" data-bs-target="#ModalCreateEvent">
-    Add new event
+    <button type="button"
+            id="create-event-start-down"
+            class="btn rounded-pill sign-up-btn mt-5 mb-5"
+            data-bs-toggle="modal"
+            data-bs-target="#ModalCreateEvent">
+      Add new event
     </button>
 
     <!-- Modal -->
