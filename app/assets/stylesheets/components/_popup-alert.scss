@@ -13,9 +13,10 @@
 
 .now-you-see-me {
   display: block;
+  transition: 1000ms;
 }
 
 .now-you-don-t {
-  transition: 1500ms;
   display: none;
+  transition: 1500ms;
 }

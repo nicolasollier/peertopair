@@ -23,6 +23,6 @@ export default class extends Controller {
   #displayAlert(data) {
     this.alertTarget.insertAdjacentHTML("beforeend", data)
     this.alertTarget.classList.remove("now-you-don-t")
-    // setTimeout(() => this.reset(), 4000)
+    setTimeout(() => this.reset(), 5000)
   }
 }
