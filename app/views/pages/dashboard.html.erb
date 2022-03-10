@@ -39,7 +39,6 @@
                 <% end %>
               </div>
 
-
               <p class="card-event-type">
                 <% if event.event_type == "Coffee" %>
                   <svg version="1.1" class="event-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -86,7 +85,6 @@
                 <% end %>
                 <%= event.event_type %> at <%= event.venue %>
               </p>
-
               <p class="date-place">on <%= event.start_date.strftime("%A %B %d, %Y at %l:%M%P") %></p>
 
               <div data-card-dash-target="unfold" class="fold hide">
@@ -100,9 +98,14 @@
                         data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
                     </div>
                   <% end %>
+                  <div data-card-dash-target="chevron" class="chevron-container">
+                    <svg class="chevron-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"  fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                        <path d="M30 20 L16 8 2 20" />
+                    </svg>
+                  </div>
                   <% if event.status(current_user) != "passed" && event.status(current_user) != "canceled" %>
                     <%=
-                      link_to "Cancel",
+                      link_to "Cancel event",
                               cancel_event_path(event),
                               method: :get,
                               class:"btn rounded-pill cancel-card px-3 py-2"
@@ -110,6 +113,11 @@
                   <% else %>
                     <br>
                   <% end %>
+              </div>
+              <div data-card-dash-target="chevron" class="chevron-container">
+                <svg class="chevron-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"  fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M30 12 L16 24 2 12" />
+                </svg>
               </div>
             </div>
           <% end %>

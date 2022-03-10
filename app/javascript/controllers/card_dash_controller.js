@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = [ "unfold" ]
+  static targets = [ "unfold", "chevron" ]
   connect() {
   };
 
@@ -14,10 +14,12 @@ export default class extends Controller {
         item.classList.add("hide");
       })
       this.unfoldTarget.classList.remove("hide");
+      this.chevronTarget.classList.toggle("d-none");
 
     } else {
 
       this.unfoldTarget.classList.add("hide");
+      this.chevronTarget.classList.toggle("d-none");
 
     }
   }

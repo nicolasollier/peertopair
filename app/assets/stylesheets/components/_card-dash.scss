@@ -17,7 +17,7 @@
 }
 
 .card-dash:hover {
-  background-color:#E9F2F7;
+  background-color:#f7f7f7;
 }
 
 .dash-card-list {
@@ -116,4 +116,24 @@
   width: 16px;
   fill: $gray;
   vertical-align: -1px
+}
+
+.chevron-container {
+  position: relative;
+}
+
+.chevron-bottom {
+  width: 20px;
+  stroke: #808080;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.chevron-top {
+  width: 20px;
+  stroke: #808080;
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }

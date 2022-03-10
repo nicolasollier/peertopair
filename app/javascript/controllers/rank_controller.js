@@ -20,7 +20,7 @@ export default class extends Controller {
   }
 
   rank() {
-    // const this.elementTarget = document.querySelectorAll(".result-this.elementTarget p")
+    const this.elementTarget = document.querySelectorAll(".result-this.elementTarget p")
     const ranking = Array.from(this.elementTargets).map(item => item.outerText).join(',')
     this.venueRankingTarget.value = JSON.stringify(ranking)
     console.log(this.elementTarget.innerText)
