@@ -39,7 +39,7 @@
 
   </head>
   <body data-controller="menu event-subscriptions"
-    data-event-subscriptions-user-id-value="<%= current_user.id %>">
+    data-event-subscriptions-user-id-value="<%= current_user.id if current_user %>">
 
 
       <%= render 'shared/alert-event' %>

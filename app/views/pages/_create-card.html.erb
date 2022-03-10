@@ -61,7 +61,7 @@
   </p>
   <p class="date-place">on <%= event.start_date.strftime("%A %B %d, %Y at %l:%M%P") %></p>
 
-  <div data-card-dash-target="unfold" class="<%= "hide fold" unless event.status(current_user) == "paired" %>">
+  <div data-card-dash-target="unfold" class="<%= "hide fold" unless  ["paired","now"].include?(event.status(current_user)) %>">
       <%= render "pages/event_in_dash", event: event %>
       <% if event.status(current_user) == "paired" %>
         <div style="width: 100%; height: 300px;"
