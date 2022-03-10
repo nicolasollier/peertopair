@@ -1,5 +1,5 @@
 <div class="lunch" style="display: none;">
-  <%= simple_form_for(@event) do |f| %>
+  <%= simple_form_for(@event, remote: true) do |f| %>
     <%= f.input :start_date, as: :datetime, html5: true, label: false, input_html: { id: "event-start-date" } %>
     <%= f.input :end_date, as: :datetime, html5: true, label: false, input_html: { id: "event-end-date" } %>
     <%= f.input :event_type, label: false, input_html: { id: "event-type" } %>
