@@ -50,11 +50,10 @@ class EventsController < ApplicationController
     @event.save
     EventChannel.broadcast_to(
       @event.other_user(current_user), {
-        alert: render_to_string(partial: "events/cancel_alert", locals: {event: @event}),
+        alert: render_to_string(partial: "events/cancel_alert", locals: { event: @event }),
         event_id: @event.id,
         event_status: @event.status(current_user)
       }
-
     )
     redirect_to dashboard_path
   end

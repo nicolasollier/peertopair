@@ -6,7 +6,6 @@ export default class extends Controller {
   static targets = [ "alert", "content" ]
 
   connect() {
-    console.log(this.hasTotoTarget)
     this.channel = consumer.subscriptions.create(
       { channel: "EventChannel", id: this.userIdValue },
       // { received: data => console.log(data) }
@@ -32,11 +31,21 @@ export default class extends Controller {
   #displayAlert(data) {
     this.alertTarget.insertAdjacentHTML("beforeend", data.alert);
     this.alertTarget.classList.remove("now-you-don-t");
+    const selectedCard = document.getElementById(data.event_id);
+
     if (data.event_status === "canceled") {
-      const destroy = document.getElementById(data.event_id);
-      console.log(destroy);
-      destroy.remove()
+      selectedCard.remove()
     }
+
+    if (data.event_status === "paired") {
+      console.log('on y est presque')
+      console.log(data.card_content)
+      console.log(selectedCard)
+      selectedCard.outerHTML = data.card_content
+    }
+
     setTimeout(() => this.reset(), 5000)
+
+
   }
 }
