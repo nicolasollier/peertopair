@@ -15,7 +15,6 @@ class VenueRankingsController < ApplicationController
 
   def create
     @venueranking = VenueRanking.new(venue_ranking_params)
-
     if @venueranking.valid?
       i = 1
       n = 1
