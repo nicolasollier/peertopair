@@ -1,114 +1,118 @@
-<div class="card-dash mb-2"
-      data-controller="card-dash"
-      data-action="click->card-dash#unfold"
-      id=<%= event.id %>>
+ <div class="card-dash mb-2"
+                 data-controller="card-dash"
+                 data-action="click->card-dash#unfold">
 
-  <div class="badge card-badge <%= event.status(current_user)%>">
-    <% if event.status(current_user) == "now" %>
-      Get ready to meet in <%= time_ago_in_words(event.start_date) %>!
-    <% elsif event.status(current_user) == "paired" %>
-      Event in <%= time_ago_in_words(event.start_date) %>
-    <% elsif event.status(current_user) == "pairing" %>
-      Waiting for a Peer to accept
-    <% end %>
-  </div>
+              <div class="badge card-badge <%= event.status(current_user)%>">
+                <% if event.status(current_user) == "now" %>
+                  Get ready to meet in <%= time_ago_in_words(event.start_date) %>!
+                <% elsif event.status(current_user) == "paired" %>
+                  Event in <%= time_ago_in_words(event.start_date) %>
+                <% elsif event.status(current_user) == "pairing" %>
+                  Waiting for a Peer to accept
+                <% end %>
+              </div>
 
-  <p class="card-event-type">
-    <% if event.event_type == "Coffee" %>
-      <svg version="1.1" class="event-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-        viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
-        <g>
-          <path d="M23,28H3c-0.6,0-1,0.4-1,1s0.4,1,1,1h20c0.6,0,1-0.4,1-1S23.6,28,23,28z"/>
-          <path d="M25,11c-0.7,0-1.4,0.2-2,0.6V11c0-0.6-0.4-1-1-1H4c-0.6,0-1,0.4-1,1v6.2C3,22.6,7.5,27,13,27c4.2,0,7.8-2.5,9.3-6.1
-            C23,21.6,23.9,22,25,22c2.2,0,4-1.8,4-4v-3C29,12.8,27.2,11,25,11z M27,18c0,1.1-0.9,2-2,2s-2-0.9-2-2v-0.8V15c0-1.1,0.9-2,2-2
-            s2,0.9,2,2V18z"/>
-          <path d="M13,9c0.2,0,0.4-0.1,0.6-0.2c0.5-0.3,0.6-0.9,0.3-1.4c-1-1.5-1-3.4,0-4.9c0.3-0.5,0.2-1.1-0.3-1.4
-            c-0.5-0.3-1.1-0.2-1.4,0.3c-1.4,2.2-1.4,5,0,7.1C12.4,8.8,12.7,9,13,9z"/>
-          <path d="M9,9c0.2,0,0.4-0.1,0.6-0.2c0.5-0.3,0.6-0.9,0.3-1.4c-1-1.5-1-3.4,0-4.9c0.3-0.5,0.2-1.1-0.3-1.4C9.1,0.9,8.5,1,8.2,1.4
-            c-1.4,2.2-1.4,5,0,7.1C8.4,8.8,8.7,9,9,9z"/>
-          <path d="M17,9c0.2,0,0.4-0.1,0.6-0.2c0.5-0.3,0.6-0.9,0.3-1.4c-1-1.5-1-3.4,0-4.9c0.3-0.5,0.2-1.1-0.3-1.4
-            c-0.5-0.3-1.1-0.2-1.4,0.3c-1.4,2.2-1.4,5,0,7.1C16.4,8.8,16.7,9,17,9z"/>
-        </g>
-      </svg>
-    <% elsif event.event_type == "Drink" %>
-      <svg version="1.1" class="event-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-          viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
-        <style type="text/css">
-          .st0{fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-        </style>
-        <path d="M27.7,10.7c0.3-0.3,0.3-0.7,0.2-1.1C27.8,9.2,27.4,9,27,9H12.4L9,4.7l4.5-2.9c0.4-0.2,0.5-0.7,0.4-1.1C13.8,0.3,13.4,0,13,0
-          H5C4.6,0,4.2,0.2,4.1,0.6l-3,7C0.9,8,1,8.5,1.4,8.8C1.5,8.9,1.8,9,2,9c0.2,0,0.4-0.1,0.5-0.2l4.8-3.1L9.8,9H5C4.6,9,4.2,9.2,4.1,9.6
-          C3.9,10,4,10.4,4.3,10.7L15,22.4V30h-3c-0.6,0-1,0.4-1,1s0.4,1,1,1h8c0.6,0,1-0.4,1-1s-0.4-1-1-1h-3v-7.6L27.7,10.7z M24.7,11
-          l-1.8,2h-7.4l-1.6-2H24.7z M11.4,11l1.6,2H9.1l-1.8-2H11.4z"/>
-      </svg>
-    <% elsif event.event_type == "Lunch" %>
-      <svg version="1.1" class="event-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-          viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
-        <g>
-          <path d="M20.6,12.8c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3l5.4-5.4c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-5.4,5.4
-            C20.2,11.8,20.2,12.4,20.6,12.8z"/>
-          <path d="M30.1,10.1c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-4.9,4.9c-1.3,1.3-2.5,2-3.7,2c-0.2,0-0.5,0-0.7,0.1L17.7,14
-            c0-0.2,0.1-0.5,0.1-0.7c0.1-1.1,0.8-2.4,2-3.7l4.9-4.9c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-4.9,4.9c-1.3,1.3-2.1,2.7-2.5,4L7.2,3.5
-            c-0.4-0.4-1-0.4-1.4,0c-2.9,2.9-2.9,7.7,0,10.7l8.3,8.3c0.3,0.3,0.7,0.4,1.1,0.2c1.1-0.5,2.4-0.2,3.2,0.8l4.1,5.1
-            c0.6,0.8,1.5,1.2,2.5,1.3c0.1,0,0.1,0,0.2,0c0.9,0,1.8-0.4,2.5-1c0.7-0.7,1-1.5,1-2.5s-0.4-1.8-1-2.5l-6.5-6.5
-            c1.3-0.3,2.7-1.1,4-2.5L30.1,10.1z"/>
-          <path d="M4.7,24.2c-0.7,0.6-1.2,1.4-1.3,2.3c-0.1,0.9,0.3,1.8,0.9,2.5C4.9,29.7,5.7,30,6.6,30c0.1,0,0.2,0,0.2,0
-            c0.9-0.1,1.8-0.5,2.3-1.2l3.7-4.6l-3.6-3.6L4.7,24.2z"/>
-        </g>
-      </svg>
-    <% end %>
-    <%= event.event_type %> at <%= event.venue %>
-  </p>
-  <p class="date-place">on <%= event.start_date.strftime("%A %B %d, %Y at %l:%M%P") %></p>
+              <p class="card-event-type">
+                <% if event.event_type == "Coffee" %>
+                  <svg version="1.1" class="event-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+                    <g>
+                      <path d="M23,28H3c-0.6,0-1,0.4-1,1s0.4,1,1,1h20c0.6,0,1-0.4,1-1S23.6,28,23,28z"/>
+                      <path d="M25,11c-0.7,0-1.4,0.2-2,0.6V11c0-0.6-0.4-1-1-1H4c-0.6,0-1,0.4-1,1v6.2C3,22.6,7.5,27,13,27c4.2,0,7.8-2.5,9.3-6.1
+                        C23,21.6,23.9,22,25,22c2.2,0,4-1.8,4-4v-3C29,12.8,27.2,11,25,11z M27,18c0,1.1-0.9,2-2,2s-2-0.9-2-2v-0.8V15c0-1.1,0.9-2,2-2
+                        s2,0.9,2,2V18z"/>
+                      <path d="M13,9c0.2,0,0.4-0.1,0.6-0.2c0.5-0.3,0.6-0.9,0.3-1.4c-1-1.5-1-3.4,0-4.9c0.3-0.5,0.2-1.1-0.3-1.4
+                        c-0.5-0.3-1.1-0.2-1.4,0.3c-1.4,2.2-1.4,5,0,7.1C12.4,8.8,12.7,9,13,9z"/>
+                      <path d="M9,9c0.2,0,0.4-0.1,0.6-0.2c0.5-0.3,0.6-0.9,0.3-1.4c-1-1.5-1-3.4,0-4.9c0.3-0.5,0.2-1.1-0.3-1.4C9.1,0.9,8.5,1,8.2,1.4
+                        c-1.4,2.2-1.4,5,0,7.1C8.4,8.8,8.7,9,9,9z"/>
+                      <path d="M17,9c0.2,0,0.4-0.1,0.6-0.2c0.5-0.3,0.6-0.9,0.3-1.4c-1-1.5-1-3.4,0-4.9c0.3-0.5,0.2-1.1-0.3-1.4
+                        c-0.5-0.3-1.1-0.2-1.4,0.3c-1.4,2.2-1.4,5,0,7.1C16.4,8.8,16.7,9,17,9z"/>
+                    </g>
+                  </svg>
+                <% elsif event.event_type == "Drink" %>
+                  <svg version="1.1" class="event-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                      viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+                    <style type="text/css">
+                      .st0{fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+                    </style>
+                    <path d="M27.7,10.7c0.3-0.3,0.3-0.7,0.2-1.1C27.8,9.2,27.4,9,27,9H12.4L9,4.7l4.5-2.9c0.4-0.2,0.5-0.7,0.4-1.1C13.8,0.3,13.4,0,13,0
+                      H5C4.6,0,4.2,0.2,4.1,0.6l-3,7C0.9,8,1,8.5,1.4,8.8C1.5,8.9,1.8,9,2,9c0.2,0,0.4-0.1,0.5-0.2l4.8-3.1L9.8,9H5C4.6,9,4.2,9.2,4.1,9.6
+                      C3.9,10,4,10.4,4.3,10.7L15,22.4V30h-3c-0.6,0-1,0.4-1,1s0.4,1,1,1h8c0.6,0,1-0.4,1-1s-0.4-1-1-1h-3v-7.6L27.7,10.7z M24.7,11
+                      l-1.8,2h-7.4l-1.6-2H24.7z M11.4,11l1.6,2H9.1l-1.8-2H11.4z"/>
+                  </svg>
+                <% elsif event.event_type == "Lunch" %>
+                  <svg version="1.1" class="event-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                      viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+                    <g>
+                      <path d="M20.6,12.8c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3l5.4-5.4c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-5.4,5.4
+                        C20.2,11.8,20.2,12.4,20.6,12.8z"/>
+                      <path d="M30.1,10.1c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-4.9,4.9c-1.3,1.3-2.5,2-3.7,2c-0.2,0-0.5,0-0.7,0.1L17.7,14
+                        c0-0.2,0.1-0.5,0.1-0.7c0.1-1.1,0.8-2.4,2-3.7l4.9-4.9c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-4.9,4.9c-1.3,1.3-2.1,2.7-2.5,4L7.2,3.5
+                        c-0.4-0.4-1-0.4-1.4,0c-2.9,2.9-2.9,7.7,0,10.7l8.3,8.3c0.3,0.3,0.7,0.4,1.1,0.2c1.1-0.5,2.4-0.2,3.2,0.8l4.1,5.1
+                        c0.6,0.8,1.5,1.2,2.5,1.3c0.1,0,0.1,0,0.2,0c0.9,0,1.8-0.4,2.5-1c0.7-0.7,1-1.5,1-2.5s-0.4-1.8-1-2.5l-6.5-6.5
+                        c1.3-0.3,2.7-1.1,4-2.5L30.1,10.1z"/>
+                      <path d="M4.7,24.2c-0.7,0.6-1.2,1.4-1.3,2.3c-0.1,0.9,0.3,1.8,0.9,2.5C4.9,29.7,5.7,30,6.6,30c0.1,0,0.2,0,0.2,0
+                        c0.9-0.1,1.8-0.5,2.3-1.2l3.7-4.6l-3.6-3.6L4.7,24.2z"/>
+                    </g>
+                  </svg>
+                <% end %>
+                <%= event.event_type %> at <%= event.venue %>
+              </p>
+              <p class="date-place">on <%= event.start_date.strftime("%A %B %d, %Y at %l:%M%P") %></p>
 
-  <div data-card-dash-target="unfold" class="<%= "hide fold" unless event.status(current_user) == "paired" %>">
-      <%= render "pages/event_in_dash", event: event %>
-      <% if event.status(current_user) == "paired" %>
-        <div style="width: 100%; height: 300px;"
-            data-controller="mapbox"
-            data-mapbox-markers-value="<%=
-              [{lat: event.latitude, lng: event.longitude}].to_json
-              %>"
-            data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
-      <% end %>
-      <%# <div  class="chevron-container">
-        <svg data-card-dash-target="chevron"
-              class="chevron-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"  fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-            <path d="M30 20 L16 8 2 20" />
-        </svg>
-      </div> %>
-      <% if event.status(current_user) == "now" %>
-        <% counter = UserEvent.all.where.not(user: current_user).where(event: event) %>
-        <% id_user = counter[0].user_id %>
-        <% counter = User.all.where(id: id_user) %>
-        <%= cl_image_tag counter[0].photo.key, height: 300, width: 400, crop: :fill %>
-        <p>Tadaaaa ! You will meet <%= counter[0].first_name %> <%= counter[0].last_name %>  </p>
-        <p>Job title : <%= counter[0].job_title %></p>
-        <p>Department : <%= counter[0].department %></p>
-        <div style="width: 100%; height: 300px;"
-            data-controller="mapbox"
-            data-mapbox-markers-value="<%=
-              [{lat: event.latitude, lng: event.longitude}].to_json
-              %>"
-            data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
-      <% end %>
-      <% if event.status(current_user) != "passed" && event.status(current_user) != "canceled" %>
-        <%=
-          link_to "Cancel event",
-                  cancel_event_path(event),
-                  method: :get,
-                  class:"btn rounded-pill cancel-card btn-sm"
-        %>
-      <% else %>
-        <br>
-      <% end %>
-  </div>
-    <div  class="chevron-container">
-        <svg data-card-dash-target="chevron"
-              class="chevron-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"  fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-            <path d="M30 20 L16 8 2 20" />
-        </svg>
-      </div>
-</div>
+              <div data-card-dash-target="unfold" class="<%= "hide fold" unless event.status(current_user) == "paired" %>">
+                  <%= render "event_in_dash", event: event %>
+                  <% if event.status(current_user) == "paired" %>
+                    <div style="width: 100%; height: 300px;"
+                        data-controller="mapbox"
+                        data-mapbox-markers-value="<%=
+                          [{lat: event.latitude, lng: event.longitude}].to_json
+                          %>"
+                        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+                    </div>
+                  <% end %>
+                  <% if event.status(current_user) == "now" %>
+                    <% counter = UserEvent.all.where.not(user: current_user).where(event: event) %>
+                    <% id_user = counter[0].user_id %>
+                    <% counter = User.all.where(id: id_user) %>
+                    <hr>
+                    <div class="peer-card">
+                      <div class="peer-photo">
+                        <%= cl_image_tag counter[0].photo.key, :transformation=>[
+                          {:gravity=>"face", :height=>500, :width=>500, :crop=>"crop"},
+                          {:radius=>"max"},
+                          {:width=>58, :crop=>"scale"}
+                          ] %>
+                      </div>
+                      <div class="peer-desc">
+                        <p id="first-line">You will meet <strong><%= counter[0].first_name %> <%= counter[0].last_name %></strong>! </p>
+                        <p>Job title: <%= counter[0].job_title %></p>
+                        <p>Department: <%= counter[0].department %></p>
+                      </div>
+                    </div>
+                    <div class="event-map" style="width: 100%; height: 300px;"
+                        data-controller="mapbox"
+                        data-mapbox-markers-value="<%=
+                          [{lat: event.latitude, lng: event.longitude}].to_json
+                          %>"
+                        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+                    </div>
+                  <% end %>
+                  <% if event.status(current_user) != "passed" && event.status(current_user) != "canceled" %>
+                    <%=
+                      link_to "Cancel event",
+                              cancel_event_path(event),
+                              method: :get,
+                              class:"cancel-btn"
+                    %>
+                  <% else %>
+                    <br>
+                  <% end %>
+              </div>
+              <div class="chevron-container">
+                <svg data-card-dash-target="chevron"
+                  class="chevron-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"  fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                  <path d="M30 12 L16 24 2 12" />
+                </svg>
+              </div>
+            </div>
