@@ -9,7 +9,7 @@
 .card-dash {
   position: relative;
   width: 100%;
-  padding: 24px;
+  padding: 30px;
   border-radius: 8px;
   background-color: $white;
   box-shadow: 0 3px 3px -1px rgba(10,22,70,.1),0 0 1px 0 rgba(10,22,70,.06);
@@ -17,7 +17,7 @@
 }
 
 .card-dash:hover {
-  background-color:#f7f7f7;
+  background-color:#fcfcfc;
 }
 
 .dash-card-list {
@@ -136,6 +136,59 @@
   position: absolute;
   top: 50%;
   left: 50%;
+}
+
+.peer-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.peer-photo {
+  padding-right: 20px;
+  & img {
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+.peer-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 11px;
+
+  p {
+    margin: 0;
+  }
+}
+
+#first-line {
+  font-size :16px;
+  margin-bottom: 4px;
+}
+
+.event-map {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.cancel-btn {
+  background-color: #fb024a;
+  color: white;
+  padding: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 0.7em;
+  float: right;
+}
+
+.cancel-btn:hover {
+  color: white;
 }
 
 .mapboxgl-canvas {

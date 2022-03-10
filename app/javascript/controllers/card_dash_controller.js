@@ -14,19 +14,22 @@ export default class extends Controller {
     // sélectionner l'ensemble des éléments et les 'replier'
     // this.elements à déplier
 
-
-    console.log(this.chevronTarget);
+    // console.log(this.chevronTarget);
     this.chevronTarget.classList.toggle('rotate');
 
     if (somethings.contains("hide")) {
+      // show
+      console.log('show')
       everything.forEach((item) => {
         item.classList.add("hide");
       })
       this.unfoldTarget.classList.remove("hide");
-
+      this.chevronTarget.closest('div').style.transform = 'translate(0px, 25px)';
     } else {
-
-      this.unfoldTarget.classList.add("hide");
+      console.log('hide')
+      // hide
+      this.chevronTarget.style.transform = '';
+      this.unfoldTarget.closest('div').classList.add("hide");
     }
   }
 

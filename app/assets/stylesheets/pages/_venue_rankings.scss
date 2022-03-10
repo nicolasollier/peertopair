@@ -23,6 +23,11 @@
     margin: 0;
     font-weight: 600;
   }
+  cursor: grab;
+}
+.result-list:active {
+
+  cursor: grabbing;
 }
 
 .result-list__item {
