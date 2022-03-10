@@ -3,6 +3,26 @@
   flex-direction: column;
 
   height: fit-content;
+  border-radius: 10px;
+    box-shadow: rgba(0, 0, 0,2%) 0px 0px 1.87823px 0px, rgba(0, 0, 0,  10%) 0px 0px 15px 0px;
+    background-color: rgba(45, 99, 183, 0.38);
+}
+
+.venue_rankings {
+  width: 25%;
+}
+
+.result-list {
+  background: whitesmoke;
+  /* border: 2px solid mediumvioletred; */
+  border-radius: 10px;
+  margin: 10px 40px;
+  padding: 20px 50px;
+  box-shadow: 0 0 30px #00000026;
+  & p {
+    margin: 0;
+    font-weight: 600;
+  }
 }
 
 .result-list__item {
@@ -12,10 +32,11 @@
   border: solid 1px rgb(211, 211, 211);
   background-color: white;
 
+
   :active {
     cursor: grabbing;
   }
-  
+
   .ghost {
     filter: grayscale(1);
     opacity: 0.5;
