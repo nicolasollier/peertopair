@@ -58,19 +58,13 @@ function initialisation(elt, docVar) {
 
   // initialisation des variables
   docVar.deltaDay = 0;
-  const when = document.querySelectorAll(".when")
-  const month = document.querySelectorAll(".month")
-  const week = document.querySelectorAll(".week")
-  const day = document.querySelectorAll(".day")
-  const lunch = document.querySelectorAll(".lunch")
-  const rank = document.querySelectorAll(".rank")
 
   // réinitialisation de l'affichage
-  onOff(elt, day, when)
-  onOff(elt, month, when)
-  onOff(elt, week, when)
-  onOff(elt, lunch, when)
-  onOff(elt, rank, when)
+  onOff(elt, docVar.day, docVar.when)
+  onOff(elt, docVar.month, docVar.when)
+  onOff(elt, docVar.week, docVar.when)
+  onOff(elt, docVar.lunch, docVar.when)
+  onOff(elt, docVar.rank, docVar.when)
 
   return docVar.deltaDay
   })
@@ -203,9 +197,7 @@ function thisLunch(elt, docVar) {
   const form = elt.querySelector("form");
 
   form.addEventListener("submit", (event) => {
-
     onOff(elt, docVar.lunch, docVar.rank)
-
   })
 }
 
