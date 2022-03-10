@@ -10,7 +10,12 @@
         <div class="hero hero-dashboard">
           <div class="text-wrappe">
             <h1 class="mb-4 ">Create a new event!</h1>
-            <a class="btn btn-primary w-100 py-2" id="create-event-start" data-bs-toggle="modal" data-bs-target="#ModalCreateEvent">Let's go!</a>
+            <a class="btn btn-primary w-100 py-2"
+               id="create-event-start"
+               data-bs-toggle="modal"
+               data-bs-target="#ModalCreateEvent">
+                Let's go!
+            </a>
           </div>
           <%= image_tag 'family-pack/family7.svg', class: "illustation-hero-left" %>
           <%= image_tag 'family-pack/family4.svg', class: "illustation-hero-right" %>
@@ -26,8 +31,8 @@
           event.status(current_user) =="pairing" %>
 
             <div class="card-dash mb-2"
-                data-controller="card-dash"
-                data-action="click->card-dash#unfold">
+                 data-controller="card-dash"
+                 data-action="click->card-dash#unfold">
 
               <div class="badge card-badge <%= event.status(current_user)%>">
                 <% if event.status(current_user) == "now" %>
@@ -87,7 +92,7 @@
               </p>
               <p class="date-place">on <%= event.start_date.strftime("%A %B %d, %Y at %l:%M%P") %></p>
 
-              <div data-card-dash-target="unfold" class="fold hide">
+              <div data-card-dash-target="unfold" class="<%= "hide fold" unless event.status(current_user) == "paired" %>">
                   <%= render "event_in_dash", event: event %>
                   <% if event.status(current_user) == "paired" %>
                     <div style="width: 100%; height: 300px;"
@@ -103,6 +108,22 @@
                         <path d="M30 20 L16 8 2 20" />
                     </svg>
                   </div>
+                  <% if event.status(current_user) == "now" %>
+                    <% counter = UserEvent.all.where.not(user: current_user).where(event: event) %>
+                    <% id_user = counter[0].user_id %>
+                    <% counter = User.all.where(id: id_user) %>
+                    <%= cl_image_tag counter[0].photo.key, height: 300, width: 400, crop: :fill %>
+                    <p>Tadaaaa ! You will meet <%= counter[0].first_name %> <%= counter[0].last_name %>  </p>
+                    <p>Job title : <%= counter[0].job_title %></p>
+                    <p>Department : <%= counter[0].department %></p>
+                    <div style="width: 100%; height: 300px;"
+                        data-controller="mapbox"
+                        data-mapbox-markers-value="<%=
+                          [{lat: event.latitude, lng: event.longitude}].to_json
+                          %>"
+                        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+                    </div>
+                  <% end %>
                   <% if event.status(current_user) != "passed" && event.status(current_user) != "canceled" %>
                     <%=
                       link_to "Cancel event",
@@ -124,8 +145,12 @@
         <% end %>
 
       <!-- Button trigger modal -->
-    <button type="button" class="btn rounded-pill sign-up-btn mt-5 mb-5" data-bs-toggle="modal" data-bs-target="#ModalCreateEvent">
-    Add new event
+    <button type="button"
+            id="create-event-start-down"
+            class="btn rounded-pill sign-up-btn mt-5 mb-5"
+            data-bs-toggle="modal"
+            data-bs-target="#ModalCreateEvent">
+      Add new event
     </button>
 
     <!-- Modal -->
