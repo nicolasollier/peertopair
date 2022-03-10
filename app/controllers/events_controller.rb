@@ -15,6 +15,7 @@ class EventsController < ApplicationController
   end
 
   def show
+
     @event = Event.find(params[:id])
     @events = Event.all
     @userevents = UserEvent.where("event_id = ?", params[:id])
@@ -23,21 +24,24 @@ class EventsController < ApplicationController
     @markers.push(
       {
         lat: @event.latitude,
-        lng: @event.longitude
+        lng: @event.longitude,
         # info_window: render_to_string(partial: "info_window", locals: { event: event })
-      }
-    )
+      })
   end
 
   def create
+
     @event = Event.new(event_params)
     authorize @event
-    return unless @event.save
 
-    @userevent = UserEvent.new
-    @userevent.user = current_user
-    @userevent.event = @event
-    render :new unless @userevent.save
+    if @event.save
+      @userevent = UserEvent.new
+      @userevent.user = current_user
+      @userevent.event = @event
+      render :new unless @userevent.save
+    else
+
+    end
   end
 
   def cancel

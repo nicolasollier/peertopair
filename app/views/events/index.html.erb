@@ -47,7 +47,7 @@
                   <ul data-controller="rank" data-rank-target="result" class="list-group results-lists mb-3" >
 
 
-                      <% VenueRanking.all.where(event: event).each do |result| %>
+                      <% VenueRanking.all.where(event: event).last(5).each do |result| %>
                         <li class="result-list item p-3" >
                           <p data-rank-target="element">
                             <%= result.place_name%>
@@ -58,9 +58,9 @@
                       <% end %>
 
                       <%= simple_form_for :venue_rankings, url: venue_rankings_path, method: :post  do |f| %>
-                        <%= f.input :ranking, input_html: { data: {"rank-target" => "venueRanking"} }  %>
-                        <%= f.input :event_id, input_html: { value: event.id } %>
-                        <%= f.input :user_id, input_html: { value: event.users.first.id } %>
+                        <%= f.input :ranking, :as => :hidden, input_html: { data: {"rank-target" => "venueRanking"} }  %>
+                        <%= f.input :event_id, :as => :hidden, input_html: { value: event.id } %>
+                        <%= f.input :user_id, :as => :hidden, input_html: { value: event.users.first.id } %>
                         <%= f.submit "Rank!", class: "btn btn-primary" %>
                       <% end %>
                     </ul>

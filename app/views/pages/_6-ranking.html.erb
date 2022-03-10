@@ -13,7 +13,7 @@
     <div class=''>
       <%= simple_form_for :venue_rankings, url: venue_rankings_path, method: :post  do |f| %>
         <%# raise %>
-        <%= f.input :ranking, input_html: { data: {"rank-target" => "venueRanking"} }  %>
+        <%= f.input :ranking, :as => :hidden, input_html: { data: {"rank-target" => "venueRanking"} }  %>
         <%= f.submit "Rank!", class: "btn btn-primary" %>
       <% end %>
     </div>
