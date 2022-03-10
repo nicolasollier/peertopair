@@ -2,10 +2,10 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
 
   width: 100%;
   min-height: 320px;
+  padding: 60px;
   overflow: hidden;
   border-radius: 10px;
 
@@ -13,19 +13,53 @@
   color: black;
 
   background-color: darken($light-gray, $amount: 3);
+
+  .text-wrapper {
+    width: 45%;
+    z-index: 120;
+  }
+  a {
+    max-width: 300px;
+  }
 }
 
-.illustation-hero-left {
+.illustation-hero {
   position: absolute;
-  transform: translate(62%, 0%);
-  width: 760px;
-  min-height: 760px;
+  z-index: 100;
+  transform: translateX(70%);
+  height: 380px;
 }
 
-.illustation-hero-right {
-  position: absolute;
-  transform: translate(-60%, 0%);
-  width: 760px;
-  min-height: 760px;
+@media screen and (max-width: 950px) {
+  
+  .hero {
+    .text-wrapper {
+      width: 100%;
+      a {
+        max-width: 200px;
+      }
+    }
+  }
+
+  .illustation-hero {
+    transform: translateX(40%);
+  }
 }
 
+@media screen and (max-width: 480px) {
+  .hero {
+    padding: 20px;
+  }
+  .illustation-hero {
+    transform: translateX(35%);
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .hero {
+    padding: 20px;
+  }
+  .illustation-hero {
+    transform: translateX(25%);
+  }
+}
