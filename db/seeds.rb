@@ -71,7 +71,7 @@ puts 'user7 done!'
 
 # café now Stephan x Luca
 
-event1 = Event.new(start_date: ("2022-03-11 11:30:00"), end_date: ("2022-03-11 12:00:00"), format: "Office", event_type: "Coffee", canceled: false, venue: "Café de Paris", address: "40 Av. George V 75008 Paris")
+event1 = Event.new(start_date: ("2022-03-11 14:00:00"), end_date: ("2022-03-11 14:30:00"), format: "Office", event_type: "Coffee", canceled: false, venue: "Café de Paris", address: "40 Av. George V 75008 Paris")
 event1.save!
 puts 'event1 done!'
 
