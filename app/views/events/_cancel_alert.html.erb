@@ -10,7 +10,7 @@
       </svg>
     </h1>
     <div class="p-3 me-3">
-      Your lunch on <%= event.start_date %> has been canceled !
+      Your lunch on <%= event.start_date.strftime("%A %B %d, %Y at %l:%M%P") %> has been canceled !
     </div>
 
     <button type="button"
