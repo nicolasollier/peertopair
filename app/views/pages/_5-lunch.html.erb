@@ -1,9 +1,15 @@
 <div class="lunch" style="display: none;">
+
+  <div class="modal-header justify-content-center">
+    <h5 class="modal-title" id="ModalCreateEventLabel">When ?</h5>
+  </div>
+
+
   <%= simple_form_for(@event, remote: true) do |f| %>
-    <%= f.input :start_date, as: :datetime, html5: true, label: false, input_html: { id: "event-start-date", style: 'display:none' } %>
+    <%= f.input :start_date, as: :datetime, html5: true, label: false, input_html: { id: "event-start-date" } %>
     <%= f.input :end_date, as: :datetime, html5: true, label: false, input_html: { id: "event-end-date", style: 'display:none' } %>
     <%= f.input :event_type, label: false, input_html: { id: "event-type", style: 'display:none' } %>
     <%= f.input :format, label: false, input_html: { id: "event-format", style: 'display:none' } %>
-    <%= f.submit class: 'btn rounded-pill sign-up-btn mb-5', input_html: { id: "submit-create-event"} %>
+    <%= f.submit class: 'btn rounded-pill sign-up-btn mb-1', input_html: { id: "submit-create-event"} %>
   <% end %>
 </div>

@@ -1,11 +1,18 @@
-<div class="modal fade" id="ModalCreateEvent" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ModalCreateEventLabel" aria-hidden="true">
+<div class="modal fade"
+     id="ModalCreateEvent"
+     data-bs-backdrop="static"
+     data-bs-keyboard="false"
+     tabindex="-1"
+     aria-labelledby="ModalCreateEventLabel"
+     aria-hidden="true">
+
   <div class="align-items-center d-flex justify-content-center modal-dialog">
     <div class="modal-content justify-content-between">
 <%#       <div class="modal-header justify-content-center">
         <h5 class="modal-title" id="ModalCreateEventLabel">When ?</h5>
       </div> %>
 
-      <div class="creation"
+      <div class="creation padding-mod"
            data-controller="creation">
         <%= render "1-when" %>
         <%= render "2-month" %>
@@ -13,11 +20,14 @@
         <%= render "4-day" %>
         <%= render "5-lunch" %>
         <%= render "6-ranking" %>
-        <%# <%= render "7-venue" %>
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="light-btn py-3 w-100" data-bs-dismiss="modal">Cancel</button>
+        <button type="button"
+                class="light-btn py-3 w-100"
+                data-bs-dismiss="modal">
+          Cancel
+        </button>
       </div>
     </div>
   </div>
