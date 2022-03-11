@@ -3,7 +3,7 @@
 }
 
 .modal {
-
+  margin: 16px;
 }
 
 .modal-dialog {
@@ -18,8 +18,8 @@
 }
 
 .modal-content {
-    background: rgba( 255, 255, 255, 0.8 );
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    background: #f5f9fc;
+    box-shadow: 0 8px 32px 0 rgba(52, 52, 53, 0.37);
 
 
     border-radius: 10px;
@@ -31,7 +31,7 @@
 
 .modal-header {
   border: none !important;
-  padding: 50px 50px 0 50px;
+  padding: 20px 50px;
 }
 
 .modal-footer {
@@ -40,5 +40,5 @@
 }
 
 .creation {
-  padding: 150px 150px;
+  padding: 20px;
 }
