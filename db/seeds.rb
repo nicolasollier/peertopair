@@ -71,7 +71,7 @@ puts 'user7 done!'
 
 # café now Stephan x Luca
 
-event1 = Event.new(start_date: ("2022-03-10 19:00:00"), end_date: ("2022-03-10 19:30:00"), format: "Office", event_type: "Coffee", canceled: false, venue: "Café de Paris", address: "40 Av. George V 75008 Paris")
+event1 = Event.new(start_date: ("2022-03-11 11:30:00"), end_date: ("2022-03-11 12:00:00"), format: "Office", event_type: "Coffee", canceled: false, venue: "Café de Paris", address: "40 Av. George V 75008 Paris")
 event1.save!
 puts 'event1 done!'
 
@@ -83,9 +83,9 @@ user_event2 = UserEvent.new(user: user4, event: event1, ranking_done: false)
 user_event2.save!
 puts 'user_event2 done!'
 
-# café demain Stephan x Thierry Pieton
+# café lundi Stephan x Thierry Pieton
 
-event2 = Event.new(start_date: ("2022-03-11 16:00:00"), end_date: ("2022-03-11 16:30:00"), format: "Office", event_type: "Coffee", canceled: false, venue: "Café Nova", address: "82 Av. de Clichy, 75017 Paris")
+event2 = Event.new(start_date: ("2022-03-14 16:00:00"), end_date: ("2022-03-14 16:30:00"), format: "Office", event_type: "Coffee", canceled: false, venue: "Café Nova", address: "82 Av. de Clichy, 75017 Paris")
 event2.save!
 puts 'event2 done!'
 
@@ -97,9 +97,9 @@ user_event4 = UserEvent.new(user: user5, event: event2, ranking_done: false)
 user_event4.save!
 puts 'user_event4 done!'
 
-# lunch après-demain Stephan x Xavier Lançon
+# lunch jeudi prochain Stephan x Xavier Lançon
 
-event3 = Event.new(start_date: ("2022-03-12 13:00:00"), end_date: ("2022-03-12 14:00:00"), format: "Office", event_type: "Lunch", canceled: false, venue: "Surpriz", address: "110 Rue Oberkampf, 75011 Paris")
+event3 = Event.new(start_date: ("2022-03-17 13:00:00"), end_date: ("2022-03-17 14:00:00"), format: "Office", event_type: "Lunch", canceled: false, venue: "Surpriz", address: "110 Rue Oberkampf, 75011 Paris")
 event3.save!
 puts 'event3 done!'
 
@@ -113,7 +113,7 @@ puts 'user_event6 done!'
 
 # drink dans 1 semaine Stephan x Vincent
 
-event4 = Event.new(start_date: ("2022-03-17 19:00:00"), end_date: ("2022-03-17 20:30:00"), format: "Office", event_type: "Drink", canceled: false, venue: "Chez Lucas", address: "19 Rue Oberkampf, 75011 Paris")
+event4 = Event.new(start_date: ("2022-03-18 19:00:00"), end_date: ("2022-03-18 20:30:00"), format: "Office", event_type: "Drink", canceled: false, venue: "Chez Lucas", address: "19 Rue Oberkampf, 75011 Paris")
 event4.save!
 puts 'event4 done!'
 
